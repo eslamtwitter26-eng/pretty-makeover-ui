@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Mail, Lock, AlertCircle, Loader2, ChevronRight, TrendingUp } from "lucide-react";
+import { Mail, Lock, AlertCircle, Loader2, ChevronRight, TrendingUp, PlayCircle } from "lucide-react";
 
 const CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXv9PB3EtBUtXpbL7PFkpRmg8URXsJEdG3S5aZFOBV8ni7QavAWZ-j3q5pLj478mcxgMzK-aW6t04i/pub?output=csv";
@@ -73,9 +73,10 @@ async function fetchAuthorizedEmails(): Promise<Set<string>> {
 
 interface LoginPageProps {
   onAccessGranted: () => void;
+  onTryDemo?: () => void;
 }
 
-export function LoginPage({ onAccessGranted }: LoginPageProps) {
+export function LoginPage({ onAccessGranted, onTryDemo }: LoginPageProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "error" | "network-error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -232,6 +233,35 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
               )}
             </button>
           </form>
+
+          {onTryDemo && (
+            <>
+              <div className="mt-6 flex items-center gap-3">
+                <div className="h-px flex-1" style={{ background: "rgba(79, 70, 229,0.2)" }} />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "rgba(150,160,200,0.5)" }}>
+                  or
+                </span>
+                <div className="h-px flex-1" style={{ background: "rgba(79, 70, 229,0.2)" }} />
+              </div>
+              <button
+                type="button"
+                onClick={onTryDemo}
+                disabled={status === "loading"}
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold transition-all"
+                style={{
+                  background: "rgba(79, 70, 229,0.12)",
+                  border: "1px solid rgba(79, 70, 229,0.35)",
+                  color: "rgba(220, 225, 245, 0.95)",
+                }}
+              >
+                <PlayCircle className="h-4 w-4" style={{ color: "#38BDF8" }} />
+                Try the demo
+              </button>
+              <p className="mt-2 text-center text-[11px]" style={{ color: "rgba(150,160,200,0.45)" }}>
+                Browse the full dashboard with sample data — no account needed.
+              </p>
+            </>
+          )}
 
           {/* Footer note */}
           <p className="mt-6 text-center text-[11px]" style={{ color: "rgba(150,160,200,0.35)" }}>
