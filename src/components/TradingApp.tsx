@@ -10,6 +10,7 @@ import { WhatIfSimulation } from "@/pages/WhatIfSimulation";
 import { WeeklyReport } from "@/pages/WeeklyReport";
 import { parseMetaTraderExcel } from "@/lib/excelParser";
 import { analyzeAll, type AnalysisResult } from "@/lib/tradeAnalysis";
+import { buildDemoDataset } from "@/lib/demoData";
 import { useI18n } from "@/components/I18nProvider";
 import { Toaster } from "sonner";
 
@@ -23,6 +24,7 @@ export function TradingApp() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isDemo, setIsDemo] = useState(false);
 
   useEffect(() => {
     if (sessionStorage.getItem("egfx_auth")) setIsAuthenticated(true);
@@ -58,7 +60,21 @@ export function TradingApp() {
   const handleUploadNew = useCallback(() => {
     setAnalysisResult(null);
     setError(null);
+    setIsDemo(false);
     setActiveTab("analytics");
+  }, []);
+
+  const handleTryDemo = useCallback(() => {
+    setIsAnalyzing(true);
+    setError(null);
+    // Let the spinner paint before the (synchronous) analysis pass.
+    setTimeout(() => {
+      const { trades, equityCurve } = buildDemoDataset();
+      setAnalysisResult(analyzeAll(trades, equityCurve));
+      setIsDemo(true);
+      setActiveTab("analytics");
+      setIsAnalyzing(false);
+    }, 150);
   }, []);
 
   const handleLogout = useCallback(() => {
@@ -66,11 +82,20 @@ export function TradingApp() {
     setIsAuthenticated(false);
     setAnalysisResult(null);
     setError(null);
+    setIsDemo(false);
     setActiveTab("analytics");
   }, []);
 
   if (!isAuthenticated) {
-    return <LoginPage onAccessGranted={() => setIsAuthenticated(true)} />;
+    return (
+      <LoginPage
+        onAccessGranted={() => setIsAuthenticated(true)}
+        onTryDemo={() => {
+          setIsAuthenticated(true);
+          handleTryDemo();
+        }}
+      />
+    );
   }
 
   if (!analysisResult) {
@@ -86,7 +111,12 @@ export function TradingApp() {
             </div>
           </div>
         )}
-        <FileUpload onFileLoaded={handleFileLoaded} lang={lang} isAnalyzing={isAnalyzing} />
+        <FileUpload
+          onFileLoaded={handleFileLoaded}
+          onTryDemo={handleTryDemo}
+          lang={lang}
+          isAnalyzing={isAnalyzing}
+        />
       </div>
     );
   }
@@ -94,6 +124,11 @@ export function TradingApp() {
   return (
     <>
       <Toaster position="top-right" theme={theme} />
+      {isDemo && (
+        <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-xs font-semibold text-foreground backdrop-blur">
+          Demo data — upload your own report for real results
+        </div>
+      )}
       <Layout
         lang={lang}
         setLang={setLang}
