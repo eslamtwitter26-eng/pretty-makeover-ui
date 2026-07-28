@@ -449,7 +449,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               max={allPoints.length - 1}
               value={displayCount - 1}
               onChange={(e) => setDisplayCount(Number(e.target.value) + 1)}
-              className="flex-1 accent-purple-500 h-1 bg-border/20 rounded-lg cursor-pointer"
+              className="flex-1 accent-primary h-1 bg-border/20 rounded-lg cursor-pointer"
             />
             <span className="text-[10px] font-bold text-muted-foreground/60">T#{allPoints.length - 1}</span>
           </div>

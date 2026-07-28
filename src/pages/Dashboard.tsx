@@ -421,7 +421,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                 <span className="text-xs font-bold text-accent">{t("targetLabel")}: 50%</span>
               </div>
               <div className="w-full h-1.5 bg-accent/10 rounded-full mt-3 overflow-hidden">
-                <div className="h-full bg-pink-500 rounded-full" style={{ width: `${metrics.winRate}%` }} />
+                <div className="h-full bg-accent rounded-full" style={{ width: `${metrics.winRate}%` }} />
               </div>
             </div>
           </div>
@@ -678,7 +678,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
               <ul className="space-y-2">
                 {weaknesses.slice(0, 2).map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
-                    <AlertTriangle className="h-3.5 w-3.5 text-pink-500 flex-shrink-0 mt-0.5" />
+                    <AlertTriangle className="h-3.5 w-3.5 text-accent flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}

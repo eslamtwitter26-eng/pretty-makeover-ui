@@ -79,13 +79,13 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
         <div className="space-y-1">
           <p className="flex justify-between">
             <span className="text-muted-foreground">Trade P&L:</span>
-            <strong className={d.netProfit >= 0 ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-pink-600 dark:text-accent font-bold"}>
+            <strong className={d.netProfit >= 0 ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-accent font-bold"}>
               {d.netProfit >= 0 ? "+" : ""}${d.netProfit.toLocaleString()}
             </strong>
           </p>
           <p className="flex justify-between border-t border-border/5 pt-1 mt-1">
             <span className="text-muted-foreground">30-Trade MA P&L:</span>
-            <strong className={d.movingAvg >= 0 ? "text-cyan-600 dark:text-cyan-400 font-black" : "text-pink-600 dark:text-accent font-black"}>
+            <strong className={d.movingAvg >= 0 ? "text-cyan-600 dark:text-cyan-400 font-black" : "text-accent font-black"}>
               {d.movingAvg >= 0 ? "+" : ""}${d.movingAvg.toLocaleString()}
             </strong>
           </p>
@@ -115,7 +115,7 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
             stats.trend === "Improving" 
               ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
               : stats.trend === "Declining"
-              ? "bg-accent/15 text-pink-600 dark:text-accent border border-accent/20"
+              ? "bg-accent/15 text-accent border border-accent/20"
               : "bg-muted text-muted-foreground"
           }`}>
             {stats.trend}

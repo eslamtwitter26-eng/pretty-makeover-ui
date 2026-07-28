@@ -174,7 +174,7 @@ export function ExecutiveConclusion({
 
         {/* Estimated performance uplift */}
         <div className={`rounded-xl p-4 flex items-center justify-between gap-4 border ${
-          isDark ? "bg-primary/5 border-primary/20" : "bg-purple-50/50 border-primary/25"
+          isDark ? "bg-primary/5 border-primary/20" : "bg-primary/5 border-primary/25"
         }`}>
           <div className="space-y-1">
             <span className="text-[9px] font-black text-cyan-600 dark:text-cyan-400 uppercase tracking-widest block">Estimated Performance Impact</span>

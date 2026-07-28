@@ -767,7 +767,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                 <div className={cn(
                   "h-8 w-8 rounded-lg flex items-center justify-center flex-shrink-0 border",
                   m.sender === "user" 
-                    ? "bg-purple-900/40 border-primary/30 text-primary" 
+                    ? "bg-primary/20 border-primary/30 text-primary" 
                     : "bg-cyan-950/40 border-cyan-500/30 text-cyan-400"
                 )}>
                   {m.sender === "user" ? <HelpCircle className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
@@ -778,7 +778,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                   className={cn(
                     "rounded-xl px-4 py-3 text-sm leading-relaxed",
                     m.sender === "user" 
-                      ? "bg-purple-900/10 border border-primary/15 text-foreground/90 rounded-tr-none" 
+                      ? "bg-primary/8 border border-primary/15 text-foreground/90 rounded-tr-none" 
                       : "bg-cyan-950/5 border border-cyan-500/10 text-foreground/90 rounded-tl-none markdown text-left"
                   )}
                   style={{ direction: lang === "ar" && m.sender === "user" ? "rtl" : "ltr" }}

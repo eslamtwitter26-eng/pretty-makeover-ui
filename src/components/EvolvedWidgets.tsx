@@ -314,7 +314,7 @@ export function SymbolTreemapGrid({ trades }: { trades: Trade[] }) {
                 </p>
                 <div className="flex items-center justify-between mt-1 text-[10px] text-muted-foreground/80 font-bold">
                   <span>{item.trades} trades</span>
-                  <span className={item.winRate >= 50 ? "text-emerald-500" : "text-pink-500"}>
+                  <span className={item.winRate >= 50 ? "text-emerald-500" : "text-accent"}>
                     {item.winRate.toFixed(0)}% WR
                   </span>
                 </div>
