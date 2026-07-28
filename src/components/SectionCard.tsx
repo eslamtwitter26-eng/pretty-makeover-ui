@@ -12,10 +12,10 @@ interface SectionCardProps {
 }
 
 const COLORS: Record<string, string> = {
-  purple: "#8B5CF6",
-  cyan: "#06B6D4",
-  green: "#10F087",
-  amber: "#FFD32D",
+  purple: "#4F46E5",
+  cyan: "#38BDF8",
+  green: "#34D399",
+  amber: "#FBBF24",
 };
 
 export function SectionCard({ title, children, className, action, accentColor = "purple", downloadable = true }: SectionCardProps) {
@@ -28,11 +28,11 @@ export function SectionCard({ title, children, className, action, accentColor = 
       style={{
         background: "hsl(var(--card) / 75%)",
         backdropFilter: "blur(16px)",
-        border: `1px solid rgba(${accentColor === "purple" ? "139,92,246" : accentColor === "cyan" ? "6,182,212" : accentColor === "green" ? "16,240,135" : "255,211,45"},0.15)`,
+        border: `1px solid rgba(${accentColor === "purple" ? "79, 70, 229" : accentColor === "cyan" ? "56, 189, 248" : accentColor === "green" ? "52, 211, 153" : "251, 191, 36"},0.15)`,
       }}
     >
       <div className="flex items-center justify-between px-5 py-3.5"
-        style={{ borderBottom: `1px solid rgba(${accentColor === "purple" ? "139,92,246" : accentColor === "cyan" ? "6,182,212" : accentColor === "green" ? "16,240,135" : "255,211,45"},0.12)` }}>
+        style={{ borderBottom: `1px solid rgba(${accentColor === "purple" ? "79, 70, 229" : accentColor === "cyan" ? "56, 189, 248" : accentColor === "green" ? "52, 211, 153" : "251, 191, 36"},0.12)` }}>
         <div className="flex items-center gap-2.5">
           <div className="h-4 w-0.5 rounded-full" style={{ background: `linear-gradient(180deg, ${color}, transparent)`, boxShadow: `0 0 8px ${color}80` }} />
           <h3 className="text-sm font-bold text-foreground/90">{title}</h3>

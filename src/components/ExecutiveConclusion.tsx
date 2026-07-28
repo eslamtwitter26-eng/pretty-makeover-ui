@@ -100,7 +100,7 @@ export function ExecutiveConclusion({
               className="text-5xl font-black" 
               style={{ 
                 color: isDark ? "#C084FC" : "#7C3AED",
-                textShadow: isDark ? "0 0 24px rgba(139,92,246,0.4)" : "none" 
+                textShadow: isDark ? "0 0 24px rgba(79, 70, 229,0.4)" : "none" 
               }}
             >
               {tradingGrade}

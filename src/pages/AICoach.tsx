@@ -26,11 +26,11 @@ interface Message {
 }
 
 const PRESET_QUESTIONS = [
-  { key: "presetQ1", icon: ShieldAlert, color: "#FF4757" },
-  { key: "presetQ2", icon: Zap, color: "#06B6D4" },
-  { key: "presetQ3", icon: Compass, color: "#8B5CF6" },
-  { key: "presetQ4", icon: ShieldAlert, color: "#FFD32D" },
-  { key: "presetQ5", icon: Trophy, color: "#10F087" },
+  { key: "presetQ1", icon: ShieldAlert, color: "#F43F5E" },
+  { key: "presetQ2", icon: Zap, color: "#38BDF8" },
+  { key: "presetQ3", icon: Compass, color: "#4F46E5" },
+  { key: "presetQ4", icon: ShieldAlert, color: "#FBBF24" },
+  { key: "presetQ5", icon: Trophy, color: "#34D399" },
   { key: "presetQ6", icon: TrendingUp, color: "#FF6B9D" },
 ] as const;
 
@@ -637,13 +637,13 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
     <div className="space-y-6 animate-fade-in" dir={lang === "ar" ? "rtl" : "ltr"}>
       {/* Header Banner */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(139,92,246,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(139,92,246,0.07) 0%, transparent 60%)" }} />
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0"
-              style={{ background: "rgba(139,92,246,0.15)", border: "1px solid rgba(139,92,246,0.25)" }}>
+              style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.25)" }}>
               <Bot className="h-6 w-6 text-purple-400" />
             </div>
             <div>
@@ -657,7 +657,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           <div className="flex items-center gap-4 bg-background/40 rounded-xl px-4 py-2 border border-border/10">
             <div className="text-center">
               <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">{t("cognitiveAuditScore")}</p>
-              <p className="text-2xl font-black text-purple-400" style={{ textShadow: "0 0 10px rgba(139,92,246,0.4)" }}>
+              <p className="text-2xl font-black text-purple-400" style={{ textShadow: "0 0 10px rgba(79, 70, 229,0.4)" }}>
                 {scores.overall}
               </p>
             </div>
@@ -714,11 +714,11 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
 
             <div className="space-y-3">
               {[
-                { label: t("riskManagement"), value: scores.subScores.riskManagement, color: "#10F087" },
-                { label: t("consistency"), value: scores.subScores.consistency, color: "#06B6D4" },
-                { label: t("execution"), value: scores.subScores.execution, color: "#8B5CF6" },
+                { label: t("riskManagement"), value: scores.subScores.riskManagement, color: "#34D399" },
+                { label: t("consistency"), value: scores.subScores.consistency, color: "#38BDF8" },
+                { label: t("execution"), value: scores.subScores.execution, color: "#4F46E5" },
                 { label: t("psychology"), value: scores.subScores.psychology, color: "#FF6B9D" },
-                { label: t("discipline"), value: scores.subScores.discipline, color: "#FFD32D" }
+                { label: t("discipline"), value: scores.subScores.discipline, color: "#FBBF24" }
               ].map((item, i) => (
                 <div key={i} className="space-y-1">
                   <div className="flex justify-between text-[11px] font-semibold text-foreground/80">
@@ -853,7 +853,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                 type="submit"
                 disabled={!inputText.trim() || isTyping}
                 className="h-9 w-9 rounded-xl flex items-center justify-center text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ background: "linear-gradient(135deg, #8B5CF6, #06B6D4)" }}
+                style={{ background: "linear-gradient(135deg, #4F46E5, #38BDF8)" }}
               >
                 <Send className="h-4 w-4" />
               </button>

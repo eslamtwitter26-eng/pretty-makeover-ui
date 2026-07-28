@@ -288,7 +288,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
     return { strengths: str, weaknesses: weak, riskAlerts: alerts, recommendedActions: recs };
   }, [insights, lang]);
 
-  const profitColor = metrics.netProfit >= 0 ? "#10F087" : "#FF4757";
+  const profitColor = metrics.netProfit >= 0 ? "#34D399" : "#F43F5E";
 
   return (
     <div className="relative space-y-10 pb-12 animate-fade-in">
@@ -349,7 +349,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
           
           {/* Primary KPI Card: Large Net Profit */}
           <div className="col-span-12 md:col-span-6 lg:col-span-5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-purple-500/5 border border-purple-500/15"
-            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(139,92,246,0.06) 100%)" }}>
+            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(79, 70, 229,0.06) 100%)" }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("netProfit")}</span>
@@ -371,7 +371,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
           {/* Large KPI Card: Equity Growth */}
           <div className="col-span-12 md:col-span-6 lg:col-span-4 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-cyan-500/5 border border-cyan-500/15"
-            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(6,182,212,0.06) 100%)" }}>
+            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(56, 189, 248,0.06) 100%)" }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("equityGrowth")}</span>
@@ -422,24 +422,24 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {/* Overall Trading Grade */}
             {(() => {
               const isDark = theme !== "light";
-              const greenColor = isDark ? "#10F087" : "#059669";
-              const cyanColor = isDark ? "#06B6D4" : "#0891B2";
-              const yellowColor = isDark ? "#FFD32D" : "#D97706";
-              const redColor = isDark ? "#FF4757" : "#DC2626";
+              const greenColor = isDark ? "#34D399" : "#059669";
+              const cyanColor = isDark ? "#38BDF8" : "#0891B2";
+              const yellowColor = isDark ? "#FBBF24" : "#D97706";
+              const redColor = isDark ? "#F43F5E" : "#DC2626";
 
               return (
                 <div className="rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl border bg-card/45"
                   style={{
-                    borderColor: tradingGrade.startsWith("A") ? "rgba(16,240,135,0.2)" : tradingGrade.startsWith("B") ? "rgba(6,182,212,0.2)" : tradingGrade.startsWith("C") ? "rgba(255,211,45,0.2)" : "rgba(255,71,87,0.2)",
-                    boxShadow: tradingGrade.startsWith("A") ? "0 10px 30px -15px rgba(16,240,135,0.1)" : "0 10px 30px -15px rgba(255,71,87,0.1)"
+                    borderColor: tradingGrade.startsWith("A") ? "rgba(52, 211, 153,0.2)" : tradingGrade.startsWith("B") ? "rgba(56, 189, 248,0.2)" : tradingGrade.startsWith("C") ? "rgba(251, 191, 36,0.2)" : "rgba(244, 63, 94,0.2)",
+                    boxShadow: tradingGrade.startsWith("A") ? "0 10px 30px -15px rgba(52, 211, 153,0.1)" : "0 10px 30px -15px rgba(244, 63, 94,0.1)"
                   }}>
                   <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl pointer-events-none" 
-                    style={{ background: tradingGrade.startsWith("A") ? "rgba(16,240,135,0.06)" : "rgba(255,71,87,0.06)" }} />
+                    style={{ background: tradingGrade.startsWith("A") ? "rgba(52, 211, 153,0.06)" : "rgba(244, 63, 94,0.06)" }} />
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Overall Grade</span>
                     <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded"
                       style={{
-                        background: tradingGrade.startsWith("A") ? "rgba(16,240,135,0.1)" : tradingGrade.startsWith("B") ? "rgba(6,182,212,0.1)" : "rgba(255,71,87,0.1)",
+                        background: tradingGrade.startsWith("A") ? "rgba(52, 211, 153,0.1)" : tradingGrade.startsWith("B") ? "rgba(56, 189, 248,0.1)" : "rgba(244, 63, 94,0.1)",
                         color: tradingGrade.startsWith("A") ? greenColor : tradingGrade.startsWith("B") ? cyanColor : redColor
                       }}>
                       System Grade
@@ -449,7 +449,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                     <p className="text-4xl font-black tracking-tight" 
                       style={{ 
                         color: tradingGrade.startsWith("A") ? greenColor : tradingGrade.startsWith("B") ? cyanColor : tradingGrade.startsWith("C") ? yellowColor : redColor,
-                        textShadow: isDark ? `0 0 16px ${tradingGrade.startsWith("A") ? "rgba(16,240,135,0.3)" : "rgba(255,71,87,0.3)"}` : "none" 
+                        textShadow: isDark ? `0 0 16px ${tradingGrade.startsWith("A") ? "rgba(52, 211, 153,0.3)" : "rgba(244, 63, 94,0.3)"}` : "none" 
                       }}>
                       {tradingGrade}
                     </p>
@@ -464,21 +464,21 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {/* Consistency Score */}
             {(() => {
               const isDark = theme !== "light";
-              const greenColor = isDark ? "#10F087" : "#059669";
-              const redColor = isDark ? "#FF4757" : "#DC2626";
+              const greenColor = isDark ? "#34D399" : "#059669";
+              const redColor = isDark ? "#F43F5E" : "#DC2626";
 
               return (
                 <div className="rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl border bg-card/45"
                   style={{
-                    borderColor: scores.subScores.consistency >= 75 ? "rgba(16,240,135,0.2)" : "rgba(255,71,87,0.2)"
+                    borderColor: scores.subScores.consistency >= 75 ? "rgba(52, 211, 153,0.2)" : "rgba(244, 63, 94,0.2)"
                   }}>
                   <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl pointer-events-none" 
-                    style={{ background: "rgba(139,92,246,0.06)" }} />
+                    style={{ background: "rgba(79, 70, 229,0.06)" }} />
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Consistency Score</span>
                     <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded"
                       style={{
-                        background: scores.subScores.consistency >= 75 ? "rgba(16,240,135,0.1)" : "rgba(255,71,87,0.1)",
+                        background: scores.subScores.consistency >= 75 ? "rgba(52, 211, 153,0.1)" : "rgba(244, 63, 94,0.1)",
                         color: scores.subScores.consistency >= 75 ? greenColor : redColor
                       }}>
                       {scores.subScores.consistency >= 75 ? "Stable" : "Variable"}
@@ -499,9 +499,9 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {/* Risk Score */}
             {(() => {
               const isDark = theme !== "light";
-              const greenColor = isDark ? "#10F087" : "#059669";
-              const yellowColor = isDark ? "#FFD32D" : "#D97706";
-              const redColor = isDark ? "#FF4757" : "#DC2626";
+              const greenColor = isDark ? "#34D399" : "#059669";
+              const yellowColor = isDark ? "#FBBF24" : "#D97706";
+              const redColor = isDark ? "#F43F5E" : "#DC2626";
 
               const riskVal = scores.subScores.riskManagement;
               const label = riskVal >= 75 ? "Low" : riskVal >= 45 ? "Medium" : "High";
@@ -509,15 +509,15 @@ export function Dashboard({ data, theme }: DashboardProps) {
               return (
                 <div className="rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl border bg-card/45"
                   style={{
-                    borderColor: label === "Low" ? "rgba(16,240,135,0.2)" : label === "Medium" ? "rgba(255,211,45,0.2)" : "rgba(255,71,87,0.2)"
+                    borderColor: label === "Low" ? "rgba(52, 211, 153,0.2)" : label === "Medium" ? "rgba(251, 191, 36,0.2)" : "rgba(244, 63, 94,0.2)"
                   }}>
                   <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl pointer-events-none" 
-                    style={{ background: label === "Low" ? "rgba(16,240,135,0.06)" : "rgba(255,71,87,0.06)" }} />
+                    style={{ background: label === "Low" ? "rgba(52, 211, 153,0.06)" : "rgba(244, 63, 94,0.06)" }} />
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Risk Score</span>
                     <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded"
                       style={{
-                        background: label === "Low" ? "rgba(16,240,135,0.1)" : "rgba(255,71,87,0.1)",
+                        background: label === "Low" ? "rgba(52, 211, 153,0.1)" : "rgba(244, 63, 94,0.1)",
                         color: color
                       }}>
                       {label} Risk
@@ -538,13 +538,13 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {/* Discipline Score */}
             {(() => {
               const isDark = theme !== "light";
-              const greenColor = isDark ? "#10F087" : "#059669";
-              const redColor = isDark ? "#FF4757" : "#DC2626";
+              const greenColor = isDark ? "#34D399" : "#059669";
+              const redColor = isDark ? "#F43F5E" : "#DC2626";
 
               return (
                 <div className="rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl border bg-card/45"
                   style={{
-                    borderColor: scores.subScores.discipline >= 70 ? "rgba(16,240,135,0.2)" : "rgba(255,71,87,0.2)"
+                    borderColor: scores.subScores.discipline >= 70 ? "rgba(52, 211, 153,0.2)" : "rgba(244, 63, 94,0.2)"
                   }}>
                   <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl pointer-events-none" 
                     style={{ background: "rgba(244,114,182,0.06)" }} />
@@ -552,7 +552,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                     <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Discipline Score</span>
                     <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded"
                       style={{
-                        background: scores.subScores.discipline >= 70 ? "rgba(16,240,135,0.1)" : "rgba(255,71,87,0.1)",
+                        background: scores.subScores.discipline >= 70 ? "rgba(52, 211, 153,0.1)" : "rgba(244, 63, 94,0.1)",
                         color: scores.subScores.discipline >= 70 ? greenColor : redColor
                       }}>
                       {scores.subScores.discipline >= 70 ? "Disciplined" : "Impulsive"}
@@ -602,7 +602,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
               </div>
               
               <div className="flex items-center gap-4 mt-6">
-                <p className="text-5xl font-black text-foreground" style={{ textShadow: "0 0 24px rgba(139,92,246,0.35)" }}>
+                <p className="text-5xl font-black text-foreground" style={{ textShadow: "0 0 24px rgba(79, 70, 229,0.35)" }}>
                   {scores.overall}
                 </p>
                 <div className="flex-1 space-y-1.5">
@@ -623,11 +623,11 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
             <div className="mt-6 grid grid-cols-5 gap-1.5 pt-4 border-t border-border/5 text-center">
               {[
-                { label: t("riskAnalysis").split(" ")[0], val: scores.subScores.riskManagement, color: "#10F087" },
-                { label: t("sessionAsia").slice(0, 4), val: scores.subScores.consistency, color: "#06B6D4" },
-                { label: "Exec", val: scores.subScores.execution, color: "#8B5CF6" },
+                { label: t("riskAnalysis").split(" ")[0], val: scores.subScores.riskManagement, color: "#34D399" },
+                { label: t("sessionAsia").slice(0, 4), val: scores.subScores.consistency, color: "#38BDF8" },
+                { label: "Exec", val: scores.subScores.execution, color: "#4F46E5" },
                 { label: "Psych", val: scores.subScores.psychology, color: "#FF6B9D" },
-                { label: "Disc", val: scores.subScores.discipline, color: "#FFD32D" }
+                { label: "Disc", val: scores.subScores.discipline, color: "#FBBF24" }
               ].map((sub, idx) => (
                 <div key={idx} className="space-y-1">
                   <p className="text-[8px] uppercase font-black text-muted-foreground/60">{sub.label}</p>
@@ -844,12 +844,12 @@ export function Dashboard({ data, theme }: DashboardProps) {
           </div>
           <div key={`session-pills-${filterKey}`} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {sessions.map((s, i) => {
-              const colors = ["#8B5CF6", "#06B6D4", "#10F087"];
+              const colors = ["#4F46E5", "#38BDF8", "#34D399"];
               const c = colors[i % colors.length];
               return (
                 <div key={s.session} className="rounded-xl p-4 text-center border border-border/5 bg-background/30">
                   <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: c }}>{s.session}</p>
-                  <p className="text-2xl font-black tabular-nums" style={{ color: s.netProfit >= 0 ? "#10F087" : "#FF4757", textShadow: `0 0 16px ${s.netProfit >= 0 ? "rgba(16,240,135,0.3)" : "rgba(255,71,87,0.3)"}` }}>
+                  <p className="text-2xl font-black tabular-nums" style={{ color: s.netProfit >= 0 ? "#34D399" : "#F43F5E", textShadow: `0 0 16px ${s.netProfit >= 0 ? "rgba(52, 211, 153,0.3)" : "rgba(244, 63, 94,0.3)"}` }}>
                     {s.netProfit >= 0 ? "+" : ""}${s.netProfit.toFixed(2)}
                   </p>
                   <p className="text-[10px] mt-1 text-muted-foreground/75">{s.winRate.toFixed(1)}% WR · {s.trades} {t("trades")}</p>

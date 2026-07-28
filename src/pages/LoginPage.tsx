@@ -113,48 +113,48 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden"
-      style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(139,92,246,0.12) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(6,182,212,0.08) 0%, transparent 50%), #05070F" }}>
+      style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(79, 70, 229,0.12) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(56, 189, 248,0.08) 0%, transparent 50%), #05070F" }}>
 
       {/* Background grid */}
       <div className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "linear-gradient(rgba(139,92,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(79, 70, 229,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 70, 229,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
 
       {/* Floating orbs */}
       <div className="absolute top-1/4 left-1/5 h-72 w-72 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)", filter: "blur(40px)" }} />
+        style={{ background: "radial-gradient(circle, rgba(79, 70, 229,0.08) 0%, transparent 70%)", filter: "blur(40px)" }} />
       <div className="absolute bottom-1/4 right-1/5 h-60 w-60 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%)", filter: "blur(40px)" }} />
+        style={{ background: "radial-gradient(circle, rgba(56, 189, 248,0.07) 0%, transparent 70%)", filter: "blur(40px)" }} />
 
       {/* Login card */}
       <div className="relative w-full max-w-md animate-slide-up"
         style={{
           background: "rgba(8, 11, 28, 0.85)",
           backdropFilter: "blur(24px)",
-          border: "1px solid rgba(139,92,246,0.2)",
+          border: "1px solid rgba(79, 70, 229,0.2)",
           borderRadius: "20px",
-          boxShadow: "0 0 60px rgba(139,92,246,0.12), 0 24px 80px rgba(0,0,0,0.6)",
+          boxShadow: "0 0 60px rgba(79, 70, 229,0.12), 0 24px 80px rgba(0,0,0,0.6)",
         }}>
 
         {/* Top accent bar */}
         <div className="h-0.5 w-full rounded-t-[20px]"
-          style={{ background: "linear-gradient(90deg, transparent, #8B5CF6, #06B6D4, transparent)" }} />
+          style={{ background: "linear-gradient(90deg, transparent, #4F46E5, #38BDF8, transparent)" }} />
 
         <div className="p-8">
           {/* Logo + branding */}
           <div className="flex flex-col items-center mb-8">
             <div className="relative mb-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl"
-                style={{ background: "linear-gradient(135deg, #8B5CF6, #06B6D4)", boxShadow: "0 0 30px rgba(139,92,246,0.5), 0 0 60px rgba(139,92,246,0.2)" }}>
+                style={{ background: "linear-gradient(135deg, #4F46E5, #38BDF8)", boxShadow: "0 0 30px rgba(79, 70, 229,0.5), 0 0 60px rgba(79, 70, 229,0.2)" }}>
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
               <div className="absolute -top-1 -right-1 h-3 w-3 rounded-full"
-                style={{ background: "#10F087", boxShadow: "0 0 8px rgba(16,240,135,0.8)", animation: "pulse 2s infinite" }} />
+                style={{ background: "#34D399", boxShadow: "0 0 8px rgba(52, 211, 153,0.8)", animation: "pulse 2s infinite" }} />
             </div>
             <h1 className="text-center font-black text-xl leading-tight"
-              style={{ background: "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 50%, #10F087 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              style={{ background: "linear-gradient(135deg, #4F46E5 0%, #38BDF8 50%, #34D399 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Welcome – EG-Finance<br />Fx Pro Analyser
             </h1>
             <p className="mt-2 text-sm text-center" style={{ color: "rgba(150,160,200,0.7)" }}>
@@ -164,9 +164,9 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
 
           {/* Divider */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex-1 h-px" style={{ background: "rgba(139,92,246,0.2)" }} />
+            <div className="flex-1 h-px" style={{ background: "rgba(79, 70, 229,0.2)" }} />
             <Lock className="h-3.5 w-3.5" style={{ color: "rgba(150,160,200,0.4)" }} />
-            <div className="flex-1 h-px" style={{ background: "rgba(139,92,246,0.2)" }} />
+            <div className="flex-1 h-px" style={{ background: "rgba(79, 70, 229,0.2)" }} />
           </div>
 
           {/* Form */}
@@ -178,7 +178,7 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
               </label>
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4"
-                  style={{ color: email ? "#8B5CF6" : "rgba(150,160,200,0.4)", transition: "color 0.2s" }} />
+                  style={{ color: email ? "#4F46E5" : "rgba(150,160,200,0.4)", transition: "color 0.2s" }} />
                 <input
                   ref={inputRef}
                   type="email"
@@ -191,9 +191,9 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
                   className="w-full pl-10 pr-4 py-3 text-sm rounded-xl outline-none transition-all"
                   style={{
                     background: "rgba(15, 20, 45, 0.8)",
-                    border: `1px solid ${status === "error" ? "rgba(255,71,87,0.5)" : email ? "rgba(139,92,246,0.4)" : "rgba(139,92,246,0.15)"}`,
+                    border: `1px solid ${status === "error" ? "rgba(244, 63, 94,0.5)" : email ? "rgba(79, 70, 229,0.4)" : "rgba(79, 70, 229,0.15)"}`,
                     color: "rgba(220, 225, 245, 0.95)",
-                    boxShadow: email ? "0 0 20px rgba(139,92,246,0.1)" : "none",
+                    boxShadow: email ? "0 0 20px rgba(79, 70, 229,0.1)" : "none",
                   }}
                 />
               </div>
@@ -202,9 +202,9 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
             {/* Error message */}
             {(status === "error" || status === "network-error") && errorMsg && (
               <div className="flex items-start gap-2.5 rounded-xl px-3.5 py-3 animate-fade-in"
-                style={{ background: "rgba(255,71,87,0.08)", border: "1px solid rgba(255,71,87,0.25)" }}>
-                <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: "#FF4757" }} />
-                <p className="text-sm" style={{ color: "#FF4757" }}>{errorMsg}</p>
+                style={{ background: "rgba(244, 63, 94,0.08)", border: "1px solid rgba(244, 63, 94,0.25)" }}>
+                <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: "#F43F5E" }} />
+                <p className="text-sm" style={{ color: "#F43F5E" }}>{errorMsg}</p>
               </div>
             )}
 
@@ -215,10 +215,10 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
               className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm transition-all"
               style={{
                 background: status === "loading" || !email.trim()
-                  ? "rgba(139,92,246,0.3)"
-                  : "linear-gradient(135deg, #8B5CF6, #06B6D4)",
+                  ? "rgba(79, 70, 229,0.3)"
+                  : "linear-gradient(135deg, #4F46E5, #38BDF8)",
                 color: "white",
-                boxShadow: !email.trim() || status === "loading" ? "none" : "0 0 30px rgba(139,92,246,0.4)",
+                boxShadow: !email.trim() || status === "loading" ? "none" : "0 0 30px rgba(79, 70, 229,0.4)",
                 cursor: status === "loading" || !email.trim() ? "not-allowed" : "pointer",
                 transform: "translateY(0)",
               }}
@@ -241,7 +241,7 @@ export function LoginPage({ onAccessGranted }: LoginPageProps) {
 
         {/* Bottom glow */}
         <div className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-2/3"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.5), transparent)" }} />
+          style={{ background: "linear-gradient(90deg, transparent, rgba(56, 189, 248,0.5), transparent)" }} />
       </div>
     </div>
   );

@@ -128,8 +128,8 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
           <AreaChart data={chartData} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
             <defs>
               <linearGradient id="rollingGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#06B6D4" stopOpacity={0.25} />
-                <stop offset="100%" stopColor="#8B5CF6" stopOpacity={0.01} />
+                <stop offset="0%" stopColor="#38BDF8" stopOpacity={0.25} />
+                <stop offset="100%" stopColor="#4F46E5" stopOpacity={0.01} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.05)"} vertical={false} />
@@ -149,12 +149,12 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
               width={50}
               domain={["auto", "auto"]}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ stroke: isDark ? "rgba(6,182,212,0.15)" : "rgba(6,182,212,0.25)", strokeWidth: 1 }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ stroke: isDark ? "rgba(56, 189, 248,0.15)" : "rgba(56, 189, 248,0.25)", strokeWidth: 1 }} />
             <ReferenceLine y={0} stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.15)"} strokeDasharray="3 3" />
             <Area
               type="monotone"
               dataKey="movingAvg"
-              stroke="#06B6D4"
+              stroke="#38BDF8"
               strokeWidth={2}
               fill="url(#rollingGradient)"
               dot={false}

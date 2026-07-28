@@ -119,14 +119,14 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
           onClick={prev}
           disabled={!canPrev}
           className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg transition-all duration-150 hover:scale-110 disabled:opacity-20 disabled:cursor-not-allowed"
-          style={{ background: "rgba(139,92,246,0.15)", border: "1px solid rgba(139,92,246,0.3)" }}
+          style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.3)" }}
         >
-          <ChevronLeft className="h-4 w-4" style={{ color: "#8B5CF6" }} />
+          <ChevronLeft className="h-4 w-4" style={{ color: "#4F46E5" }} />
         </button>
 
         <div className="flex flex-1 items-center justify-center gap-3">
           <div className="text-center">
-            <p className="text-lg font-black tracking-wide" style={{ color: "#8B5CF6" }}>
+            <p className="text-lg font-black tracking-wide" style={{ color: "#4F46E5" }}>
               {MONTH_NAMES[curMonth]}
             </p>
             <p className="text-sm font-semibold" style={{ color: isDark ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.7)" }}>{curYear}</p>
@@ -140,10 +140,10 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
                 title={isActive ? "Month filter active — click to refresh" : `Filter all charts to ${MONTH_NAMES[curMonth]} ${curYear}`}
                 className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-150 hover:scale-105"
                 style={{
-                  background: isActive ? "rgba(16,240,135,0.18)" : "rgba(139,92,246,0.15)",
-                  border: `1px solid ${isActive ? "rgba(16,240,135,0.5)" : "rgba(139,92,246,0.4)"}`,
-                  color: isActive ? "#10F087" : "#8B5CF6",
-                  boxShadow: isActive ? "0 0 10px rgba(16,240,135,0.2)" : "none",
+                  background: isActive ? "rgba(52, 211, 153,0.18)" : "rgba(79, 70, 229,0.15)",
+                  border: `1px solid ${isActive ? "rgba(52, 211, 153,0.5)" : "rgba(79, 70, 229,0.4)"}`,
+                  color: isActive ? "#34D399" : "#4F46E5",
+                  boxShadow: isActive ? "0 0 10px rgba(52, 211, 153,0.2)" : "none",
                 }}
               >
                 <Filter className="h-3 w-3" />
@@ -159,19 +159,19 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
           onClick={next}
           disabled={!canNext}
           className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg transition-all duration-150 hover:scale-110 disabled:opacity-20 disabled:cursor-not-allowed"
-          style={{ background: "rgba(139,92,246,0.15)", border: "1px solid rgba(139,92,246,0.3)" }}
+          style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.3)" }}
         >
-          <ChevronRight className="h-4 w-4" style={{ color: "#8B5CF6" }} />
+          <ChevronRight className="h-4 w-4" style={{ color: "#4F46E5" }} />
         </button>
       </div>
 
       {/* Month summary pills */}
       <div className="flex flex-wrap gap-2">
         {[
-          { label: "Profit Days", value: monthStats.profit, color: "#10F087" },
-          { label: "Loss Days",   value: monthStats.loss,   color: "#FF4757" },
-          { label: "Traded Days", value: monthStats.traded, color: "#8B5CF6" },
-          { label: "Month P&L",  value: formatMoney(monthStats.pnl), color: monthStats.pnl >= 0 ? "#10F087" : "#FF4757" },
+          { label: "Profit Days", value: monthStats.profit, color: "#34D399" },
+          { label: "Loss Days",   value: monthStats.loss,   color: "#F43F5E" },
+          { label: "Traded Days", value: monthStats.traded, color: "#4F46E5" },
+          { label: "Month P&L",  value: formatMoney(monthStats.pnl), color: monthStats.pnl >= 0 ? "#34D399" : "#F43F5E" },
         ].map((s) => (
           <div key={s.label}
             className="flex-1 min-w-[72px] rounded-xl px-2.5 py-2 text-center"
@@ -212,22 +212,22 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
 
           if (data) {
             if (data.netProfit > 0) {
-              bg = isDark ? "rgba(16,240,135,0.13)" : "rgba(16,240,135,0.08)";
-              border = "rgba(16,240,135,0.5)";
-              pnlColor = "#10F087";
-              glow = "0 0 12px rgba(16,240,135,0.22)";
-              numColor = isDark ? "#10F087" : "#059669";
+              bg = isDark ? "rgba(52, 211, 153,0.13)" : "rgba(52, 211, 153,0.08)";
+              border = "rgba(52, 211, 153,0.5)";
+              pnlColor = "#34D399";
+              glow = "0 0 12px rgba(52, 211, 153,0.22)";
+              numColor = isDark ? "#34D399" : "#059669";
             } else if (data.netProfit < 0) {
-              bg = isDark ? "rgba(255,71,87,0.13)" : "rgba(255,71,87,0.08)";
-              border = "rgba(255,71,87,0.5)";
-              pnlColor = "#FF4757";
-              glow = "0 0 12px rgba(255,71,87,0.2)";
-              numColor = isDark ? "#FF4757" : "#DC2626";
+              bg = isDark ? "rgba(244, 63, 94,0.13)" : "rgba(244, 63, 94,0.08)";
+              border = "rgba(244, 63, 94,0.5)";
+              pnlColor = "#F43F5E";
+              glow = "0 0 12px rgba(244, 63, 94,0.2)";
+              numColor = isDark ? "#F43F5E" : "#DC2626";
             } else {
-              bg = isDark ? "rgba(139,92,246,0.09)" : "rgba(139,92,246,0.05)";
-              border = "rgba(139,92,246,0.38)";
-              pnlColor = "#8B5CF6";
-              numColor = "#8B5CF6";
+              bg = isDark ? "rgba(79, 70, 229,0.09)" : "rgba(79, 70, 229,0.05)";
+              border = "rgba(79, 70, 229,0.38)";
+              pnlColor = "#4F46E5";
+              numColor = "#4F46E5";
             }
           }
 
@@ -249,7 +249,7 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
                   <div className="space-y-1">
                     <p className="flex justify-between gap-4">
                       <span className="text-muted-foreground">Net Profit:</span>
-                      <strong style={{ color: data.netProfit >= 0 ? (isDark ? "#10F087" : "#059669") : (isDark ? "#FF4757" : "#DC2626") }}>
+                      <strong style={{ color: data.netProfit >= 0 ? (isDark ? "#34D399" : "#059669") : (isDark ? "#F43F5E" : "#DC2626") }}>
                         {formatMoney(data.netProfit)}
                       </strong>
                     </p>
@@ -284,9 +284,9 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
       {/* Legend */}
       <div className="flex items-center gap-4 pt-0.5">
         {[
-          { color: "#10F087", label: "Profit day" },
-          { color: "#FF4757", label: "Loss day" },
-          { color: "#8B5CF6", label: "Break-even" },
+          { color: "#34D399", label: "Profit day" },
+          { color: "#F43F5E", label: "Loss day" },
+          { color: "#4F46E5", label: "Break-even" },
         ].map((l) => (
           <div key={l.label} className="flex items-center gap-1.5">
             <span className="inline-block h-2.5 w-2.5 rounded-sm"

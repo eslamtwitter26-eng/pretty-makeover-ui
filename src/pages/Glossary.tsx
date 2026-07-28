@@ -25,8 +25,8 @@ const TERMS: Term[] = [
   {
     id: "winRate",
     icon: Target,
-    color: "#8B5CF6",
-    glowColor: "rgba(139,92,246,0.3)",
+    color: "#4F46E5",
+    glowColor: "rgba(79, 70, 229,0.3)",
     en: {
       name: "Win Rate",
       meaning: "The percentage of your trades that made money. If you placed 10 trades and 7 were profitable, your win rate is 70%.",
@@ -48,8 +48,8 @@ const TERMS: Term[] = [
   {
     id: "profitFactor",
     icon: BarChart2,
-    color: "#06B6D4",
-    glowColor: "rgba(6,182,212,0.3)",
+    color: "#38BDF8",
+    glowColor: "rgba(56, 189, 248,0.3)",
     en: {
       name: "Profit Factor",
       meaning: "Total money won ÷ Total money lost. A profit factor of 2.0 means you earned $2 for every $1 you lost. This is one of the most important numbers in trading.",
@@ -71,8 +71,8 @@ const TERMS: Term[] = [
   {
     id: "avgWin",
     icon: TrendingUp,
-    color: "#10F087",
-    glowColor: "rgba(16,240,135,0.3)",
+    color: "#34D399",
+    glowColor: "rgba(52, 211, 153,0.3)",
     en: {
       name: "Average Win",
       meaning: "The average amount of money you make on a winning trade. For example, if you won $100, $150, and $200 in three trades, your average win is $150.",
@@ -94,8 +94,8 @@ const TERMS: Term[] = [
   {
     id: "avgLoss",
     icon: TrendingDown,
-    color: "#FF4757",
-    glowColor: "rgba(255,71,87,0.3)",
+    color: "#F43F5E",
+    glowColor: "rgba(244, 63, 94,0.3)",
     en: {
       name: "Average Loss",
       meaning: "The average amount of money you lose on a losing trade. Keeping this small compared to your average win is the key to long-term profitability.",
@@ -143,8 +143,8 @@ const TERMS: Term[] = [
   {
     id: "expectancy",
     icon: Activity,
-    color: "#FFD32D",
-    glowColor: "rgba(255,211,45,0.3)",
+    color: "#FBBF24",
+    glowColor: "rgba(251, 191, 36,0.3)",
     en: {
       name: "Expectancy",
       meaning: "The average amount you expect to make per trade, considering both wins and losses together. It's calculated as: (Win Rate × Avg Win) − (Loss Rate × Avg Loss).",
@@ -166,8 +166,8 @@ const TERMS: Term[] = [
   {
     id: "riskReward",
     icon: BarChart,
-    color: "#8B5CF6",
-    glowColor: "rgba(139,92,246,0.3)",
+    color: "#4F46E5",
+    glowColor: "rgba(79, 70, 229,0.3)",
     en: {
       name: "Risk/Reward Ratio",
       meaning: "How much you gain compared to how much you risk. A ratio of 1:2 means for every $1 you risk, you aim to make $2. This is your average win divided by your average loss.",
@@ -189,8 +189,8 @@ const TERMS: Term[] = [
   {
     id: "consecutiveWins",
     icon: Award,
-    color: "#10F087",
-    glowColor: "rgba(16,240,135,0.3)",
+    color: "#34D399",
+    glowColor: "rgba(52, 211, 153,0.3)",
     en: {
       name: "Max Consecutive Wins",
       meaning: "The longest streak of winning trades in a row. Useful to know for understanding your best performance periods and psychological confidence.",
@@ -212,8 +212,8 @@ const TERMS: Term[] = [
   {
     id: "consecutiveLosses",
     icon: Repeat,
-    color: "#FF4757",
-    glowColor: "rgba(255,71,87,0.3)",
+    color: "#F43F5E",
+    glowColor: "rgba(244, 63, 94,0.3)",
     en: {
       name: "Max Consecutive Losses",
       meaning: "The longest streak of losing trades in a row. This is important for psychological preparation. Knowing this helps you stay calm during losing streaks and avoid revenge trading.",
@@ -235,8 +235,8 @@ const TERMS: Term[] = [
   {
     id: "avgDuration",
     icon: Clock,
-    color: "#06B6D4",
-    glowColor: "rgba(6,182,212,0.3)",
+    color: "#38BDF8",
+    glowColor: "rgba(56, 189, 248,0.3)",
     en: {
       name: "Average Trade Duration",
       meaning: "How long you hold a trade on average before closing it. A scalper holds trades for seconds or minutes. A swing trader holds for hours or days.",
@@ -262,8 +262,8 @@ const TERMS: Term[] = [
   {
     id: "equityCurve",
     icon: Activity,
-    color: "#8B5CF6",
-    glowColor: "rgba(139,92,246,0.3)",
+    color: "#4F46E5",
+    glowColor: "rgba(79, 70, 229,0.3)",
     en: {
       name: "Equity Curve",
       meaning: "A line chart showing how your account balance changed over time. A rising equity curve means your account is growing. A smooth, steady rise is the goal of every trader.",
@@ -283,8 +283,8 @@ const TERMS: Term[] = [
   {
     id: "netProfit",
     icon: DollarSign,
-    color: "#10F087",
-    glowColor: "rgba(16,240,135,0.3)",
+    color: "#34D399",
+    glowColor: "rgba(52, 211, 153,0.3)",
     en: {
       name: "Net Profit",
       meaning: "Your actual take-home earnings after subtracting all losses, commissions (broker fees), and swap (overnight holding fees). This is what really matters at the end of the day.",
@@ -306,8 +306,8 @@ const TERMS: Term[] = [
   {
     id: "commission",
     icon: Zap,
-    color: "#FFD32D",
-    glowColor: "rgba(255,211,45,0.3)",
+    color: "#FBBF24",
+    glowColor: "rgba(251, 191, 36,0.3)",
     en: {
       name: "Commission",
       meaning: "Fees charged by your broker for each trade you open and close. These are direct costs that reduce your profitability. High commissions on small accounts can really hurt performance.",
@@ -332,9 +332,9 @@ const TERMS: Term[] = [
 ];
 
 const RATING_CONFIG = {
-  good: { label: "Good", bg: "rgba(16,240,135,0.12)", border: "rgba(16,240,135,0.3)", text: "#10F087" },
-  warning: { label: "Okay", bg: "rgba(255,211,45,0.12)", border: "rgba(255,211,45,0.3)", text: "#FFD32D" },
-  bad: { label: "Needs Work", bg: "rgba(255,71,87,0.12)", border: "rgba(255,71,87,0.3)", text: "#FF4757" },
+  good: { label: "Good", bg: "rgba(52, 211, 153,0.12)", border: "rgba(52, 211, 153,0.3)", text: "#34D399" },
+  warning: { label: "Okay", bg: "rgba(251, 191, 36,0.12)", border: "rgba(251, 191, 36,0.3)", text: "#FBBF24" },
+  bad: { label: "Needs Work", bg: "rgba(244, 63, 94,0.12)", border: "rgba(244, 63, 94,0.3)", text: "#F43F5E" },
 };
 
 export function Glossary({ lang, data, theme }: GlossaryProps) {
@@ -344,9 +344,9 @@ export function Glossary({ lang, data, theme }: GlossaryProps) {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(139,92,246,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(139,92,246,0.07) 0%, transparent 60%)" }} />
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative">
           <h2 className="text-xl font-black gradient-text mb-1">
             {lang === "ar" ? "قاموس مصطلحات التداول" : lang === "fr" ? "Glossaire des termes de trading" : "Trading Terms — Explained Simply"}

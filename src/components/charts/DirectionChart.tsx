@@ -1,18 +1,18 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import type { DirectionAnalysis } from "@/lib/tradeAnalysis";
 
-const TooltipStyle = { background: "rgba(8,11,28,0.95)", border: "1px solid rgba(139,92,246,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", fontSize: 12 };
+const TooltipStyle = { background: "rgba(8,11,28,0.95)", border: "1px solid rgba(79, 70, 229,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", fontSize: 12 };
 
 export function DirectionChart({ data }: { data: DirectionAnalysis; lang?: string }) {
   const tradeData = [
-    { name: "Buy", value: data.buyTrades, color: "#10F087" },
-    { name: "Sell", value: data.sellTrades, color: "#8B5CF6" },
+    { name: "Buy", value: data.buyTrades, color: "#34D399" },
+    { name: "Sell", value: data.sellTrades, color: "#4F46E5" },
   ];
   const profitData = [
-    { name: "Buy Profit", value: Math.max(0, data.buyProfit), color: "#10F087" },
-    { name: "Sell Profit", value: Math.max(0, data.sellProfit), color: "#06B6D4" },
-    { name: "Buy Loss", value: Math.max(0, -Math.min(0, data.buyProfit)), color: "#FFD32D" },
-    { name: "Sell Loss", value: Math.max(0, -Math.min(0, data.sellProfit)), color: "#FF4757" },
+    { name: "Buy Profit", value: Math.max(0, data.buyProfit), color: "#34D399" },
+    { name: "Sell Profit", value: Math.max(0, data.sellProfit), color: "#38BDF8" },
+    { name: "Buy Loss", value: Math.max(0, -Math.min(0, data.buyProfit)), color: "#FBBF24" },
+    { name: "Sell Loss", value: Math.max(0, -Math.min(0, data.sellProfit)), color: "#F43F5E" },
   ].filter(d => d.value > 0);
 
   const RADIAN = Math.PI / 180;
@@ -83,10 +83,10 @@ export function DirectionChart({ data }: { data: DirectionAnalysis; lang?: strin
 
       <div className="grid grid-cols-2 gap-3">
         {[
-          { label: "Buy Win Rate", value: `${data.buyWinRate.toFixed(1)}%`, color: "#10F087" },
-          { label: "Sell Win Rate", value: `${data.sellWinRate.toFixed(1)}%`, color: "#8B5CF6" },
-          { label: "Buy Net P&L", value: `$${data.buyProfit.toFixed(2)}`, color: data.buyProfit >= 0 ? "#10F087" : "#FF4757" },
-          { label: "Sell Net P&L", value: `$${data.sellProfit.toFixed(2)}`, color: data.sellProfit >= 0 ? "#10F087" : "#FF4757" },
+          { label: "Buy Win Rate", value: `${data.buyWinRate.toFixed(1)}%`, color: "#34D399" },
+          { label: "Sell Win Rate", value: `${data.sellWinRate.toFixed(1)}%`, color: "#4F46E5" },
+          { label: "Buy Net P&L", value: `$${data.buyProfit.toFixed(2)}`, color: data.buyProfit >= 0 ? "#34D399" : "#F43F5E" },
+          { label: "Sell Net P&L", value: `$${data.sellProfit.toFixed(2)}`, color: data.sellProfit >= 0 ? "#34D399" : "#F43F5E" },
         ].map((item, i) => (
           <div key={i} className="rounded-xl p-3" style={{ background: "rgba(8,11,28,0.6)", border: `1px solid ${item.color}25` }}>
             <p className="text-[10px] font-medium text-muted-foreground/70 uppercase tracking-wider">{item.label}</p>

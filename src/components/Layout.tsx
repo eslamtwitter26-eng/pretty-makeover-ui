@@ -50,8 +50,8 @@ export function Layout({
         {/* Logo */}
         <div className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 hover:scale-105"
           style={{ 
-            background: "linear-gradient(135deg, #8B5CF6, #06B6D4)", 
-            boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)",
+            background: "linear-gradient(135deg, #4F46E5, #38BDF8)", 
+            boxShadow: "0 0 20px rgba(79, 70, 229, 0.3)",
             border: "1px solid rgba(255, 255, 255, 0.05)" 
           }}>
           <span className="text-xs font-black text-white tracking-wider">EG</span>
@@ -142,7 +142,7 @@ export function Layout({
 
             <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2.5 py-1">
               <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"
-                style={{ boxShadow: "0 0 8px rgba(16, 240, 135, 0.8)" }} />
+                style={{ boxShadow: "0 0 8px rgba(52, 211, 153, 0.8)" }} />
               <span className="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wider">{t(lang, "liveAnalysis")}</span>
             </div>
           </div>

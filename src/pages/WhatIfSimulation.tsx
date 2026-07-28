@@ -65,13 +65,13 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
     <div className="space-y-6 animate-fade-in">
       {/* Header Banner */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(139,92,246,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(139,92,246,0.07) 0%, transparent 60%)" }} />
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0"
-              style={{ background: "rgba(6,182,212,0.15)", border: "1px solid rgba(6,182,212,0.25)" }}>
+              style={{ background: "rgba(56, 189, 248,0.15)", border: "1px solid rgba(56, 189, 248,0.25)" }}>
               <Sliders className="h-6 w-6 text-cyan-400" />
             </div>
             <div>
@@ -333,14 +333,14 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
           <div className="rounded-xl p-5 border"
             style={{ 
               background: simulated.simulated.netProfit >= simulated.original.netProfit 
-                ? "rgba(16,240,135,0.03)" 
-                : "rgba(255,71,87,0.03)",
+                ? "rgba(52, 211, 153,0.03)" 
+                : "rgba(244, 63, 94,0.03)",
               borderColor: simulated.simulated.netProfit >= simulated.original.netProfit 
-                ? "rgba(16,240,135,0.12)" 
-                : "rgba(255,71,87,0.12)"
+                ? "rgba(52, 211, 153,0.12)" 
+                : "rgba(244, 63, 94,0.12)"
             }}>
             <h4 className="text-xs font-black uppercase tracking-widest text-foreground/80 flex items-center gap-1.5 mb-3">
-              <ArrowUpRight className="h-4 w-4" style={{ color: simulated.simulated.netProfit >= simulated.original.netProfit ? "#10F087" : "#FF4757" }} />
+              <ArrowUpRight className="h-4 w-4" style={{ color: simulated.simulated.netProfit >= simulated.original.netProfit ? "#34D399" : "#F43F5E" }} />
               AI Simulation Conclusions
             </h4>
 

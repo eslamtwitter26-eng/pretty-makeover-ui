@@ -3,7 +3,7 @@ import type { HourlyPerformance } from "@/lib/tradeAnalysis";
 import type { Language } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 
-const TooltipStyle = { background: "rgba(8,11,28,0.95)", border: "1px solid rgba(6,182,212,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", fontSize: 12 };
+const TooltipStyle = { background: "rgba(8,11,28,0.95)", border: "1px solid rgba(56, 189, 248,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", fontSize: 12 };
 
 export function HourlyChart({ data, lang }: { data: HourlyPerformance[]; lang: Language }) {
   const chartData = data.map(h => ({
@@ -15,18 +15,18 @@ export function HourlyChart({ data, lang }: { data: HourlyPerformance[]; lang: L
       <BarChart data={chartData} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
         <defs>
           <linearGradient id="hourCyan" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#06B6D4" stopOpacity={0.9} />
-            <stop offset="100%" stopColor="#06B6D4" stopOpacity={0.3} />
+            <stop offset="0%" stopColor="#38BDF8" stopOpacity={0.9} />
+            <stop offset="100%" stopColor="#38BDF8" stopOpacity={0.3} />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(6,182,212,0.06)" />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(56, 189, 248,0.06)" />
         <XAxis dataKey="hour" tick={{ fontSize: 9, fill: "rgba(255,255,255,0.85)" }} tickLine={false} axisLine={false} />
         <YAxis tickFormatter={(v) => `${v}`} tick={{ fontSize: 10, fill: "rgba(255,255,255,0.85)" }} tickLine={false} axisLine={false} width={55} />
-        <Tooltip contentStyle={TooltipStyle} formatter={(v: number) => [`$${v.toFixed(2)}`, t(lang, "netProfit")]} cursor={{ fill: "rgba(6,182,212,0.06)" }} />
+        <Tooltip contentStyle={TooltipStyle} formatter={(v: number) => [`$${v.toFixed(2)}`, t(lang, "netProfit")]} cursor={{ fill: "rgba(56, 189, 248,0.06)" }} />
         <Bar dataKey="profit" radius={[3, 3, 0, 0]}>
           {chartData.map((entry, i) => (
-            <Cell key={i} fill={entry.profit >= 0 ? "url(#hourCyan)" : "#FF4757"}
-              style={{ filter: `drop-shadow(0 0 4px ${entry.profit >= 0 ? "rgba(6,182,212,0.4)" : "rgba(255,71,87,0.3)"})` }} />
+            <Cell key={i} fill={entry.profit >= 0 ? "url(#hourCyan)" : "#F43F5E"}
+              style={{ filter: `drop-shadow(0 0 4px ${entry.profit >= 0 ? "rgba(56, 189, 248,0.4)" : "rgba(244, 63, 94,0.3)"})` }} />
           ))}
         </Bar>
       </BarChart>

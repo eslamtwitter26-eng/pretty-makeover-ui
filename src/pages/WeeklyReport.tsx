@@ -82,13 +82,13 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
 
       {/* Header Panel */}
       <div className="rounded-xl p-5 relative overflow-hidden no-print"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(139,92,246,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(139,92,246,0.07) 0%, transparent 60%)" }} />
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0"
-              style={{ background: "rgba(139,92,246,0.15)", border: "1px solid rgba(139,92,246,0.25)" }}>
+              style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.25)" }}>
               <FileText className="h-6 w-6 text-purple-400" />
             </div>
             <div>
@@ -102,7 +102,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
           <button
             onClick={handlePrint}
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all shadow-lg hover:shadow-purple-500/10 cursor-pointer"
-            style={{ background: "linear-gradient(135deg, #8B5CF6, #06B6D4)" }}
+            style={{ background: "linear-gradient(135deg, #4F46E5, #38BDF8)" }}
           >
             <Printer className="h-4 w-4" /> Export Report (PDF)
           </button>
@@ -155,11 +155,11 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { label: "Risk Management", score: scores.subScores.riskManagement, exp: scores.explanations.riskManagement, color: "#10F087" },
-              { label: "Execution Quality", score: scores.subScores.execution, exp: scores.explanations.execution, color: "#8B5CF6" },
+              { label: "Risk Management", score: scores.subScores.riskManagement, exp: scores.explanations.riskManagement, color: "#34D399" },
+              { label: "Execution Quality", score: scores.subScores.execution, exp: scores.explanations.execution, color: "#4F46E5" },
               { label: "Trading Psychology", score: scores.subScores.psychology, exp: scores.explanations.psychology, color: "#FF6B9D" },
-              { label: "Discipline & Lotting", score: scores.subScores.discipline, exp: scores.explanations.discipline, color: "#FFD32D" },
-              { label: "Consistency Engine", score: scores.subScores.consistency, exp: scores.explanations.consistency, color: "#06B6D4" }
+              { label: "Discipline & Lotting", score: scores.subScores.discipline, exp: scores.explanations.discipline, color: "#FBBF24" },
+              { label: "Consistency Engine", score: scores.subScores.consistency, exp: scores.explanations.consistency, color: "#38BDF8" }
             ].map((sub, i) => (
               <div key={i} className="rounded-xl p-4 space-y-2 bg-background/30 border border-border/10">
                 <div className="flex items-center justify-between">

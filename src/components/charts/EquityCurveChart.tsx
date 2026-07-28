@@ -13,9 +13,9 @@ const fmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric" });
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: "hsl(var(--card) / 95%)", border: "1px solid rgba(139,92,246,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", boxShadow: "0 0 20px rgba(139,92,246,0.2)" }}>
+    <div style={{ background: "hsl(var(--card) / 95%)", border: "1px solid rgba(79, 70, 229,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", boxShadow: "0 0 20px rgba(79, 70, 229,0.2)" }}>
       <p className="text-muted-foreground/80 text-[11px] mb-1">{fmt.format(new Date(label))}</p>
-      <p style={{ color: "#8B5CF6", fontWeight: 800, fontSize: 15 }}>${payload[0].value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
+      <p style={{ color: "#4F46E5", fontWeight: 800, fontSize: 15 }}>${payload[0].value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
     </div>
   );
 };
@@ -32,9 +32,9 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
   const startBalance = chartData[0]?.balance ?? 0;
   const isProfit = chartData.length > 1 && chartData[chartData.length - 1].balance >= chartData[0].balance;
   const gradId = isProfit ? "equityGradGreen" : "equityGradRed";
-  const strokeColor = isProfit ? "#8B5CF6" : "#FF4757";
-  const gradStart = isProfit ? "rgba(139,92,246,0.5)" : "rgba(255,71,87,0.5)";
-  const gradEnd = isProfit ? "rgba(139,92,246,0.02)" : "rgba(255,71,87,0.02)";
+  const strokeColor = isProfit ? "#4F46E5" : "#F43F5E";
+  const gradStart = isProfit ? "rgba(79, 70, 229,0.5)" : "rgba(244, 63, 94,0.5)";
+  const gradEnd = isProfit ? "rgba(79, 70, 229,0.02)" : "rgba(244, 63, 94,0.02)";
 
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -42,7 +42,7 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
         <defs>
           <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor={gradStart} stopOpacity={1} />
-            <stop offset="60%" stopColor={isProfit ? "rgba(139,92,246,0.08)" : "rgba(255,71,87,0.08)"} stopOpacity={1} />
+            <stop offset="60%" stopColor={isProfit ? "rgba(79, 70, 229,0.08)" : "rgba(244, 63, 94,0.08)"} stopOpacity={1} />
             <stop offset="95%" stopColor={gradEnd} stopOpacity={1} />
           </linearGradient>
           <filter id="equityGlow">
@@ -53,7 +53,7 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
             </feMerge>
           </filter>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(139,92,246,0.06)" />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(79, 70, 229,0.06)" />
         <XAxis
           dataKey="time" type="number" domain={["dataMin", "dataMax"]}
           tickFormatter={(v) => fmt.format(new Date(v))}
@@ -67,7 +67,7 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
           tickLine={false} axisLine={false} width={78}
         />
         <Tooltip content={<CustomTooltip />} />
-        <ReferenceLine y={startBalance} stroke="rgba(139,92,246,0.25)" strokeDasharray="5 3" />
+        <ReferenceLine y={startBalance} stroke="rgba(79, 70, 229,0.25)" strokeDasharray="5 3" />
         <Area
           type="monotone" dataKey="balance"
           stroke={strokeColor} strokeWidth={2.5}

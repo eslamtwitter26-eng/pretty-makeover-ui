@@ -110,7 +110,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
     return (
       <div style={{
         background: isDark ? "hsl(var(--card) / 95%)" : "rgba(255,255,255,0.98)",
-        border: `1px solid ${win ? "rgba(16,240,135,0.3)" : "rgba(255,71,87,0.3)"}`,
+        border: `1px solid ${win ? "rgba(52, 211, 153,0.3)" : "rgba(244, 63, 94,0.3)"}`,
         borderRadius: 12,
         padding: "12px 16px",
         backdropFilter: "blur(24px)",
@@ -124,10 +124,10 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
           {d.symbol && (
             <span style={{
               fontSize: 9, fontWeight: 900, letterSpacing: "0.06em",
-              color: d.kind === "buy" ? "#06B6D4" : "#F472B6",
-              background: d.kind === "buy" ? "rgba(6,182,212,0.12)" : "rgba(244,114,182,0.12)",
+              color: d.kind === "buy" ? "#38BDF8" : "#F472B6",
+              background: d.kind === "buy" ? "rgba(56, 189, 248,0.12)" : "rgba(244,114,182,0.12)",
               padding: "2px 6px", borderRadius: 4,
-              border: `1px solid ${d.kind === "buy" ? "rgba(6,182,212,0.15)" : "rgba(244,114,182,0.15)"}`
+              border: `1px solid ${d.kind === "buy" ? "rgba(56, 189, 248,0.15)" : "rgba(244,114,182,0.15)"}`
             }}>
               {d.symbol} {d.kind?.toUpperCase()}
             </span>
@@ -135,7 +135,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
         </div>
         <div className="flex items-baseline justify-between gap-6">
           <span className="text-muted-foreground text-[10px] uppercase font-bold tracking-wider">Trade P&L</span>
-          <span style={{ fontWeight: 900, fontSize: 14, color: win ? "#10F087" : "#FF4757" }}>
+          <span style={{ fontWeight: 900, fontSize: 14, color: win ? "#34D399" : "#F43F5E" }}>
             {d.tradeProfit >= 0 ? "+" : ""} ${d.tradeProfit.toFixed(2)}
           </span>
         </div>
@@ -148,7 +148,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
         {d.dd < 0 && (
           <div className="flex items-baseline justify-between gap-6 mt-1 border-t border-border/5 pt-1">
             <span className="text-muted-foreground text-[10px] uppercase font-bold tracking-wider">Drawdown</span>
-            <span style={{ fontWeight: 600, fontSize: 12, color: "#FF4757" }}>${d.dd.toFixed(2)}</span>
+            <span style={{ fontWeight: 600, fontSize: 12, color: "#F43F5E" }}>${d.dd.toFixed(2)}</span>
           </div>
         )}
       </div>
@@ -259,9 +259,9 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
             onClick={playing ? stopPlay : startPlay}
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all"
             style={{
-              background: playing ? "rgba(255,71,87,0.12)" : "rgba(16,240,135,0.12)",
-              border: `1px solid ${playing ? "rgba(255,71,87,0.3)" : "rgba(16,240,135,0.3)"}`,
-              color: playing ? "#FF4757" : "#10F087",
+              background: playing ? "rgba(244, 63, 94,0.12)" : "rgba(52, 211, 153,0.12)",
+              border: `1px solid ${playing ? "rgba(244, 63, 94,0.3)" : "rgba(52, 211, 153,0.3)"}`,
+              color: playing ? "#F43F5E" : "#34D399",
             }}
           >
             {playing ? <Pause className="h-3 w-3 animate-pulse" /> : <Play className="h-3 w-3" />}
@@ -284,16 +284,16 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
             <ComposedChart data={visiblePoints} margin={{ top: 8, right: 8, left: 8, bottom: 4 }}>
               <defs>
                 <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={chartType === "floating" ? "#06B6D4" : "#10F087"} stopOpacity={0.25} />
-                  <stop offset={zeroOffset} stopColor={chartType === "floating" ? "#06B6D4" : "#10F087"} stopOpacity={0.02} />
-                  <stop offset={zeroOffset} stopColor="#FF4757" stopOpacity={0.02} />
-                  <stop offset="100%" stopColor="#FF4757" stopOpacity={0.25} />
+                  <stop offset="0%" stopColor={chartType === "floating" ? "#38BDF8" : "#34D399"} stopOpacity={0.25} />
+                  <stop offset={zeroOffset} stopColor={chartType === "floating" ? "#38BDF8" : "#34D399"} stopOpacity={0.02} />
+                  <stop offset={zeroOffset} stopColor="#F43F5E" stopOpacity={0.02} />
+                  <stop offset="100%" stopColor="#F43F5E" stopOpacity={0.25} />
                 </linearGradient>
                 <linearGradient id="curveStroke" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={chartType === "floating" ? "#06B6D4" : "#10F087"} />
-                  <stop offset={zeroOffset} stopColor={chartType === "floating" ? "#06B6D4" : "#10F087"} />
-                  <stop offset={zeroOffset} stopColor="#FF4757" />
-                  <stop offset="100%" stopColor="#FF4757" />
+                  <stop offset="0%" stopColor={chartType === "floating" ? "#38BDF8" : "#34D399"} />
+                  <stop offset={zeroOffset} stopColor={chartType === "floating" ? "#38BDF8" : "#34D399"} />
+                  <stop offset={zeroOffset} stopColor="#F43F5E" />
+                  <stop offset="100%" stopColor="#F43F5E" />
                 </linearGradient>
               </defs>
 
@@ -323,7 +323,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
                 dot={<HiddenDot />}
                 activeDot={{
                   r: 5,
-                  fill: "#8B5CF6",
+                  fill: "#4F46E5",
                   stroke: "#ffffff",
                   strokeWidth: 1.5,
                 }}
@@ -334,7 +334,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
                 <Line
                   type="monotone"
                   dataKey="benchmark"
-                  stroke="#FFD32D"
+                  stroke="#FBBF24"
                   strokeWidth={1.5}
                   strokeDasharray="4 4"
                   dot={false}
@@ -359,14 +359,14 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
             <AreaChart data={visiblePoints} margin={{ top: 2, right: 8, left: 8, bottom: 0 }}>
               <defs>
                 <linearGradient id="ddFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#FF4757" stopOpacity={0.03} />
-                  <stop offset="100%" stopColor="#FF4757" stopOpacity={0.35} />
+                  <stop offset="0%" stopColor="#F43F5E" stopOpacity={0.03} />
+                  <stop offset="100%" stopColor="#F43F5E" stopOpacity={0.35} />
                 </linearGradient>
               </defs>
               <XAxis dataKey="label" hide />
               <YAxis
                 tickFormatter={(v) => `$${v}`}
-                tick={{ fontSize: 8, fill: "rgba(255,71,87,0.5)" }}
+                tick={{ fontSize: 8, fill: "rgba(244, 63, 94,0.5)" }}
                 tickLine={false} axisLine={false}
                 width={65}
                 domain={["auto", 0]}
@@ -376,11 +376,11 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               <Area
                 type="monotone"
                 dataKey="dd"
-                stroke="#FF4757"
+                stroke="#F43F5E"
                 strokeWidth={1}
                 fill="url(#ddFill)"
                 dot={false}
-                activeDot={{ r: 3, fill: "#FF4757", stroke: "rgba(8,11,28,0.9)", strokeWidth: 1.5 }}
+                activeDot={{ r: 3, fill: "#F43F5E", stroke: "rgba(8,11,28,0.9)", strokeWidth: 1.5 }}
                 isAnimationActive={false}
               />
             </AreaChart>
@@ -401,14 +401,14 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
             <AreaChart data={visiblePoints} margin={{ top: 2, right: 8, left: 8, bottom: 0 }}>
               <defs>
                 <linearGradient id="rollingFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#06B6D4" stopOpacity={0.25} />
-                  <stop offset="100%" stopColor="#06B6D4" stopOpacity={0.01} />
+                  <stop offset="0%" stopColor="#38BDF8" stopOpacity={0.25} />
+                  <stop offset="100%" stopColor="#38BDF8" stopOpacity={0.01} />
                 </linearGradient>
               </defs>
               <XAxis dataKey="label" hide />
               <YAxis
                 tickFormatter={(v) => `$${v}`}
-                tick={{ fontSize: 8, fill: "rgba(6,182,212,0.5)" }}
+                tick={{ fontSize: 8, fill: "rgba(56, 189, 248,0.5)" }}
                 tickLine={false} axisLine={false}
                 width={65}
                 domain={["auto", "auto"]}
@@ -417,7 +417,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               <Area
                 type="monotone"
                 dataKey="rollingReturn"
-                stroke="#06B6D4"
+                stroke="#38BDF8"
                 strokeWidth={1.5}
                 fill="url(#rollingFill)"
                 dot={false}
@@ -488,7 +488,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               </div>
               <div className="rounded-lg p-2.5 bg-card/40 border border-border/5 text-center">
                 <span className="text-[9px] font-black text-muted-foreground/70 uppercase tracking-widest block">P&L</span>
-                <p className="text-sm font-black mt-0.5" style={{ color: selectedPoint.tradeProfit >= 0 ? "#10F087" : "#FF4757" }}>
+                <p className="text-sm font-black mt-0.5" style={{ color: selectedPoint.tradeProfit >= 0 ? "#34D399" : "#F43F5E" }}>
                   {selectedPoint.tradeProfit >= 0 ? "+" : ""}${selectedPoint.tradeProfit.toFixed(2)}
                 </p>
               </div>

@@ -62,7 +62,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🧬 هويتك كمتداول — ملفك الشخصي",
         subtitle: "من أنت داخل السوق؟",
         icon: Brain,
-        color: "#8B5CF6",
+        color: "#4F46E5",
         rating: winRate >= 55 && profitFactor >= 1.5 ? "excellent" : winRate >= 45 ? "good" : "warning",
         points: [
           `لديك إجمالي ${m.totalTrades} صفقة بمعدل فوز ${winRate.toFixed(1)}% ومعامل ربح ${profitFactor.toFixed(2)}.`,
@@ -85,7 +85,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "💎 تحليل SMC — أموال الكبار",
         subtitle: "هل تتداول مع السيولة أم ضدها؟",
         icon: Shield,
-        color: "#06B6D4",
+        color: "#38BDF8",
         rating: strongBias ? "warning" : buyDominant && dir.buyWinRate > 55 ? "good" : "warning",
         points: [
           `صفقات الشراء: ${dir.buyTrades} بنسبة فوز ${dir.buyWinRate.toFixed(1)}% — ربح ${dir.buyProfit.toFixed(2)}$`,
@@ -101,7 +101,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "⚡ تحليل ICT — جلسات القنص",
         subtitle: "هل تتداول في الوقت الصحيح؟",
         icon: Zap,
-        color: "#10F087",
+        color: "#34D399",
         rating: killZonePercent >= 70 ? "excellent" : killZonePercent >= 50 ? "good" : "warning",
         points: [
           `${killZonePercent}% من صفقاتك في جلستي لندن ونيويورك (مناطق قنص الكبار).`,
@@ -124,7 +124,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🌊 موجات إليوت — صبرك وانضباطك",
         subtitle: "هل تصيد الموجات أم تركبها؟",
         icon: Activity,
-        color: "#FFD32D",
+        color: "#FBBF24",
         rating: avgDuration > 60 && m.riskRewardRatio >= 1.5 ? "good" : avgDuration < 15 ? "warning" : "good",
         points: [
           `متوسط مدة صفقاتك: ${avgDuration.toFixed(0)} دقيقة.`,
@@ -164,7 +164,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🧠 ملفك النفسي العاطفي",
         subtitle: "ما هي المشاعر التي تحكم قراراتك؟",
         icon: Brain,
-        color: "#FF4757",
+        color: "#F43F5E",
         rating: m.maxDrawdownPercent > 20 ? "danger" : maxLoseStreak >= 5 ? "warning" : "good",
         points: [
           `أقصى تراجع في رأس المال: ${m.maxDrawdownPercent.toFixed(1)}%.`,
@@ -190,7 +190,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "💪 نقاط قوتك",
         subtitle: "ما الذي تفعله بشكل جيد؟",
         icon: Star,
-        color: "#10F087",
+        color: "#34D399",
         rating: "excellent",
         points: [
           ...(winRate >= 55 ? [`نسبة فوز ${winRate.toFixed(1)}% ممتازة — دخولك دقيقة وهذا يدل على قراءة جيدة للسوق.`] : []),
@@ -207,7 +207,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🎯 خطة تحسينك",
         subtitle: "أين تركز جهدك القادم؟",
         icon: Target,
-        color: "#FFD32D",
+        color: "#FBBF24",
         rating: "warning",
         points: [
           ...(winRate < 50 ? [`اشتغل على دقة الدخول: حدد 3 شروط يجب توافرها قبل أي صفقة. قلة الصفقات = جودة أعلى.`] : []),
@@ -227,7 +227,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🧬 Votre ADN de trader — Profil complet",
         subtitle: "Qui êtes-vous sur le marché ?",
         icon: Brain,
-        color: "#8B5CF6",
+        color: "#4F46E5",
         rating: winRate >= 55 && profitFactor >= 1.5 ? "excellent" : winRate >= 45 ? "good" : "warning",
         points: [
           `Vous avez ${m.totalTrades} trades avec un taux de réussite de ${winRate.toFixed(1)}% et un facteur de profit de ${profitFactor.toFixed(2)}.`,
@@ -250,7 +250,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "💎 Analyse SMC — Argent intelligent",
         subtitle: "Tradez-vous avec la liquidité ou contre elle ?",
         icon: Shield,
-        color: "#06B6D4",
+        color: "#38BDF8",
         rating: strongBias ? "warning" : buyDominant && dir.buyWinRate > 55 ? "good" : "warning",
         points: [
           `Trades acheteurs: ${dir.buyTrades} — taux de réussite ${dir.buyWinRate.toFixed(1)}% — P&L ${dir.buyProfit.toFixed(2)}$`,
@@ -266,7 +266,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "⚡ Analyse ICT — Sessions de sniper",
         subtitle: "Tradez-vous au bon moment ?",
         icon: Zap,
-        color: "#10F087",
+        color: "#34D399",
         rating: killZonePercent >= 70 ? "excellent" : killZonePercent >= 50 ? "good" : "warning",
         points: [
           `${killZonePercent}% de vos trades se déroulent sur les sessions Londres et New York (Kill Zones ICT).`,
@@ -283,7 +283,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🌊 Elliott Waves — Votre patience",
         subtitle: "Surfez-vous les vagues ou les manquez-vous ?",
         icon: Activity,
-        color: "#FFD32D",
+        color: "#FBBF24",
         rating: avgDuration > 60 && rrRatio >= 1.5 ? "good" : avgDuration < 15 ? "warning" : "good",
         points: [
           `Durée moyenne de vos trades: ${avgDuration.toFixed(0)} minutes.`,
@@ -320,7 +320,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🧠 Profil psycho-émotionnel",
         subtitle: "Quelles émotions gouvernent vos décisions ?",
         icon: Brain,
-        color: "#FF4757",
+        color: "#F43F5E",
         rating: m.maxDrawdownPercent > 20 ? "danger" : maxLoseStreak >= 5 ? "warning" : "good",
         points: [
           `Drawdown maximum: ${m.maxDrawdownPercent.toFixed(1)}%.`,
@@ -343,7 +343,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "💪 Vos points forts",
         subtitle: "Ce que vous faites bien",
         icon: Star,
-        color: "#10F087",
+        color: "#34D399",
         rating: "excellent",
         points: [
           ...(winRate >= 55 ? [`Taux de réussite ${winRate.toFixed(1)}% — entrées précises et bonne lecture du marché.`] : []),
@@ -359,7 +359,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🎯 Plan d'amélioration",
         subtitle: "Où concentrer vos efforts ?",
         icon: Target,
-        color: "#FFD32D",
+        color: "#FBBF24",
         rating: "warning",
         points: [
           ...(winRate < 50 ? [`Travaillez la précision des entrées: définissez 3 conditions obligatoires avant chaque trade.`] : []),
@@ -379,7 +379,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🧬 Your Trader DNA — Full Profile",
         subtitle: "Who are you inside the market?",
         icon: Brain,
-        color: "#8B5CF6",
+        color: "#4F46E5",
         rating: winRate >= 55 && profitFactor >= 1.5 ? "excellent" : winRate >= 45 ? "good" : "warning",
         points: [
           `You have ${m.totalTrades} total trades with a ${winRate.toFixed(1)}% win rate and a ${profitFactor.toFixed(2)} profit factor.`,
@@ -402,7 +402,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "💎 SMC Analysis — Smart Money Concepts",
         subtitle: "Are you trading with liquidity or against it?",
         icon: Shield,
-        color: "#06B6D4",
+        color: "#38BDF8",
         rating: strongBias ? "warning" : buyDominant && dir.buyWinRate > 55 ? "good" : "warning",
         points: [
           `Buy trades: ${dir.buyTrades} — win rate ${dir.buyWinRate.toFixed(1)}% — P&L ${dir.buyProfit.toFixed(2)}$`,
@@ -418,7 +418,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "⚡ ICT Analysis — Kill Zone Awareness",
         subtitle: "Are you trading in smart money's active hours?",
         icon: Zap,
-        color: "#10F087",
+        color: "#34D399",
         rating: killZonePercent >= 70 ? "excellent" : killZonePercent >= 50 ? "good" : "warning",
         points: [
           `${killZonePercent}% of your trades occur during the London and New York sessions (ICT Kill Zones).`,
@@ -435,7 +435,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🌊 Elliott Wave Mindset — Your Patience",
         subtitle: "Do you ride waves or catch them too late?",
         icon: Activity,
-        color: "#FFD32D",
+        color: "#FBBF24",
         rating: avgDuration > 60 && rrRatio >= 1.5 ? "good" : avgDuration < 15 ? "warning" : "good",
         points: [
           `Average trade duration: ${avgDuration.toFixed(0)} minutes.`,
@@ -473,7 +473,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🧠 Your Emotional Trading Profile",
         subtitle: "Which emotions are driving your decisions?",
         icon: Brain,
-        color: "#FF4757",
+        color: "#F43F5E",
         rating: m.maxDrawdownPercent > 20 ? "danger" : maxLoseStreak >= 5 ? "warning" : "good",
         points: [
           `Maximum account drawdown: ${m.maxDrawdownPercent.toFixed(1)}%.`,
@@ -499,7 +499,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "💪 Your Strengths",
         subtitle: "What you're already doing right",
         icon: Star,
-        color: "#10F087",
+        color: "#34D399",
         rating: "excellent",
         points: [
           ...(winRate >= 55 ? [`Win rate of ${winRate.toFixed(1)}% — precise entries and strong market-reading ability.`] : []),
@@ -516,7 +516,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "🎯 Your Improvement Roadmap",
         subtitle: "Where to focus your energy next",
         icon: Target,
-        color: "#FFD32D",
+        color: "#FBBF24",
         rating: "warning",
         points: [
           ...(winRate < 50 ? [`Improve entry precision: define 3 mandatory conditions before any trade. Fewer trades = higher quality.`] : []),
@@ -590,10 +590,10 @@ Your friend on this trading journey.`;
 }
 
 const RATING_COLORS = {
-  excellent: "#10F087",
-  good: "#06B6D4",
-  warning: "#FFD32D",
-  danger: "#FF4757",
+  excellent: "#34D399",
+  good: "#38BDF8",
+  warning: "#FBBF24",
+  danger: "#F43F5E",
 };
 
 const RATING_LABELS = {
@@ -615,17 +615,17 @@ export function Psychology({ data, theme }: PsychologyProps) {
   const clean = data.psychologicalInsights.filter(i => !i.detected);
 
   const scoreColor = detected.length === 0
-    ? "#10F087" : detected.some(i => i.severity === "high")
-    ? "#FF4757" : "#FFD32D";
+    ? "#34D399" : detected.some(i => i.severity === "high")
+    ? "#F43F5E" : "#FBBF24";
 
   return (
     <div className="space-y-6 animate-fade-in">
 
       {/* Header banner */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(139,92,246,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(139,92,246,0.06) 0%, transparent 60%)" }} />
+          style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(79, 70, 229,0.06) 0%, transparent 60%)" }} />
         <div className="relative flex items-center gap-4">
           <div className="flex-shrink-0 rounded-2xl p-3"
             style={{ background: `${scoreColor}15`, border: `1px solid ${scoreColor}30` }}>
@@ -652,9 +652,9 @@ export function Psychology({ data, theme }: PsychologyProps) {
       {/* Score cards */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { icon: Target, label: t("psych_totalPatterns"), value: data.psychologicalInsights.length, color: "#8B5CF6" },
-          { icon: TrendingDown, label: t("psych_issuesFound"), value: detected.length, color: detected.length === 0 ? "#10F087" : "#FF4757" },
-          { icon: TrendingUp, label: t("psych_cleanAreas"), value: clean.length, color: "#10F087" },
+          { icon: Target, label: t("psych_totalPatterns"), value: data.psychologicalInsights.length, color: "#4F46E5" },
+          { icon: TrendingDown, label: t("psych_issuesFound"), value: detected.length, color: detected.length === 0 ? "#34D399" : "#F43F5E" },
+          { icon: TrendingUp, label: t("psych_cleanAreas"), value: clean.length, color: "#34D399" },
         ].map((item, i) => {
           const Icon = item.icon;
           return (
@@ -796,7 +796,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
             </p>
           </div>
           <div className="ml-auto">
-            <Award className="h-5 w-5" style={{ color: "#FFD32D" }} />
+            <Award className="h-5 w-5" style={{ color: "#FBBF24" }} />
           </div>
         </div>
         <div className="p-5">
@@ -807,11 +807,11 @@ export function Psychology({ data, theme }: PsychologyProps) {
       </div>
 
       {/* Pro tip */}
-      <div className="rounded-xl p-4" style={{ background: "rgba(16,240,135,0.04)", border: "1px solid rgba(16,240,135,0.15)" }}>
+      <div className="rounded-xl p-4" style={{ background: "rgba(52, 211, 153,0.04)", border: "1px solid rgba(52, 211, 153,0.15)" }}>
         <div className="flex items-start gap-3">
-          <Lightbulb className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: "#10F087" }} />
+          <Lightbulb className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: "#34D399" }} />
           <div>
-            <p className="text-sm font-bold mb-1" style={{ color: "#10F087" }}>{t("psych_proTip")}</p>
+            <p className="text-sm font-bold mb-1" style={{ color: "#34D399" }}>{t("psych_proTip")}</p>
             <p className="text-sm text-muted-foreground leading-relaxed">{t("psych_proTipText")}</p>
           </div>
         </div>

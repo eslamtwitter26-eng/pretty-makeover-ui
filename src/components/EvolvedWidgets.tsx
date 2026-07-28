@@ -29,15 +29,15 @@ function getThemeColor(colorName: "green" | "red" | "cyan" | "purple" | "yellow"
   const isDark = theme !== "light";
   switch (colorName) {
     case "green":
-      return isDark ? "#10F087" : "#059669";
+      return isDark ? "#34D399" : "#059669";
     case "red":
-      return isDark ? "#FF4757" : "#DC2626";
+      return isDark ? "#F43F5E" : "#DC2626";
     case "cyan":
-      return isDark ? "#06B6D4" : "#0891B2";
+      return isDark ? "#38BDF8" : "#0891B2";
     case "purple":
-      return isDark ? "#8B5CF6" : "#7C3AED";
+      return isDark ? "#4F46E5" : "#7C3AED";
     case "yellow":
-      return isDark ? "#FFD32D" : "#D97706";
+      return isDark ? "#FBBF24" : "#D97706";
     case "pink":
       return isDark ? "#FF6B9D" : "#DB2777";
   }
@@ -226,8 +226,8 @@ export function DayHourHeatmap({ trades, lang, t, theme }: Omit<WidgetsProps, "m
                   }
 
                   const profitColor = val >= 0 
-                    ? (isDark ? "#10F087" : "#059669") 
-                    : (isDark ? "#FF4757" : "#DC2626");
+                    ? (isDark ? "#34D399" : "#059669") 
+                    : (isDark ? "#F43F5E" : "#DC2626");
 
                   return (
                     <div
@@ -395,18 +395,18 @@ export function SymbolScatterBubble({ trades }: { trades: Trade[] }) {
                   <div className="bg-background/95 border border-border/10 p-3 rounded-lg text-xs backdrop-blur-md">
                     <p className="font-extrabold text-purple-400 mb-1">{d.symbol}</p>
                     <p className="text-muted-foreground">Win Rate: <strong className="text-foreground">{d.winRate}%</strong></p>
-                    <p className="text-muted-foreground">Net P&L: <strong style={{ color: d.profit >= 0 ? "#10F087" : "#FF4757" }}>{fmtMoney(d.profit)}</strong></p>
+                    <p className="text-muted-foreground">Net P&L: <strong style={{ color: d.profit >= 0 ? "#34D399" : "#F43F5E" }}>{fmtMoney(d.profit)}</strong></p>
                     <p className="text-muted-foreground">Total Vol: <strong className="text-foreground">{d.volume} Lots</strong></p>
                     <p className="text-muted-foreground">Trades: <strong className="text-foreground">{d.trades}</strong></p>
                   </div>
                 );
               }}
             />
-            <Scatter name="Symbols" data={chartData} fill="#8B5CF6">
+            <Scatter name="Symbols" data={chartData} fill="#4F46E5">
               {chartData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={entry.profit >= 0 ? "rgba(16,240,135,0.75)" : "rgba(255,71,87,0.75)"}
+                  fill={entry.profit >= 0 ? "rgba(52, 211, 153,0.75)" : "rgba(244, 63, 94,0.75)"}
                 />
               ))}
             </Scatter>
