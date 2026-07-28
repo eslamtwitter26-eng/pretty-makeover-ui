@@ -33,13 +33,13 @@ function getThemeColor(colorName: "green" | "red" | "cyan" | "purple" | "yellow"
     case "red":
       return isDark ? "#F43F5E" : "#DC2626";
     case "cyan":
-      return isDark ? "#38BDF8" : "#0891B2";
+      return isDark ? "#38BDF8" : "#38bdf8";
     case "purple":
-      return isDark ? "#4F46E5" : "#7C3AED";
+      return isDark ? "#4F46E5" : "#4f46e5";
     case "yellow":
       return isDark ? "#FBBF24" : "#D97706";
     case "pink":
-      return isDark ? "#FF6B9D" : "#DB2777";
+      return isDark ? "#818cf8" : "#4f46e5";
   }
 }
 

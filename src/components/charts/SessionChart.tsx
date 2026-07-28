@@ -3,7 +3,7 @@ import type { SessionPerformance } from "@/lib/tradeAnalysis";
 import type { Language } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 
-const NEON_COLORS = ["#4F46E5", "#38BDF8", "#34D399", "#FBBF24", "#F43F5E", "#F472B6"];
+const NEON_COLORS = ["#4F46E5", "#38BDF8", "#34D399", "#FBBF24", "#F43F5E", "#38bdf8"];
 
 const TooltipStyle = { background: "rgba(8,11,28,0.95)", border: "1px solid rgba(79, 70, 229,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", fontSize: 12 };
 

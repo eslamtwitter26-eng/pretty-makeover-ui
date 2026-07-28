@@ -146,7 +146,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "📊 Price Action — انضباطك التقني",
         subtitle: "هل تقرأ الشموع والهيكل بدقة؟",
         icon: TrendingUp,
-        color: "#FF6B9D",
+        color: "#818cf8",
         rating: winRate >= 55 && rrRatio >= 1.5 ? "excellent" : winRate >= 45 ? "good" : "warning",
         points: [
           `متوسط الربح للصفقة الرابحة: ${m.averageWin.toFixed(2)}$ — متوسط الخسارة: ${m.averageLoss.toFixed(2)}$`,
@@ -305,7 +305,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "📊 Price Action — Discipline technique",
         subtitle: "Lisez-vous les bougies et la structure avec précision ?",
         icon: TrendingUp,
-        color: "#FF6B9D",
+        color: "#818cf8",
         rating: winRate >= 55 && rrRatio >= 1.5 ? "excellent" : winRate >= 45 ? "good" : "warning",
         points: [
           `Gain moyen par trade gagnant: ${m.averageWin.toFixed(2)}$ — Perte moyenne: ${m.averageLoss.toFixed(2)}$`,
@@ -457,7 +457,7 @@ function generateDeepReport(data: AnalysisResult, lang: Language): ReportSection
         title: "📊 Price Action Discipline",
         subtitle: "How precisely do you read candles and market structure?",
         icon: TrendingUp,
-        color: "#FF6B9D",
+        color: "#818cf8",
         rating: winRate >= 55 && rrRatio >= 1.5 ? "excellent" : winRate >= 45 ? "good" : "warning",
         points: [
           `Average winning trade: ${m.averageWin.toFixed(2)}$ — Average losing trade: ${m.averageLoss.toFixed(2)}$`,
@@ -786,9 +786,9 @@ export function Psychology({ data, theme }: PsychologyProps) {
         style={{ background: "color-mix(in oklab, var(--card) 90%, transparent)", border: "1px solid rgba(255,107,157,0.25)", backdropFilter: "blur(16px)" }}>
         <div className="flex items-center gap-3 px-4 py-3 border-b"
           style={{ borderColor: "rgba(255,107,157,0.15)", background: "rgba(255,107,157,0.05)" }}>
-          <Heart className="h-5 w-5 flex-shrink-0" style={{ color: "#FF6B9D" }} />
+          <Heart className="h-5 w-5 flex-shrink-0" style={{ color: "#818cf8" }} />
           <div>
-            <h3 className="font-bold text-sm" style={{ color: "#FF6B9D" }}>
+            <h3 className="font-bold text-sm" style={{ color: "#818cf8" }}>
               {lang === "ar" ? "رسالة صديق" : lang === "fr" ? "Lettre d'un ami" : "A Letter from a Friend"}
             </h3>
             <p className="text-[11px] text-muted-foreground/60">

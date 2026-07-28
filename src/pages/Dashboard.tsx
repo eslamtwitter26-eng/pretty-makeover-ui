@@ -423,7 +423,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {(() => {
               const isDark = theme !== "light";
               const greenColor = isDark ? "#34D399" : "#059669";
-              const cyanColor = isDark ? "#38BDF8" : "#0891B2";
+              const cyanColor = isDark ? "#38BDF8" : "#38bdf8";
               const yellowColor = isDark ? "#FBBF24" : "#D97706";
               const redColor = isDark ? "#F43F5E" : "#DC2626";
 
@@ -626,7 +626,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                 { label: t("riskAnalysis").split(" ")[0], val: scores.subScores.riskManagement, color: "#34D399" },
                 { label: t("sessionAsia").slice(0, 4), val: scores.subScores.consistency, color: "#38BDF8" },
                 { label: "Exec", val: scores.subScores.execution, color: "#4F46E5" },
-                { label: "Psych", val: scores.subScores.psychology, color: "#FF6B9D" },
+                { label: "Psych", val: scores.subScores.psychology, color: "#818cf8" },
                 { label: "Disc", val: scores.subScores.discipline, color: "#FBBF24" }
               ].map((sub, idx) => (
                 <div key={idx} className="space-y-1">

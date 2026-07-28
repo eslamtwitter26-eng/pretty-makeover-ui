@@ -99,7 +99,7 @@ export function ExecutiveConclusion({
             <span 
               className="text-5xl font-black" 
               style={{ 
-                color: isDark ? "#C084FC" : "#7C3AED",
+                color: isDark ? "#818cf8" : "#4f46e5",
                 textShadow: isDark ? "0 0 24px rgba(79, 70, 229,0.4)" : "none" 
               }}
             >

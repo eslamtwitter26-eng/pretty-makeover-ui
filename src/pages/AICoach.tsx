@@ -31,7 +31,7 @@ const PRESET_QUESTIONS = [
   { key: "presetQ3", icon: Compass, color: "#4F46E5" },
   { key: "presetQ4", icon: ShieldAlert, color: "#FBBF24" },
   { key: "presetQ5", icon: Trophy, color: "#34D399" },
-  { key: "presetQ6", icon: TrendingUp, color: "#FF6B9D" },
+  { key: "presetQ6", icon: TrendingUp, color: "#818cf8" },
 ] as const;
 
 function getWelcomeMessage(data: AnalysisResult, lang: Language, scores: any): string {
@@ -717,7 +717,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                 { label: t("riskManagement"), value: scores.subScores.riskManagement, color: "#34D399" },
                 { label: t("consistency"), value: scores.subScores.consistency, color: "#38BDF8" },
                 { label: t("execution"), value: scores.subScores.execution, color: "#4F46E5" },
-                { label: t("psychology"), value: scores.subScores.psychology, color: "#FF6B9D" },
+                { label: t("psychology"), value: scores.subScores.psychology, color: "#818cf8" },
                 { label: t("discipline"), value: scores.subScores.discipline, color: "#FBBF24" }
               ].map((item, i) => (
                 <div key={i} className="space-y-1">

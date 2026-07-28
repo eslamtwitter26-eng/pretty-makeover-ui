@@ -117,7 +117,7 @@ const TERMS: Term[] = [
   {
     id: "maxDrawdown",
     icon: Shield,
-    color: "#F472B6",
+    color: "#38bdf8",
     glowColor: "rgba(244,114,182,0.3)",
     en: {
       name: "Max Drawdown",

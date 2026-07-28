@@ -75,7 +75,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
             page-break-before: always;
           }
           h2, h3, h4 {
-            color: #1a1a1a !important;
+            color: #0b1020 !important;
           }
         }
       `}</style>
@@ -157,7 +157,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
             {[
               { label: "Risk Management", score: scores.subScores.riskManagement, exp: scores.explanations.riskManagement, color: "#34D399" },
               { label: "Execution Quality", score: scores.subScores.execution, exp: scores.explanations.execution, color: "#4F46E5" },
-              { label: "Trading Psychology", score: scores.subScores.psychology, exp: scores.explanations.psychology, color: "#FF6B9D" },
+              { label: "Trading Psychology", score: scores.subScores.psychology, exp: scores.explanations.psychology, color: "#818cf8" },
               { label: "Discipline & Lotting", score: scores.subScores.discipline, exp: scores.explanations.discipline, color: "#FBBF24" },
               { label: "Consistency Engine", score: scores.subScores.consistency, exp: scores.explanations.consistency, color: "#38BDF8" }
             ].map((sub, i) => (

@@ -124,7 +124,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
           {d.symbol && (
             <span style={{
               fontSize: 9, fontWeight: 900, letterSpacing: "0.06em",
-              color: d.kind === "buy" ? "#38BDF8" : "#F472B6",
+              color: d.kind === "buy" ? "#38BDF8" : "#38bdf8",
               background: d.kind === "buy" ? "rgba(56, 189, 248,0.12)" : "rgba(244,114,182,0.12)",
               padding: "2px 6px", borderRadius: 4,
               border: `1px solid ${d.kind === "buy" ? "rgba(56, 189, 248,0.15)" : "rgba(244,114,182,0.15)"}`

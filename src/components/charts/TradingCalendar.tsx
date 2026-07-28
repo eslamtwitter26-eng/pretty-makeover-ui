@@ -206,7 +206,7 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
 
           let bg = isWeekend ? (isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)") : (isDark ? "rgba(8,11,28,0.55)" : "rgba(255,255,255,0.95)");
           let border = isWeekend ? (isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)") : (isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)");
-          let pnlColor = "#6B7280";
+          let pnlColor = "#94a3b8";
           let glow = "none";
           let numColor = isWeekend ? (isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)") : (isDark ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.85)");
 
