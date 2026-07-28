@@ -1,11 +1,12 @@
 import { useCallback, useState } from "react";
-import { Upload, FileSpreadsheet, AlertCircle, ShieldCheck, Sparkles, LineChart } from "lucide-react";
+import { Upload, FileSpreadsheet, AlertCircle, ShieldCheck, Sparkles, LineChart, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Language } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 
 interface FileUploadProps {
   onFileLoaded: (file: File) => void;
+  onTryDemo?: () => void;
   lang: Language;
   isAnalyzing: boolean;
 }
@@ -16,7 +17,7 @@ const HIGHLIGHTS = [
   { icon: ShieldCheck, title: "Private by design", body: "Your report is parsed in the browser — nothing is uploaded." },
 ];
 
-export function FileUpload({ onFileLoaded, lang, isAnalyzing }: FileUploadProps) {
+export function FileUpload({ onFileLoaded, onTryDemo, lang, isAnalyzing }: FileUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
@@ -137,6 +138,30 @@ export function FileUpload({ onFileLoaded, lang, isAnalyzing }: FileUploadProps)
           <p className="mt-5 text-center text-[11px] text-muted-foreground">
             Supported: MetaTrader 4 / 5 Positions report exported as .xlsx
           </p>
+
+          {onTryDemo && (
+            <>
+              <div className="my-5 flex items-center gap-3">
+                <span className="h-px flex-1 bg-border" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  or
+                </span>
+                <span className="h-px flex-1 bg-border" />
+              </div>
+              <button
+                type="button"
+                onClick={onTryDemo}
+                disabled={isAnalyzing}
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-primary/35 bg-primary/10 px-4 py-3 text-sm font-bold text-foreground transition-colors hover:bg-primary/20 disabled:opacity-50"
+              >
+                <PlayCircle className="h-4 w-4 text-primary" />
+                Try the demo account
+              </button>
+              <p className="mt-2 text-center text-[11px] text-muted-foreground">
+                Explore every dashboard with a sample 6-month trading history.
+              </p>
+            </>
+          )}
         </div>
       </div>
     </div>
