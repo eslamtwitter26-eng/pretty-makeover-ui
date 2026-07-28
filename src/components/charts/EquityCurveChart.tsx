@@ -13,7 +13,7 @@ const fmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric" });
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: "hsl(var(--card) / 95%)", border: "1px solid rgba(79, 70, 229,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", boxShadow: "0 0 20px rgba(79, 70, 229,0.2)" }}>
+    <div style={{ background: "color-mix(in oklab, var(--card) 95%, transparent)", border: "1px solid rgba(79, 70, 229,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", boxShadow: "0 0 20px rgba(79, 70, 229,0.2)" }}>
       <p className="text-muted-foreground/80 text-[11px] mb-1">{fmt.format(new Date(label))}</p>
       <p style={{ color: "#4F46E5", fontWeight: 800, fontSize: 15 }}>${payload[0].value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
     </div>

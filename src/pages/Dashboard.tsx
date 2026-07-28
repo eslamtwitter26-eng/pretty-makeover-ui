@@ -349,7 +349,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
           
           {/* Primary KPI Card: Large Net Profit */}
           <div className="col-span-12 md:col-span-6 lg:col-span-5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-purple-500/5 border border-purple-500/15"
-            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(79, 70, 229,0.06) 100%)" }}>
+            style={{ background: "linear-gradient(135deg, var(--card) 40%, rgba(79, 70, 229,0.06) 100%)" }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("netProfit")}</span>
@@ -371,7 +371,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
           {/* Large KPI Card: Equity Growth */}
           <div className="col-span-12 md:col-span-6 lg:col-span-4 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-cyan-500/5 border border-cyan-500/15"
-            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(56, 189, 248,0.06) 100%)" }}>
+            style={{ background: "linear-gradient(135deg, var(--card) 40%, rgba(56, 189, 248,0.06) 100%)" }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("equityGrowth")}</span>
@@ -393,7 +393,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
           {/* KPI Card: Win Rate */}
           <div className="col-span-12 lg:col-span-3 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-pink-500/5 border border-pink-500/15"
-            style={{ background: "linear-gradient(135deg, hsl(var(--card)) 40%, rgba(244,114,182,0.06) 100%)" }}>
+            style={{ background: "linear-gradient(135deg, var(--card) 40%, rgba(244,114,182,0.06) 100%)" }}>
             <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("winRate")}</span>

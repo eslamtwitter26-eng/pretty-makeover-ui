@@ -344,7 +344,7 @@ export function Glossary({ lang, data, theme }: GlossaryProps) {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "color-mix(in oklab, var(--card) 80%, transparent)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative">
@@ -442,7 +442,7 @@ export function Glossary({ lang, data, theme }: GlossaryProps) {
             <div 
               key={term.id} 
               className="glossary-card animate-slide-up group cursor-pointer transition-all hover:border-purple-500/20 active:scale-[0.99] overflow-hidden" 
-              style={{ animationDelay: `${i * 60}ms`, background: "hsl(var(--card) / 60%)" }}
+              style={{ animationDelay: `${i * 60}ms`, background: "color-mix(in oklab, var(--card) 60%, transparent)" }}
             >
               <div className="flex items-start gap-3 mb-3">
                 <div className="flex-shrink-0 rounded-xl p-2.5"

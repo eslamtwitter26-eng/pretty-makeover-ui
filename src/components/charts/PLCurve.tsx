@@ -109,7 +109,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
     const win = d.tradeProfit >= 0;
     return (
       <div style={{
-        background: isDark ? "hsl(var(--card) / 95%)" : "rgba(255,255,255,0.98)",
+        background: isDark ? "color-mix(in oklab, var(--card) 95%, transparent)" : "rgba(255,255,255,0.98)",
         border: `1px solid ${win ? "rgba(52, 211, 153,0.3)" : "rgba(244, 63, 94,0.3)"}`,
         borderRadius: 12,
         padding: "12px 16px",

@@ -637,7 +637,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
     <div className="space-y-6 animate-fade-in" dir={lang === "ar" ? "rtl" : "ltr"}>
       {/* Header Banner */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "color-mix(in oklab, var(--card) 80%, transparent)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -676,7 +676,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
         {/* Left Sidebar - Presets & Coach Card */}
         <div className="lg:col-span-4 space-y-6">
           {/* Preset Coach Prompts */}
-          <div className="rounded-xl p-4 space-y-3" style={{ background: "hsl(var(--card) / 75%)", border: "1px solid border/40" }}>
+          <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
             <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 flex items-center gap-1.5 mb-2">
               <Sparkles className="h-3.5 w-3.5 text-purple-400" /> {t("quickDiagnostics")}
             </h3>
@@ -690,7 +690,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                     onClick={() => handleSend(textLabel)}
                     disabled={isTyping}
                     className="w-full text-left p-3 rounded-lg text-xs font-semibold hover:bg-white/5 border border-transparent hover:border-border/10 transition-all flex items-center justify-between group"
-                    style={{ background: "hsl(var(--background) / 40%)" }}
+                    style={{ background: "color-mix(in oklab, var(--background) 40%, transparent)" }}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <Icon className="h-4 w-4 flex-shrink-0" style={{ color: q.color }} />
@@ -707,7 +707,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           </div>
 
           {/* Cognitive Assessment Card */}
-          <div className="rounded-xl p-4 space-y-4" style={{ background: "hsl(var(--card) / 75%)", border: "1px solid border/40" }}>
+          <div className="rounded-xl p-4 space-y-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
             <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 flex items-center gap-1.5">
               <Trophy className="h-3.5 w-3.5 text-cyan-400" /> {t("cognitiveAssessment")}
             </h3>
@@ -737,7 +737,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
 
         {/* Right Area - The Main Chat Interface */}
         <div className="lg:col-span-8 rounded-xl flex flex-col h-[580px] overflow-hidden" 
-          style={{ background: "hsl(var(--card) / 75%)", border: "1px solid border/40" }}>
+          style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
           {/* Top Bar */}
           <div className="px-4 py-3 border-b border-border/20 bg-background/20 flex items-center justify-between">
             <div className="flex items-center gap-2">

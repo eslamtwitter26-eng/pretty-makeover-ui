@@ -55,7 +55,7 @@ export function MetricCard({ title, value, subtitle, icon, trend, className, acc
     <div
       className={cn("relative overflow-hidden rounded-xl p-4 animate-slide-up", className)}
       style={{
-        background: "hsl(var(--card) / 75%)",
+        background: "color-mix(in oklab, var(--card) 75%, transparent)",
         backdropFilter: "blur(16px)",
         border: `1px solid ${colors.border}`,
         boxShadow: colors.glow,

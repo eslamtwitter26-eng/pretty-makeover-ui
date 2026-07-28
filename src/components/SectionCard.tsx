@@ -26,7 +26,7 @@ export function SectionCard({ title, children, className, action, accentColor = 
       ref={cardRef}
       className={cn("rounded-xl overflow-hidden chart-export-container relative", className)}
       style={{
-        background: "hsl(var(--card) / 75%)",
+        background: "color-mix(in oklab, var(--card) 75%, transparent)",
         backdropFilter: "blur(16px)",
         border: `1px solid rgba(${accentColor === "purple" ? "79, 70, 229" : accentColor === "cyan" ? "56, 189, 248" : accentColor === "green" ? "52, 211, 153" : "251, 191, 36"},0.15)`,
       }}

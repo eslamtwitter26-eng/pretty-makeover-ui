@@ -82,7 +82,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
 
       {/* Header Panel */}
       <div className="rounded-xl p-5 relative overflow-hidden no-print"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "color-mix(in oklab, var(--card) 80%, transparent)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(79, 70, 229,0.07) 0%, transparent 60%)" }} />
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -111,7 +111,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
 
       {/* Printable Report Canvas */}
       <div className="printable-report-container rounded-xl p-8 space-y-8 max-w-4xl mx-auto shadow-xl"
-        style={{ background: "hsl(var(--card) / 60%)", border: "1px solid border/30" }}>
+        style={{ background: "color-mix(in oklab, var(--card) 60%, transparent)", border: "1px solid border/30" }}>
         
         {/* Title Cover Section */}
         <div className="border-b border-border/20 pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

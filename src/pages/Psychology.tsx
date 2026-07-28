@@ -623,7 +623,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
 
       {/* Header banner */}
       <div className="rounded-xl p-5 relative overflow-hidden"
-        style={{ background: "hsl(var(--card) / 80%)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "color-mix(in oklab, var(--card) 80%, transparent)", border: "1px solid rgba(79, 70, 229,0.2)", backdropFilter: "blur(16px)" }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(79, 70, 229,0.06) 0%, transparent 60%)" }} />
         <div className="relative flex items-center gap-4">
@@ -659,7 +659,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
           const Icon = item.icon;
           return (
             <div key={i} className="rounded-xl p-4 text-center animate-slide-up"
-              style={{ background: "hsl(var(--card) / 75%)", border: `1px solid ${item.color}20`, backdropFilter: "blur(16px)", animationDelay: `${i * 80}ms` }}>
+              style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: `1px solid ${item.color}20`, backdropFilter: "blur(16px)", animationDelay: `${i * 80}ms` }}>
               <Icon className="h-5 w-5 mx-auto mb-2" style={{ color: item.color, filter: `drop-shadow(0 0 5px ${item.color}60)` }} />
               <p className="text-2xl font-black" style={{ color: item.color }}>{item.value}</p>
               <p className="text-[10px] text-muted-foreground/70 mt-0.5 uppercase tracking-wide">{item.label}</p>
@@ -675,7 +675,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
         const ratingLabel = RATING_LABELS[lang][section.rating];
         return (
           <div key={idx} className="rounded-xl overflow-hidden animate-slide-up"
-            style={{ background: "hsl(var(--card) / 80%)", border: `1px solid ${section.color}20`, backdropFilter: "blur(16px)", animationDelay: `${idx * 60}ms` }}>
+            style={{ background: "color-mix(in oklab, var(--card) 80%, transparent)", border: `1px solid ${section.color}20`, backdropFilter: "blur(16px)", animationDelay: `${idx * 60}ms` }}>
             <div className="flex items-center gap-3 px-4 py-3 border-b"
               style={{ borderColor: `${section.color}15`, background: `${section.color}08` }}>
               <div className="flex h-9 w-9 items-center justify-center rounded-xl flex-shrink-0"
@@ -713,7 +713,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
       </SectionCard>
 
       {/* Smart Mistake Detection & Behavioral Leaks */}
-      <div className="rounded-xl p-5 space-y-4" style={{ background: "hsl(var(--card) / 75%)", border: "1px solid border/40" }}>
+      <div className="rounded-xl p-5 space-y-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
         <div>
           <h3 className="text-sm font-black uppercase tracking-widest text-red-400 flex items-center gap-1.5">
             <AlertTriangle className="h-4.5 w-4.5 text-red-400 animate-pulse" /> {
@@ -783,7 +783,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
 
       {/* Dear Friend Letter */}
       <div className="rounded-xl overflow-hidden"
-        style={{ background: "hsl(var(--card) / 90%)", border: "1px solid rgba(255,107,157,0.25)", backdropFilter: "blur(16px)" }}>
+        style={{ background: "color-mix(in oklab, var(--card) 90%, transparent)", border: "1px solid rgba(255,107,157,0.25)", backdropFilter: "blur(16px)" }}>
         <div className="flex items-center gap-3 px-4 py-3 border-b"
           style={{ borderColor: "rgba(255,107,157,0.15)", background: "rgba(255,107,157,0.05)" }}>
           <Heart className="h-5 w-5 flex-shrink-0" style={{ color: "#FF6B9D" }} />
