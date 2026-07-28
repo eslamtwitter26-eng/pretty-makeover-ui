@@ -293,29 +293,43 @@ export function Dashboard({ data, theme }: DashboardProps) {
   return (
     <div className="relative space-y-10 pb-12 animate-fade-in">
       
-      {/* Sticky Sidebar Navigation (Desktop only) */}
-      <div className="hidden xl:block fixed top-1/4 right-8 z-50 space-y-3 bg-card/75 border border-border/10 p-4 rounded-2xl shadow-xl w-48 backdrop-blur-md">
-        <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/60 mb-2 px-1">Dashboard Sections</p>
-        <div className="flex flex-col gap-1">
+      {/* Section scroll-spy rail (desktop only) — compact dots that expand on hover */}
+      <nav
+        aria-label="Dashboard sections"
+        className="pointer-events-none fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
+      >
+        <ul className="pointer-events-auto flex flex-col items-end gap-1.5">
           {sections.map((sec) => {
             const active = activeSection === sec.id;
             return (
-              <button
-                key={sec.id}
-                onClick={() => scrollToSection(sec.id)}
-                className={`flex items-center justify-between text-left px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 ${
-                  active
-                    ? "bg-purple-500/10 text-purple-400 border-l-2 border-purple-500 pl-4"
-                    : "text-muted-foreground hover:text-foreground hover:bg-border/5"
-                }`}
-              >
-                <span>{sec.label}</span>
-                {active && <span className="h-1 w-1 rounded-full bg-purple-400" />}
-              </button>
+              <li key={sec.id}>
+                <button
+                  onClick={() => scrollToSection(sec.id)}
+                  aria-current={active ? "true" : undefined}
+                  className={`group flex items-center justify-end gap-2 rounded-full py-1.5 pl-3 pr-2 transition-all duration-300 ${
+                    active ? "bg-primary/12" : "hover:bg-secondary/60"
+                  }`}
+                >
+                  <span
+                    className={`max-w-0 overflow-hidden whitespace-nowrap text-[11px] font-semibold tracking-tight opacity-0 transition-all duration-300 group-hover:max-w-[140px] group-hover:opacity-100 ${
+                      active ? "text-primary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {sec.label}
+                  </span>
+                  <span
+                    className={`block rounded-full transition-all duration-300 ${
+                      active
+                        ? "h-2 w-2 bg-primary ring-4 ring-primary/20"
+                        : "h-1.5 w-1.5 bg-muted-foreground/40 group-hover:bg-foreground/70"
+                    }`}
+                  />
+                </button>
+              </li>
             );
           })}
-        </div>
-      </div>
+        </ul>
+      </nav>
 
       <div id="overview" className="space-y-10">
         {/* ── DATE FILTER & OVERVIEW SECTION ── */}
