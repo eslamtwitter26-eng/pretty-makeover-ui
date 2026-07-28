@@ -12,4 +12,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      allowedHosts: [
+        "fb89bde7-2363-4845-8298-009dc7cf21e0-00-2tazry5q8emxy.janeway.replit.dev",
+      ],
+    },
+  },
 });
