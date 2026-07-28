@@ -676,7 +676,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
         {/* Left Sidebar - Presets & Coach Card */}
         <div className="lg:col-span-4 space-y-6">
           {/* Preset Coach Prompts */}
-          <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+          <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
             <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 flex items-center gap-1.5 mb-2">
               <Sparkles className="h-3.5 w-3.5 text-purple-400" /> {t("quickDiagnostics")}
             </h3>
@@ -707,7 +707,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           </div>
 
           {/* Cognitive Assessment Card */}
-          <div className="rounded-xl p-4 space-y-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+          <div className="rounded-xl p-4 space-y-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
             <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 flex items-center gap-1.5">
               <Trophy className="h-3.5 w-3.5 text-cyan-400" /> {t("cognitiveAssessment")}
             </h3>
@@ -737,7 +737,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
 
         {/* Right Area - The Main Chat Interface */}
         <div className="lg:col-span-8 rounded-xl flex flex-col h-[580px] overflow-hidden" 
-          style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+          style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
           {/* Top Bar */}
           <div className="px-4 py-3 border-b border-border/20 bg-background/20 flex items-center justify-between">
             <div className="flex items-center gap-2">

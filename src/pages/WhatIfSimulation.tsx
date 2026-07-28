@@ -96,7 +96,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Side: Parameters Form */}
         <div className="lg:col-span-4 rounded-xl p-5 space-y-6"
-          style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+          style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
           <div>
             <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-4">Simulation Rules</h3>
             <div className="space-y-5">
@@ -198,7 +198,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
           {/* Comparison Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Net Returns Card */}
-            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Cumulative Net Profit</span>
                 <DollarSign className="h-4 w-4 text-cyan-400" />
@@ -222,7 +222,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
             </div>
 
             {/* Win Rate Card */}
-            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Accuracy (Win Rate)</span>
                 <Percent className="h-4 w-4 text-purple-400" />
@@ -246,7 +246,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
             </div>
 
             {/* Profit Factor Card */}
-            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Profit Factor (Efficiency)</span>
                 <Activity className="h-4 w-4 text-emerald-400" />
@@ -270,7 +270,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
             </div>
 
             {/* Maximum Drawdown Card */}
-            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+            <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Maximum Drawdown</span>
                 <TrendingUp className="h-4 w-4 text-amber-400" />
@@ -295,7 +295,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
           </div>
 
           {/* Table Comparison Panel */}
-          <div className="rounded-xl p-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+          <div className="rounded-xl p-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
             <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-4">Detailed Dataset Delta</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-xs">

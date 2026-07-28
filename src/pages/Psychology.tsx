@@ -713,7 +713,7 @@ export function Psychology({ data, theme }: PsychologyProps) {
       </SectionCard>
 
       {/* Smart Mistake Detection & Behavioral Leaks */}
-      <div className="rounded-xl p-5 space-y-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid border/40" }}>
+      <div className="rounded-xl p-5 space-y-4" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
         <div>
           <h3 className="text-sm font-black uppercase tracking-widest text-red-400 flex items-center gap-1.5">
             <AlertTriangle className="h-4.5 w-4.5 text-red-400 animate-pulse" /> {
