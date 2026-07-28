@@ -89,7 +89,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0"
               style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.25)" }}>
-              <FileText className="h-6 w-6 text-purple-400" />
+              <FileText className="h-6 w-6 text-primary" />
             </div>
             <div>
               <h2 className="text-xl font-black gradient-text">Weekly AI Executive Report</h2>
@@ -101,7 +101,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
 
           <button
             onClick={handlePrint}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all shadow-lg hover:shadow-purple-500/10 cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all shadow-lg hover:shadow-primary/10 cursor-pointer"
             style={{ background: "linear-gradient(135deg, #4F46E5, #38BDF8)" }}
           >
             <Printer className="h-4 w-4" /> Export Report (PDF)
@@ -117,7 +117,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
         <div className="border-b border-border/20 pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-black uppercase tracking-widest bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded-md border border-purple-500/20">
+              <span className="text-[10px] font-black uppercase tracking-widest bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
                 AI GENERIC REPORT
               </span>
               <span className="text-xs text-muted-foreground">{todayStr}</span>
@@ -127,7 +127,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
           </div>
 
           <div className="flex items-center gap-2.5 bg-background/50 border border-border/20 rounded-xl px-4 py-2.5">
-            <Award className="h-5 w-5 text-purple-400" />
+            <Award className="h-5 w-5 text-primary" />
             <div>
               <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest leading-none">Trader Score</p>
               <p className="text-xl font-black text-foreground mt-0.5">{scores.overall} / 100</p>
@@ -137,7 +137,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
 
         {/* Section 1: Executive Summary */}
         <div className="space-y-3">
-          <h3 className="text-sm font-black uppercase tracking-widest text-purple-400 flex items-center gap-1.5">
+          <h3 className="text-sm font-black uppercase tracking-widest text-primary flex items-center gap-1.5">
             <Bot className="h-4 w-4" /> I. Executive Summary
           </h3>
           <div className="p-4 rounded-xl space-y-3 bg-background/30 border border-border/10 text-xs text-muted-foreground/90 leading-relaxed">
@@ -306,7 +306,7 @@ export function WeeklyReport({ data, lang, theme }: WeeklyReportProps) {
 
         {/* Section 6: Recommended Goals */}
         <div className="space-y-4">
-          <h3 className="text-sm font-black uppercase tracking-widest text-purple-400 flex items-center gap-1.5">
+          <h3 className="text-sm font-black uppercase tracking-widest text-primary flex items-center gap-1.5">
             <CheckSquare className="h-4 w-4" /> VI. Actionable Playbook (Goals for Next Session)
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

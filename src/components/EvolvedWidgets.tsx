@@ -138,7 +138,7 @@ export function DayHourHeatmap({ trades, lang, t, theme }: Omit<WidgetsProps, "m
     <div className="rounded-2xl p-6 border border-border/10 bg-card/45 space-y-4 chart-export-container">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border/5 pb-3 gap-2">
         <div className="flex items-center gap-2">
-          <Clock className="h-4 w-4 text-purple-400" />
+          <Clock className="h-4 w-4 text-primary" />
           <span className="text-xs font-black uppercase tracking-wider text-foreground">Day x Hour Net Profit Heatmap</span>
         </div>
         <div className="flex items-center gap-4 text-[10px] text-muted-foreground/70 font-semibold">
@@ -393,7 +393,7 @@ export function SymbolScatterBubble({ trades }: { trades: Trade[] }) {
                 const d = payload[0].payload;
                 return (
                   <div className="bg-background/95 border border-border/10 p-3 rounded-lg text-xs backdrop-blur-md">
-                    <p className="font-extrabold text-purple-400 mb-1">{d.symbol}</p>
+                    <p className="font-extrabold text-primary mb-1">{d.symbol}</p>
                     <p className="text-muted-foreground">Win Rate: <strong className="text-foreground">{d.winRate}%</strong></p>
                     <p className="text-muted-foreground">Net P&L: <strong style={{ color: d.profit >= 0 ? "#34D399" : "#F43F5E" }}>{fmtMoney(d.profit)}</strong></p>
                     <p className="text-muted-foreground">Total Vol: <strong className="text-foreground">{d.volume} Lots</strong></p>
@@ -629,7 +629,7 @@ export function ComparisonModePanel({ trades }: { trades: Trade[]; metrics?: any
             onClick={() => setCmpMode("none")}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all ${
               cmpMode === "none"
-                ? "bg-purple-500/15 text-purple-400 border-purple-500/30"
+                ? "bg-primary/15 text-primary border-primary/30"
                 : "border-border/10 text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -639,7 +639,7 @@ export function ComparisonModePanel({ trades }: { trades: Trade[]; metrics?: any
             onClick={() => setCmpMode("half")}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all ${
               cmpMode === "half"
-                ? "bg-purple-500/15 text-purple-400 border-purple-500/30"
+                ? "bg-primary/15 text-primary border-primary/30"
                 : "border-border/10 text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -671,7 +671,7 @@ export function ComparisonModePanel({ trades }: { trades: Trade[]; metrics?: any
 
           {/* Second Half */}
           <div className="rounded-xl p-4 bg-background/20 border border-border/5 space-y-3">
-            <p className="text-[10px] font-black uppercase tracking-widest text-purple-400">Second Half of History (Recent Trades)</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-primary">Second Half of History (Recent Trades)</p>
             <div className="grid grid-cols-3 gap-2">
               <div>
                 <span className="text-[9px] text-muted-foreground block">Net Profit</span>

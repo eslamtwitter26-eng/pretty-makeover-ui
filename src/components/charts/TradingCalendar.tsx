@@ -240,7 +240,7 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
               
               {/* Tooltip on hovering active trading day */}
               {data && hoveredDay === key && (
-                <div className="absolute bottom-[105%] left-1/2 -translate-x-1/2 mb-2 z-50 pointer-events-none rounded-xl border border-purple-500/25 bg-popover/98 p-3 shadow-2xl backdrop-blur-md text-[11px] min-w-[160px] text-left leading-normal animate-fade-in"
+                <div className="absolute bottom-[105%] left-1/2 -translate-x-1/2 mb-2 z-50 pointer-events-none rounded-xl border border-primary/25 bg-popover/98 p-3 shadow-2xl backdrop-blur-md text-[11px] min-w-[160px] text-left leading-normal animate-fade-in"
                   style={{ 
                     background: isDark ? "rgba(15,23,42,0.95)" : "rgba(255,255,255,0.98)",
                     color: isDark ? "#ffffff" : "#0f172a"

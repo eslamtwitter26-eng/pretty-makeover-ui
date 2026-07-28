@@ -441,7 +441,7 @@ export function Glossary({ lang, data, theme }: GlossaryProps) {
           return (
             <div 
               key={term.id} 
-              className="glossary-card animate-slide-up group cursor-pointer transition-all hover:border-purple-500/20 active:scale-[0.99] overflow-hidden" 
+              className="glossary-card animate-slide-up group cursor-pointer transition-all hover:border-primary/20 active:scale-[0.99] overflow-hidden" 
               style={{ animationDelay: `${i * 60}ms`, background: "color-mix(in oklab, var(--card) 60%, transparent)" }}
             >
               <div className="flex items-start gap-3 mb-3">
@@ -479,7 +479,7 @@ export function Glossary({ lang, data, theme }: GlossaryProps) {
                     </div>
                     <div className="bg-background/40 p-2 rounded-lg border border-border/5">
                       <p className="text-[10px] uppercase font-bold text-muted-foreground">Benchmarking</p>
-                      <p className="font-semibold text-purple-400 mt-0.5">{adv.proBenchmark}</p>
+                      <p className="font-semibold text-primary mt-0.5">{adv.proBenchmark}</p>
                     </div>
                   </div>
 

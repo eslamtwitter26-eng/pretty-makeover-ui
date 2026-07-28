@@ -225,7 +225,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
             <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Accuracy (Win Rate)</span>
-                <Percent className="h-4 w-4 text-purple-400" />
+                <Percent className="h-4 w-4 text-primary" />
               </div>
               <div className="flex items-baseline justify-between gap-2">
                 <div>
@@ -233,7 +233,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
                   <p className="text-sm font-black text-muted-foreground">{fmtPercent(simulated.original.winRate)}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[10px] text-purple-400 font-bold">Simulated</p>
+                  <p className="text-[10px] text-primary font-bold">Simulated</p>
                   <p className="text-xl font-black text-foreground">{fmtPercent(simulated.simulated.winRate)}</p>
                 </div>
               </div>
@@ -312,7 +312,7 @@ export function WhatIfSimulation({ data, lang, theme }: WhatIfSimulationProps) {
                     <td className="py-2.5 font-semibold text-foreground/85">Total Positions Run</td>
                     <td className="py-2.5 text-right font-semibold tabular-nums">{simulated.original.totalTrades}</td>
                     <td className="py-2.5 text-right font-semibold tabular-nums">{simulated.simulated.totalTrades}</td>
-                    <td className="py-2.5 text-right font-bold tabular-nums text-purple-400">
+                    <td className="py-2.5 text-right font-bold tabular-nums text-primary">
                       {simulated.diffs.totalTrades} ({((simulated.diffs.totalTrades / simulated.original.totalTrades) * 100).toFixed(0)}%)
                     </td>
                   </tr>

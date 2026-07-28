@@ -241,7 +241,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
                 onClick={() => setChartType(type.id as any)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   active 
-                    ? "bg-purple-500/15 text-purple-400 border border-purple-500/30" 
+                    ? "bg-primary/15 text-primary border border-primary/30" 
                     : "text-muted-foreground hover:text-foreground hover:bg-white/5 border border-transparent"
                 }`}
               >
@@ -433,7 +433,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
         <div className="rounded-xl p-5 border border-border/5 bg-background/20 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Sliders className="h-4 w-4 text-purple-400 animate-pulse" />
+              <Sliders className="h-4 w-4 text-primary animate-pulse" />
               <p className="text-xs font-black uppercase tracking-wider text-foreground">Interactive Trade Replay Engine</p>
             </div>
             <p className="text-[10px] font-semibold text-muted-foreground/70 bg-background/40 px-2.5 py-1 rounded-md border border-border/5">
@@ -466,12 +466,12 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               </div>
               <div className="rounded-lg p-2.5 bg-card/40 border border-border/5 text-center">
                 <span className="text-[9px] font-black text-muted-foreground/70 uppercase tracking-widest block">Symbol</span>
-                <p className="text-xs font-black text-purple-400 mt-0.5">{selectedPoint.symbol}</p>
+                <p className="text-xs font-black text-primary mt-0.5">{selectedPoint.symbol}</p>
               </div>
               <div className="rounded-lg p-2.5 bg-card/40 border border-border/5 text-center">
                 <span className="text-[9px] font-black text-muted-foreground/70 uppercase tracking-widest block">Type</span>
                 <span className={`inline-block text-[10px] font-bold px-1.5 py-0.5 rounded mt-1 uppercase ${
-                  selectedPoint.kind === "buy" ? "bg-cyan-500/10 text-cyan-400" : "bg-pink-500/10 text-pink-400"
+                  selectedPoint.kind === "buy" ? "bg-cyan-500/10 text-cyan-400" : "bg-accent/10 text-accent"
                 }`}>
                   {selectedPoint.kind}
                 </span>

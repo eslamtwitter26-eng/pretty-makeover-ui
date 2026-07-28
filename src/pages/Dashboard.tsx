@@ -345,7 +345,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {calendarFilter && (
               <button
                 onClick={clearCalendarFilter}
-                className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold transition-all hover:scale-105 bg-purple-500/10 border border-purple-500/30 text-purple-400"
+                className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold transition-all hover:scale-105 bg-primary/10 border border-primary/30 text-primary"
               >
                 <CalendarDays className="h-2.5 w-2.5" />
                 {MONTH_NAMES_SHORT[calendarFilter.month]} {calendarFilter.year}
@@ -362,9 +362,9 @@ export function Dashboard({ data, theme }: DashboardProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           
           {/* Primary KPI Card: Large Net Profit */}
-          <div className="col-span-12 md:col-span-6 lg:col-span-5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-purple-500/5 border border-purple-500/15"
+          <div className="col-span-12 md:col-span-6 lg:col-span-5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-primary/5 border border-primary/15"
             style={{ background: "linear-gradient(135deg, var(--card) 40%, rgba(79, 70, 229,0.06) 100%)" }}>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("netProfit")}</span>
               <div className="rounded-lg p-2 bg-emerald-500/10 text-emerald-400">
@@ -406,21 +406,21 @@ export function Dashboard({ data, theme }: DashboardProps) {
           </div>
 
           {/* KPI Card: Win Rate */}
-          <div className="col-span-12 lg:col-span-3 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-pink-500/5 border border-pink-500/15"
+          <div className="col-span-12 lg:col-span-3 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl shadow-accent/5 border border-accent/15"
             style={{ background: "linear-gradient(135deg, var(--card) 40%, rgba(244,114,182,0.06) 100%)" }}>
-            <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/80">{t("winRate")}</span>
-              <div className="rounded-lg p-2 bg-pink-500/10 text-pink-400">
+              <div className="rounded-lg p-2 bg-accent/10 text-accent">
                 <Target className="h-5 w-5" />
               </div>
             </div>
             <div>
               <div className="flex items-baseline gap-2">
                 <p className="text-3xl font-black tracking-tight text-foreground">{metrics.winRate.toFixed(1)}%</p>
-                <span className="text-xs font-bold text-pink-400">{t("targetLabel")}: 50%</span>
+                <span className="text-xs font-bold text-accent">{t("targetLabel")}: 50%</span>
               </div>
-              <div className="w-full h-1.5 bg-pink-500/10 rounded-full mt-3 overflow-hidden">
+              <div className="w-full h-1.5 bg-accent/10 rounded-full mt-3 overflow-hidden">
                 <div className="h-full bg-pink-500 rounded-full" style={{ width: `${metrics.winRate}%` }} />
               </div>
             </div>
@@ -594,7 +594,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       {/* ── SECTION 2: AI EXECUTIVE SUMMARY ── */}
       <section className="space-y-6">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-purple-400" />
+          <Sparkles className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("aiStrategy")}</h3>
         </div>
 
@@ -607,10 +607,10 @@ export function Dashboard({ data, theme }: DashboardProps) {
             <div>
               <div className="flex items-center justify-between border-b border-border/5 pb-3">
                 <div className="flex items-center gap-2">
-                  <Award className="h-4 w-4 text-purple-400" />
+                  <Award className="h-4 w-4 text-primary" />
                   <span className="text-xs font-bold text-foreground">{t("cognitiveAuditScore")}</span>
                 </div>
-                <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
                   {t("aiVerified")}
                 </span>
               </div>
@@ -622,7 +622,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                 <div className="flex-1 space-y-1.5">
                   <div className="flex justify-between text-[10px] font-extrabold text-muted-foreground">
                     <span>{t("traderCategory")}</span>
-                    <span className="text-purple-400 uppercase tracking-wide">{scores.overall >= 80 ? t("eliteQuant") : scores.overall >= 60 ? t("consistentSpeculator") : t("undisciplinedSizer")}</span>
+                    <span className="text-primary uppercase tracking-wide">{scores.overall >= 80 ? t("eliteQuant") : scores.overall >= 60 ? t("consistentSpeculator") : t("undisciplinedSizer")}</span>
                   </div>
                   <div className="h-2 w-full bg-border/10 rounded-full overflow-hidden">
                     <div className="h-full rounded-full bg-gradient-to-r from-red-500 via-amber-400 to-emerald-400 animate-pulse" style={{ width: `${scores.overall}%` }} />
@@ -671,7 +671,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
             {/* Weaknesses */}
             <div className="space-y-3 flex-1 border-t border-border/5 pt-4">
-              <div className="flex items-center gap-2 text-pink-400">
+              <div className="flex items-center gap-2 text-accent">
                 <ThumbsDown className="h-4 w-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">{t("identifiedLeaks")}</span>
               </div>
@@ -700,7 +700,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                     <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${
                       g.status === "passed" 
                         ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20" 
-                        : "bg-pink-500/15 text-pink-400 border border-pink-500/20"
+                        : "bg-accent/15 text-accent border border-accent/20"
                     }`}>
                       {g.status === "passed" ? "Pass" : "Failed"}
                     </span>
@@ -710,14 +710,14 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
 
             <div className="space-y-3 border-t border-border/5 pt-4">
-              <div className="flex items-center gap-2 text-purple-400">
+              <div className="flex items-center gap-2 text-primary">
                 <Zap className="h-4 w-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">{t("recommendedAdjustments")}</span>
               </div>
               <ul className="space-y-2">
                 {recommendedActions.slice(0, 2).map((action, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground/80">
-                    <span className="font-extrabold text-purple-400">•</span>
+                    <span className="font-extrabold text-primary">•</span>
                     <span>{action}</span>
                   </li>
                 ))}
@@ -730,15 +730,15 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </div> {/* End #overview */}
 
       {/* ── AI EXECUTIVE SUMMARY CARD ── */}
-      <div className="rounded-2xl p-6 border border-purple-500/15 bg-purple-500/5 shadow-sm space-y-4">
-        <h4 className="text-xs font-black uppercase tracking-wider text-purple-400 flex items-center gap-1.5 border-b border-border/5 pb-2.5">
+      <div className="rounded-2xl p-6 border border-primary/15 bg-primary/5 shadow-sm space-y-4">
+        <h4 className="text-xs font-black uppercase tracking-wider text-primary flex items-center gap-1.5 border-b border-border/5 pb-2.5">
           <Sparkles className="h-4 w-4" />
           Overall Performance AI Summary
         </h4>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
           <li className="flex flex-col gap-1 p-2.5 rounded-xl bg-background/40 border border-border/5">
             <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Performance Grade</span>
-            <strong className="text-lg font-black text-purple-400">{tradingGrade}</strong>
+            <strong className="text-lg font-black text-primary">{tradingGrade}</strong>
           </li>
           <li className="flex flex-col gap-1 p-2.5 rounded-xl bg-background/40 border border-border/5">
             <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Strongest Session</span>
@@ -771,8 +771,8 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
 
         {/* AI Insight Card: Performance Curve */}
-        <div className="rounded-xl border border-purple-500/10 bg-purple-500/5 p-4.5 flex items-start gap-3">
-          <Sparkles className="h-4.5 w-4.5 text-purple-400 flex-shrink-0 mt-0.5" />
+        <div className="rounded-xl border border-primary/10 bg-primary/5 p-4.5 flex items-start gap-3">
+          <Sparkles className="h-4.5 w-4.5 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-xs text-muted-foreground leading-relaxed">
             <strong className="text-foreground">AI Insight:</strong> Your account reached its highest equity during periods of strict discipline, before entering a prolonged drawdown of {metrics.maxDrawdownPercent ? metrics.maxDrawdownPercent.toFixed(1) : "—"}% caused by larger position sizes. Reducing sizing volatility will directly stabilize this performance curve.
           </p>
@@ -789,7 +789,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       {/* ── SECTION 4: CALENDAR ── */}
       <section id="calendar" className="space-y-4">
         <div className="flex items-center gap-2">
-          <CalendarDays className="h-5 w-5 text-purple-400" />
+          <CalendarDays className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">
             {calendarFilter
               ? `${t("tradingCalendar")} · ${MONTH_NAMES_SHORT[calendarFilter.month]} ${calendarFilter.year} (${t("custom").toLowerCase()})`
@@ -817,8 +817,8 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
 
         {/* AI Insight Card: Time Analysis */}
-        <div className="rounded-xl border border-purple-500/10 bg-purple-500/5 p-4.5 flex items-start gap-3">
-          <Sparkles className="h-4.5 w-4.5 text-purple-400 flex-shrink-0 mt-0.5" />
+        <div className="rounded-xl border border-primary/10 bg-primary/5 p-4.5 flex items-start gap-3">
+          <Sparkles className="h-4.5 w-4.5 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-xs text-muted-foreground leading-relaxed">
             <strong className="text-foreground">AI Insight:</strong> Nearly 80% of profitable trades occur during the Asia session, while the London open exhibits high trap exposure. Restricting high-lot entries during late New York crossover will dramatically conserve your cumulative P&L.
           </p>
@@ -848,7 +848,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       {/* ── SECTION 6: SESSION ANALYTICS ── */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
-          <Zap className="h-5 w-5 text-pink-400" />
+          <Zap className="h-5 w-5 text-accent" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("sessionPerformance")}</h3>
         </div>
         <div className="rounded-2xl p-6 border border-border/15 bg-card/60 space-y-6 chart-export-container">
@@ -900,8 +900,8 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
 
         {/* AI Insight Card: Risk Analysis */}
-        <div className="rounded-xl border border-purple-500/10 bg-purple-500/5 p-4.5 flex items-start gap-3">
-          <Sparkles className="h-4.5 w-4.5 text-purple-400 flex-shrink-0 mt-0.5" />
+        <div className="rounded-xl border border-primary/10 bg-primary/5 p-4.5 flex items-start gap-3">
+          <Sparkles className="h-4.5 w-4.5 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-xs text-muted-foreground leading-relaxed">
             <strong className="text-foreground">AI Insight:</strong> Most drawdowns originate from oversized position sizing drift rather than a low win rate. Focus on maintaining a consistent lot profile across both liquid and illiquid symbols.
           </p>
@@ -944,13 +944,13 @@ export function Dashboard({ data, theme }: DashboardProps) {
       {/* ── SECTION 8: PSYCHOLOGY (BEHAVIORAL AUDITS) ── */}
       <section id="psychology" className="space-y-4">
         <div className="flex items-center gap-2">
-          <Brain className="h-5 w-5 text-purple-400" />
+          <Brain className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("psychologyMistakes")}</h3>
         </div>
 
         {/* AI Insight Card: Psychology */}
-        <div className="rounded-xl border border-purple-500/10 bg-purple-500/5 p-4.5 flex items-start gap-3">
-          <Sparkles className="h-4.5 w-4.5 text-purple-400 flex-shrink-0 mt-0.5" />
+        <div className="rounded-xl border border-primary/10 bg-primary/5 p-4.5 flex items-start gap-3">
+          <Sparkles className="h-4.5 w-4.5 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-xs text-muted-foreground leading-relaxed">
             <strong className="text-foreground">AI Insight:</strong> Revenge trading accounts for approximately 18% of your realized losses. Emotional position sizing during London morning liquid sweep sessions is the primary behavioral leak.
           </p>
@@ -984,7 +984,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                   <span className="text-muted-foreground/80">
                     {t("frequency")}: <strong className="text-foreground">{m.frequency.toFixed(1)}%</strong>
                   </span>
-                  <span className="text-purple-400 font-bold hover:underline cursor-pointer" title={m.suggestedFix}>
+                  <span className="text-primary font-bold hover:underline cursor-pointer" title={m.suggestedFix}>
                     {t("suggestedFix")}
                   </span>
                 </div>
@@ -1035,7 +1035,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                       {item.dir === "up" ? (
                         <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
                       ) : item.dir === "down" ? (
-                        <TrendingDown className="h-3.5 w-3.5 text-pink-400" />
+                        <TrendingDown className="h-3.5 w-3.5 text-accent" />
                       ) : (
                         <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
                       )}
@@ -1060,7 +1060,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
                   <p className="text-xs text-muted-foreground leading-relaxed mt-2">{comparisons.bestExplanation}</p>
                 </div>
                 <div className="border-t border-border/5 pt-2 mt-2">
-                  <p className="text-[10px] font-black text-pink-400 uppercase tracking-widest">{t("subOptimalSegment")}</p>
+                  <p className="text-[10px] font-black text-accent uppercase tracking-widest">{t("subOptimalSegment")}</p>
                   <p className="text-xs text-muted-foreground mt-1 truncate">
                     {lang === "ar" ? `جلسات ${comparisons.worstSession === "London" ? t("sessionLondon") : comparisons.worstSession === "New York" ? t("sessionNewYork") : t("sessionAsia")}` :
                      lang === "fr" ? `Sessions ${comparisons.worstSession === "London" ? t("sessionLondon") : comparisons.worstSession === "New York" ? t("sessionNewYork") : t("sessionAsia")}` :
@@ -1073,16 +1073,16 @@ export function Dashboard({ data, theme }: DashboardProps) {
             {/* Column C: Executive Summary & Recommendation */}
             <div className="space-y-4">
               <span className="text-xs font-black uppercase tracking-widest text-muted-foreground/60 block">{t("aiStrategy")}</span>
-              <div className="p-4 rounded-xl border border-border/10 bg-purple-500/5 h-[210px] flex flex-col justify-between">
+              <div className="p-4 rounded-xl border border-border/10 bg-primary/5 h-[210px] flex flex-col justify-between">
                 <div className="space-y-1">
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-purple-500/10 px-2 py-0.5 text-[9px] font-black text-purple-400 border border-purple-500/20">
+                  <span className="inline-flex items-center gap-1.5 rounded-md bg-primary/10 px-2 py-0.5 text-[9px] font-black text-primary border border-primary/20">
                     {t("smcIctCompliant")}
                   </span>
                   <p className="text-xs text-muted-foreground/90 leading-relaxed pt-2">
                     {scores.explanations.discipline} {scores.explanations.riskManagement}
                   </p>
                 </div>
-                <p className="text-[10px] font-bold text-purple-400 mt-2">
+                <p className="text-[10px] font-bold text-primary mt-2">
                   {lang === "ar" ? `قم بتحسين فلاتر الدخول من خلال التوافق حصرياً مع دورات توسع السيولة في جلسات ${comparisons.bestSession === "London" ? t("sessionLondon") : comparisons.bestSession === "New York" ? t("sessionNewYork") : t("sessionAsia")}.` :
                    lang === "fr" ? `Optimisez les filtres d'entrée en vous alignant exclusivement sur les boucles d'expansion de liquidité des sessions ${comparisons.bestSession === "London" ? t("sessionLondon") : comparisons.bestSession === "New York" ? t("sessionNewYork") : t("sessionAsia")}.` :
                    `Optimize entry filters by aligning exclusively with ${comparisons.bestSession} liquidity expansion loops.`}

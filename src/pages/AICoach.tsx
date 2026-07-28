@@ -644,7 +644,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0"
               style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.25)" }}>
-              <Bot className="h-6 w-6 text-purple-400" />
+              <Bot className="h-6 w-6 text-primary" />
             </div>
             <div>
               <h2 className="text-xl font-black gradient-text">{t("aiTradingCoach")}</h2>
@@ -657,7 +657,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           <div className="flex items-center gap-4 bg-background/40 rounded-xl px-4 py-2 border border-border/10">
             <div className="text-center">
               <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">{t("cognitiveAuditScore")}</p>
-              <p className="text-2xl font-black text-purple-400" style={{ textShadow: "0 0 10px rgba(79, 70, 229,0.4)" }}>
+              <p className="text-2xl font-black text-primary" style={{ textShadow: "0 0 10px rgba(79, 70, 229,0.4)" }}>
                 {scores.overall}
               </p>
             </div>
@@ -678,7 +678,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           {/* Preset Coach Prompts */}
           <div className="rounded-xl p-4 space-y-3" style={{ background: "color-mix(in oklab, var(--card) 75%, transparent)", border: "1px solid var(--border)" }}>
             <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 flex items-center gap-1.5 mb-2">
-              <Sparkles className="h-3.5 w-3.5 text-purple-400" /> {t("quickDiagnostics")}
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> {t("quickDiagnostics")}
             </h3>
             <div className="space-y-2">
               {PRESET_QUESTIONS.map((q, idx) => {
@@ -741,7 +741,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
           {/* Top Bar */}
           <div className="px-4 py-3 border-b border-border/20 bg-background/20 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
+              <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t("sessionIntel")}</span>
             </div>
             <button 
@@ -767,7 +767,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                 <div className={cn(
                   "h-8 w-8 rounded-lg flex items-center justify-center flex-shrink-0 border",
                   m.sender === "user" 
-                    ? "bg-purple-900/40 border-purple-500/30 text-purple-400" 
+                    ? "bg-purple-900/40 border-primary/30 text-primary" 
                     : "bg-cyan-950/40 border-cyan-500/30 text-cyan-400"
                 )}>
                   {m.sender === "user" ? <HelpCircle className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
@@ -778,7 +778,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                   className={cn(
                     "rounded-xl px-4 py-3 text-sm leading-relaxed",
                     m.sender === "user" 
-                      ? "bg-purple-900/10 border border-purple-500/15 text-foreground/90 rounded-tr-none" 
+                      ? "bg-purple-900/10 border border-primary/15 text-foreground/90 rounded-tr-none" 
                       : "bg-cyan-950/5 border border-cyan-500/10 text-foreground/90 rounded-tl-none markdown text-left"
                   )}
                   style={{ direction: lang === "ar" && m.sender === "user" ? "rtl" : "ltr" }}
@@ -787,7 +787,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                     <div className="space-y-2">
                       {m.text.split("\n\n").map((para, pIdx) => {
                         if (para.startsWith("###")) {
-                          return <h4 key={pIdx} className="text-base font-black text-purple-400 mt-2 mb-1">{para.replace("###", "").trim()}</h4>;
+                          return <h4 key={pIdx} className="text-base font-black text-primary mt-2 mb-1">{para.replace("###", "").trim()}</h4>;
                         }
                         if (para.startsWith("####")) {
                           return <h5 key={pIdx} className="text-sm font-bold text-cyan-400 mt-2 mb-1">{para.replace("####", "").trim()}</h5>;
@@ -847,7 +847,7 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder={t("askCoachPlaceholder")}
                 disabled={isTyping}
-                className="flex-1 bg-background/50 border border-border/20 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-purple-500/40 transition-all text-foreground"
+                className="flex-1 bg-background/50 border border-border/20 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-primary/40 transition-all text-foreground"
               />
               <button
                 type="submit"
