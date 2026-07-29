@@ -3,6 +3,11 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine
 } from "recharts";
 import type { EquityPoint } from "@/lib/tradeAnalysis";
+import {
+  ChartReveal, ChartTooltipCard, GlowFilter, SeriesGradient,
+  alpha, axisTick, gridStroke, hoverCursorLine, money, POSITIVE, NEGATIVE,
+  CHART_DURATION,
+} from "./chartKit";
 
 interface EquityCurveChartProps {
   data: EquityPoint[];
@@ -10,13 +15,13 @@ interface EquityCurveChartProps {
 
 const fmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric" });
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+const CustomTooltip = ({ active, payload, label, color }: any) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: "color-mix(in oklab, var(--card) 95%, transparent)", border: "1px solid rgba(79, 70, 229,0.3)", borderRadius: 10, padding: "10px 14px", backdropFilter: "blur(16px)", boxShadow: "0 0 20px rgba(79, 70, 229,0.2)" }}>
-      <p className="text-muted-foreground/80 text-[11px] mb-1">{fmt.format(new Date(label))}</p>
-      <p style={{ color: "#4F46E5", fontWeight: 800, fontSize: 15 }}>${payload[0].value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
-    </div>
+    <ChartTooltipCard
+      title={fmt.format(new Date(label))}
+      rows={[{ label: "Balance", value: money(payload[0].value), color }]}
+    />
   );
 };
 
@@ -31,51 +36,41 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
   const maxBalance = useMemo(() => Math.max(...chartData.map(d => d.balance)), [chartData]);
   const startBalance = chartData[0]?.balance ?? 0;
   const isProfit = chartData.length > 1 && chartData[chartData.length - 1].balance >= chartData[0].balance;
-  const gradId = isProfit ? "equityGradGreen" : "equityGradRed";
-  const strokeColor = isProfit ? "#4F46E5" : "#F43F5E";
-  const gradStart = isProfit ? "rgba(79, 70, 229,0.5)" : "rgba(244, 63, 94,0.5)";
-  const gradEnd = isProfit ? "rgba(79, 70, 229,0.02)" : "rgba(244, 63, 94,0.02)";
+  const stroke = isProfit ? "var(--primary)" : NEGATIVE;
+  const gradId = isProfit ? "equityGradUp" : "equityGradDown";
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
-        <defs>
-          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor={gradStart} stopOpacity={1} />
-            <stop offset="60%" stopColor={isProfit ? "rgba(79, 70, 229,0.08)" : "rgba(244, 63, 94,0.08)"} stopOpacity={1} />
-            <stop offset="95%" stopColor={gradEnd} stopOpacity={1} />
-          </linearGradient>
-          <filter id="equityGlow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(79, 70, 229,0.06)" />
-        <XAxis
-          dataKey="time" type="number" domain={["dataMin", "dataMax"]}
-          tickFormatter={(v) => fmt.format(new Date(v))}
-          tick={{ fontSize: 10, fill: "rgba(150,160,200,0.5)" }}
-          tickLine={false} axisLine={false} scale="time"
-        />
-        <YAxis
-          domain={[minBalance * 0.995, maxBalance * 1.005]}
-          tickFormatter={(v) => `$${v.toLocaleString()}`}
-          tick={{ fontSize: 10, fill: "rgba(150,160,200,0.5)" }}
-          tickLine={false} axisLine={false} width={78}
-        />
-        <Tooltip content={<CustomTooltip />} />
-        <ReferenceLine y={startBalance} stroke="rgba(79, 70, 229,0.25)" strokeDasharray="5 3" />
-        <Area
-          type="monotone" dataKey="balance"
-          stroke={strokeColor} strokeWidth={2.5}
-          fill={`url(#${gradId})`} dot={false}
-          activeDot={{ r: 5, fill: strokeColor, stroke: "rgba(8,11,28,0.8)", strokeWidth: 2, filter: `drop-shadow(0 0 6px ${strokeColor})` }}
-          style={{ filter: `drop-shadow(0 0 4px ${strokeColor}60)` }}
-        />
-      </AreaChart>
-    </ResponsiveContainer>
+    <ChartReveal replayKey={chartData.length}>
+      <ResponsiveContainer width="100%" height={300}>
+        <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+          <defs>
+            <SeriesGradient id={gradId} color={stroke} from={50} />
+            <GlowFilter id="equityGlow" />
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke={gridStroke} vertical={false} />
+          <XAxis
+            dataKey="time" type="number" domain={["dataMin", "dataMax"]}
+            tickFormatter={(v) => fmt.format(new Date(v))}
+            tick={axisTick} tickLine={false} axisLine={false} scale="time"
+          />
+          <YAxis
+            domain={[minBalance * 0.995, maxBalance * 1.005]}
+            tickFormatter={(v) => `$${v.toLocaleString()}`}
+            tick={axisTick} tickLine={false} axisLine={false} width={78}
+          />
+          <Tooltip content={<CustomTooltip color={stroke} />} cursor={hoverCursorLine} />
+          <ReferenceLine y={startBalance} stroke={alpha("border", 90)} strokeDasharray="5 3" />
+          <Area
+            type="monotone" dataKey="balance"
+            stroke={stroke} strokeWidth={2.5}
+            fill={`url(#${gradId})`} dot={false}
+            isAnimationActive animationDuration={CHART_DURATION * 1000}
+            animationEasing="ease-in-out"
+            activeDot={{ r: 5, fill: stroke, stroke: "var(--background)", strokeWidth: 2, filter: "url(#equityGlow)" }}
+            style={{ filter: `drop-shadow(0 0 6px ${alpha(isProfit ? "primary" : "destructive", 45)})` }}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    </ChartReveal>
   );
 }
