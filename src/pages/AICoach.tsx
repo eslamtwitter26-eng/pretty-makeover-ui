@@ -136,6 +136,18 @@ export function AICoach({ data, theme }: AICoachProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const ringData = useMemo(
+    () => [
+      { label: t("riskManagement"), value: scores.subScores.riskManagement, color: "var(--chart-3)" },
+      { label: t("consistency"), value: scores.subScores.consistency, color: "var(--chart-2)" },
+      { label: t("execution"), value: scores.subScores.execution, color: "var(--chart-1)" },
+      { label: t("psychology"), value: scores.subScores.psychology, color: "var(--accent)" },
+      { label: t("discipline"), value: scores.subScores.discipline, color: "var(--chart-4)" },
+    ],
+    [scores, t],
+  );
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
