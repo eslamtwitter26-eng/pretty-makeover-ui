@@ -3,6 +3,7 @@ import { Bot, Sparkles, Send, RefreshCw, Trophy, HelpCircle, ShieldAlert, Zap, T
 import type { Language } from "@/lib/i18n";
 import { useI18n } from "@/components/I18nProvider";
 import { cn } from "@/lib/utils";
+import { RingChart } from "@/components/RingChart";
 import { 
   calculateTraderScore, 
   calculateEvolutionTracking, 
