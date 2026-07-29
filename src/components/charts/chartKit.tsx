@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  * Motion curve & reveal behaviour modelled on the bklit-ui chart primitives,
  * re-expressed with this project's semantic tokens.
  */
-export const CHART_EASE = [0.85, 0, 0.15, 1] as const;
+export const CHART_EASE: [number, number, number, number] = [0.85, 0, 0.15, 1];
 export const CHART_DURATION = 1.1;
 
 export const token = (name: string) => `var(--${name})`;
@@ -60,7 +60,7 @@ export function ChartReveal({
       initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
       animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
       transition={{
-        clipPath: { duration: CHART_DURATION, ease: CHART_EASE as unknown as number[], delay },
+        clipPath: { duration: CHART_DURATION, ease: CHART_EASE, delay },
         opacity: { duration: 0.35, delay },
       }}
     >
