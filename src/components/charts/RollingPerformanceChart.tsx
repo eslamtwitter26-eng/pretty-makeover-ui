@@ -12,6 +12,7 @@ import {
 import { Sliders } from "lucide-react";
 import type { Trade } from "@/lib/tradeAnalysis";
 import { DownloadChartButton } from "./DownloadChartButton";
+import { ChartReveal } from "./chartKit";
 
 interface RollingPerformanceChartProps {
   trades: Trade[];
@@ -124,7 +125,7 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
       </div>
 
       <div style={{ height: 160 }} className="relative overflow-hidden pt-2">
-        <ResponsiveContainer width="100%" height="100%">
+        <ChartReveal className="h-full w-full"><ResponsiveContainer width="100%" height="100%">
           <AreaChart data={chartData} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
             <defs>
               <linearGradient id="rollingGradient" x1="0" y1="0" x2="0" y2="1">
@@ -162,7 +163,7 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
               animationDuration={1000}
             />
           </AreaChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer></ChartReveal>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import {
 import { Play, Pause, RotateCcw, TrendingUp, TrendingDown, Minus, Sliders, BarChart3, LineChart as LineIcon, Activity, Sparkles } from "lucide-react";
 import type { Trade } from "@/lib/tradeAnalysis";
 import { DownloadChartButton } from "./DownloadChartButton";
+import { ChartReveal } from "./chartKit";
 
 interface PLCurveProps {
   trades: Trade[];
@@ -280,7 +281,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
       {/* Main visual display of chosen chart mode */}
       <div className="relative overflow-hidden rounded-xl border border-border/5 bg-background/20 p-4">
         <div style={{ height: 260 }}>
-          <ResponsiveContainer width="100%" height="100%">
+          <ChartReveal className="h-full w-full"><ResponsiveContainer width="100%" height="100%">
             <ComposedChart data={visiblePoints} margin={{ top: 8, right: 8, left: 8, bottom: 4 }}>
               <defs>
                 <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
@@ -342,7 +343,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
                 />
               )}
             </ComposedChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer></ChartReveal>
         </div>
       </div>
 
@@ -355,7 +356,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
           <span className="text-[10px] text-muted-foreground/60 font-semibold">Max DD: ${Math.abs(maxDD).toFixed(2)}</span>
         </div>
         <div style={{ height: 60 }}>
-          <ResponsiveContainer width="100%" height="100%">
+          <ChartReveal className="h-full w-full"><ResponsiveContainer width="100%" height="100%">
             <AreaChart data={visiblePoints} margin={{ top: 2, right: 8, left: 8, bottom: 0 }}>
               <defs>
                 <linearGradient id="ddFill" x1="0" y1="0" x2="0" y2="1">
@@ -384,7 +385,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
                 isAnimationActive={false}
               />
             </AreaChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer></ChartReveal>
         </div>
       </div>
 
@@ -397,7 +398,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
           <span className="text-[10px] text-muted-foreground/60 font-semibold">Tracks consistency trend</span>
         </div>
         <div style={{ height: 80 }}>
-          <ResponsiveContainer width="100%" height="100%">
+          <ChartReveal className="h-full w-full"><ResponsiveContainer width="100%" height="100%">
             <AreaChart data={visiblePoints} margin={{ top: 2, right: 8, left: 8, bottom: 0 }}>
               <defs>
                 <linearGradient id="rollingFill" x1="0" y1="0" x2="0" y2="1">
@@ -424,7 +425,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
                 isAnimationActive={false}
               />
             </AreaChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer></ChartReveal>
         </div>
       </div>
 
