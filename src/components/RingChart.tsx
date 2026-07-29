@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export interface RingDatum {
@@ -34,6 +35,15 @@ export function RingChart({
 
   const active = hoveredIndex !== null ? data[hoveredIndex] : null;
 
+  // Draw-in animation on mount (and whenever the values change)
+  const [drawn, setDrawn] = useState(false);
+  const signature = data.map((d) => d.value).join(",");
+  useEffect(() => {
+    setDrawn(false);
+    const id = requestAnimationFrame(() => requestAnimationFrame(() => setDrawn(true)));
+    return () => cancelAnimationFrame(id);
+  }, [signature]);
+
   return (
     <div className="relative mx-auto" style={{ width: size, height: size }}>
       <svg
@@ -49,6 +59,7 @@ export function RingChart({
           if (r <= 2) return null;
           const circ = 2 * Math.PI * r;
           const pct = Math.max(0, Math.min(100, d.value)) / 100;
+          const shown = drawn ? pct : 0;
           const dim = hoveredIndex !== null && hoveredIndex !== i;
           return (
             <g key={d.label}>
@@ -69,11 +80,13 @@ export function RingChart({
                 stroke={d.color}
                 strokeWidth={hoveredIndex === i ? stroke + 2 : stroke}
                 strokeLinecap="round"
-                strokeDasharray={`${circ * pct} ${circ}`}
+                strokeDasharray={`${circ * shown} ${circ}`}
                 style={{
                   opacity: dim ? 0.25 : 1,
                   filter: hoveredIndex === i ? `drop-shadow(0 0 6px ${d.color})` : undefined,
-                  transition: "stroke-dasharray 900ms ease, opacity 250ms ease, stroke-width 200ms ease",
+                  transition:
+                    "stroke-dasharray 1100ms cubic-bezier(0.22, 1, 0.36, 1), opacity 250ms ease, stroke-width 200ms ease",
+                  transitionDelay: `${i * 120}ms`,
                 }}
               />
               {/* invisible hit area */}
