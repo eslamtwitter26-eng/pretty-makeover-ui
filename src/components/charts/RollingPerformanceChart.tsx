@@ -128,14 +128,14 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
           <AreaChart data={chartData} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
             <defs>
               <linearGradient id="rollingGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#38BDF8" stopOpacity={0.25} />
-                <stop offset="100%" stopColor="#4F46E5" stopOpacity={0.01} />
+                <stop offset="0%" stopColor="var(--accent)" stopOpacity={0.25} />
+                <stop offset="100%" stopColor="var(--primary)" stopOpacity={0.01} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.05)"} vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "color-mix(in oklab, var(--foreground) 2%, transparent)" : "color-mix(in oklab, var(--foreground) 5%, transparent)"} vertical={false} />
             <XAxis 
               dataKey="tradeNum" 
-              tick={{ fontSize: 9, fill: isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.5)" }} 
+              tick={{ fontSize: 9, fill: isDark ? "color-mix(in oklab, var(--foreground) 30%, transparent)" : "color-mix(in oklab, var(--foreground) 50%, transparent)" }} 
               tickLine={false} 
               axisLine={false}
               tickFormatter={(v) => `T#${v}`}
@@ -143,18 +143,18 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
             />
             <YAxis 
               tickFormatter={(v) => `$${v}`}
-              tick={{ fontSize: 9, fill: isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.5)" }} 
+              tick={{ fontSize: 9, fill: isDark ? "color-mix(in oklab, var(--foreground) 30%, transparent)" : "color-mix(in oklab, var(--foreground) 50%, transparent)" }} 
               tickLine={false} 
               axisLine={false}
               width={50}
               domain={["auto", "auto"]}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ stroke: isDark ? "rgba(56, 189, 248,0.15)" : "rgba(56, 189, 248,0.25)", strokeWidth: 1 }} />
-            <ReferenceLine y={0} stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.15)"} strokeDasharray="3 3" />
+            <Tooltip content={<CustomTooltip />} cursor={{ stroke: isDark ? "color-mix(in oklab, var(--accent) 15%, transparent)" : "color-mix(in oklab, var(--accent) 25%, transparent)", strokeWidth: 1 }} />
+            <ReferenceLine y={0} stroke={isDark ? "color-mix(in oklab, var(--foreground) 10%, transparent)" : "color-mix(in oklab, var(--foreground) 15%, transparent)"} strokeDasharray="3 3" />
             <Area
               type="monotone"
               dataKey="movingAvg"
-              stroke="#38BDF8"
+              stroke="var(--accent)"
               strokeWidth={2}
               fill="url(#rollingGradient)"
               dot={false}
