@@ -26,9 +26,7 @@ function formatMoney(v: number): string {
   return `${sign}$${abs.toFixed(2)}`;
 }
 
-const MONTH_NAMES = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+const MONTH_NAMES = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
 ];
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -119,17 +117,17 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
           onClick={prev}
           disabled={!canPrev}
           className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg transition-all duration-150 hover:scale-110 disabled:opacity-20 disabled:cursor-not-allowed"
-          style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.3)" }}
+          style={{ background: "color-mix(in oklab, var(--primary) 15%, transparent)", border: "1px solid color-mix(in oklab, var(--primary) 30%, transparent)" }}
         >
-          <ChevronLeft className="h-4 w-4" style={{ color: "#4F46E5" }} />
+          <ChevronLeft className="h-4 w-4" style={{ color: "var(--primary)" }} />
         </button>
 
         <div className="flex flex-1 items-center justify-center gap-3">
           <div className="text-center">
-            <p className="text-lg font-black tracking-wide" style={{ color: "#4F46E5" }}>
+            <p className="text-lg font-black tracking-wide" style={{ color: "var(--primary)" }}>
               {MONTH_NAMES[curMonth]}
             </p>
-            <p className="text-sm font-semibold" style={{ color: isDark ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.7)" }}>{curYear}</p>
+            <p className="text-sm font-semibold" style={{ color: isDark ? "color-mix(in oklab, var(--foreground) 75%, transparent)" : "color-mix(in oklab, var(--foreground) 70%, transparent)" }}>{curYear}</p>
           </div>
 
           {onMonthSelect && (() => {
@@ -140,10 +138,10 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
                 title={isActive ? "Month filter active — click to refresh" : `Filter all charts to ${MONTH_NAMES[curMonth]} ${curYear}`}
                 className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-150 hover:scale-105"
                 style={{
-                  background: isActive ? "rgba(52, 211, 153,0.18)" : "rgba(79, 70, 229,0.15)",
-                  border: `1px solid ${isActive ? "rgba(52, 211, 153,0.5)" : "rgba(79, 70, 229,0.4)"}`,
-                  color: isActive ? "#34D399" : "#4F46E5",
-                  boxShadow: isActive ? "0 0 10px rgba(52, 211, 153,0.2)" : "none",
+                  background: isActive ? "color-mix(in oklab, var(--success) 18%, transparent)" : "color-mix(in oklab, var(--primary) 15%, transparent)",
+                  border: `1px solid ${isActive ? "color-mix(in oklab, var(--success) 50%, transparent)" : "color-mix(in oklab, var(--primary) 40%, transparent)"}`,
+                  color: isActive ? "var(--success)" : "var(--primary)",
+                  boxShadow: isActive ? "0 0 10px color-mix(in oklab, var(--success) 20%, transparent)" : "none",
                 }}
               >
                 <Filter className="h-3 w-3" />
@@ -159,27 +157,27 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
           onClick={next}
           disabled={!canNext}
           className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg transition-all duration-150 hover:scale-110 disabled:opacity-20 disabled:cursor-not-allowed"
-          style={{ background: "rgba(79, 70, 229,0.15)", border: "1px solid rgba(79, 70, 229,0.3)" }}
+          style={{ background: "color-mix(in oklab, var(--primary) 15%, transparent)", border: "1px solid color-mix(in oklab, var(--primary) 30%, transparent)" }}
         >
-          <ChevronRight className="h-4 w-4" style={{ color: "#4F46E5" }} />
+          <ChevronRight className="h-4 w-4" style={{ color: "var(--primary)" }} />
         </button>
       </div>
 
       {/* Month summary pills */}
       <div className="flex flex-wrap gap-2">
         {[
-          { label: "Profit Days", value: monthStats.profit, color: "#34D399" },
-          { label: "Loss Days",   value: monthStats.loss,   color: "#F43F5E" },
-          { label: "Traded Days", value: monthStats.traded, color: "#4F46E5" },
-          { label: "Month P&L",  value: formatMoney(monthStats.pnl), color: monthStats.pnl >= 0 ? "#34D399" : "#F43F5E" },
+          { label: "Profit Days", value: monthStats.profit, color: "var(--success)" },
+          { label: "Loss Days",   value: monthStats.loss,   color: "var(--destructive)" },
+          { label: "Traded Days", value: monthStats.traded, color: "var(--primary)" },
+          { label: "Month P&L",  value: formatMoney(monthStats.pnl), color: monthStats.pnl >= 0 ? "var(--success)" : "var(--destructive)" },
         ].map((s) => (
           <div key={s.label}
             className="flex-1 min-w-[72px] rounded-xl px-2.5 py-2 text-center"
             style={{ 
-              background: isDark ? "rgba(8,11,28,0.7)" : "rgba(244,244,245,0.9)", 
+              background: isDark ? "color-mix(in oklab, var(--card) 70%, transparent)" : "color-mix(in oklab, var(--card) 90%, transparent)", 
               border: isDark ? `1px solid ${s.color}20` : `1px solid ${s.color}35` 
             }}>
-            <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.5)" }}>{s.label}</p>
+            <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: isDark ? "color-mix(in oklab, var(--foreground) 65%, transparent)" : "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>{s.label}</p>
             <p className="mt-0.5 text-sm font-black tabular-nums" style={{ color: s.color }}>{s.value}</p>
           </div>
         ))}
@@ -189,7 +187,7 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
       <div className="grid grid-cols-7 gap-1.5">
         {/* Weekday headers */}
         {WEEKDAYS.map((d) => (
-          <div key={d} className="text-center text-[10px] font-bold uppercase tracking-widest pb-1" style={{ color: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}>
+          <div key={d} className="text-center text-[10px] font-bold uppercase tracking-widest pb-1" style={{ color: isDark ? "color-mix(in oklab, var(--foreground) 70%, transparent)" : "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
             {d}
           </div>
         ))}
@@ -204,30 +202,30 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
           const dow = new Date(curYear, curMonth, day).getDay();
           const isWeekend = dow === 0 || dow === 6;
 
-          let bg = isWeekend ? (isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)") : (isDark ? "rgba(8,11,28,0.55)" : "rgba(255,255,255,0.95)");
-          let border = isWeekend ? (isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)") : (isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)");
-          let pnlColor = "#94a3b8";
+          let bg = isWeekend ? (isDark ? "color-mix(in oklab, var(--foreground) 2%, transparent)" : "color-mix(in oklab, var(--foreground) 2%, transparent)") : (isDark ? "color-mix(in oklab, var(--card) 55%, transparent)" : "color-mix(in oklab, var(--foreground) 95%, transparent)");
+          let border = isWeekend ? (isDark ? "color-mix(in oklab, var(--foreground) 3%, transparent)" : "color-mix(in oklab, var(--foreground) 4%, transparent)") : (isDark ? "color-mix(in oklab, var(--foreground) 6%, transparent)" : "color-mix(in oklab, var(--foreground) 8%, transparent)");
+          let pnlColor = "var(--muted-foreground)";
           let glow = "none";
-          let numColor = isWeekend ? (isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)") : (isDark ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.85)");
+          let numColor = isWeekend ? (isDark ? "color-mix(in oklab, var(--foreground) 45%, transparent)" : "color-mix(in oklab, var(--foreground) 45%, transparent)") : (isDark ? "color-mix(in oklab, var(--foreground) 85%, transparent)" : "color-mix(in oklab, var(--foreground) 85%, transparent)");
 
           if (data) {
             if (data.netProfit > 0) {
-              bg = isDark ? "rgba(52, 211, 153,0.13)" : "rgba(52, 211, 153,0.08)";
-              border = "rgba(52, 211, 153,0.5)";
-              pnlColor = "#34D399";
-              glow = "0 0 12px rgba(52, 211, 153,0.22)";
-              numColor = isDark ? "#34D399" : "#059669";
+              bg = isDark ? "color-mix(in oklab, var(--success) 13%, transparent)" : "color-mix(in oklab, var(--success) 8%, transparent)";
+              border = "color-mix(in oklab, var(--success) 50%, transparent)";
+              pnlColor = "var(--success)";
+              glow = "0 0 12px color-mix(in oklab, var(--success) 22%, transparent)";
+              numColor = isDark ? "var(--success)" : "var(--success)";
             } else if (data.netProfit < 0) {
-              bg = isDark ? "rgba(244, 63, 94,0.13)" : "rgba(244, 63, 94,0.08)";
-              border = "rgba(244, 63, 94,0.5)";
-              pnlColor = "#F43F5E";
-              glow = "0 0 12px rgba(244, 63, 94,0.2)";
-              numColor = isDark ? "#F43F5E" : "#DC2626";
+              bg = isDark ? "color-mix(in oklab, var(--destructive) 13%, transparent)" : "color-mix(in oklab, var(--destructive) 8%, transparent)";
+              border = "color-mix(in oklab, var(--destructive) 50%, transparent)";
+              pnlColor = "var(--destructive)";
+              glow = "0 0 12px color-mix(in oklab, var(--destructive) 20%, transparent)";
+              numColor = isDark ? "var(--destructive)" : "var(--destructive)";
             } else {
-              bg = isDark ? "rgba(79, 70, 229,0.09)" : "rgba(79, 70, 229,0.05)";
-              border = "rgba(79, 70, 229,0.38)";
-              pnlColor = "#4F46E5";
-              numColor = "#4F46E5";
+              bg = isDark ? "color-mix(in oklab, var(--primary) 9%, transparent)" : "color-mix(in oklab, var(--primary) 5%, transparent)";
+              border = "color-mix(in oklab, var(--primary) 38%, transparent)";
+              pnlColor = "var(--primary)";
+              numColor = "var(--primary)";
             }
           }
 
@@ -242,14 +240,14 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
               {data && hoveredDay === key && (
                 <div className="absolute bottom-[105%] left-1/2 -translate-x-1/2 mb-2 z-50 pointer-events-none rounded-xl border border-primary/25 bg-popover/98 p-3 shadow-2xl backdrop-blur-md text-[11px] min-w-[160px] text-left leading-normal animate-fade-in"
                   style={{ 
-                    background: isDark ? "rgba(15,23,42,0.95)" : "rgba(255,255,255,0.98)",
-                    color: isDark ? "#ffffff" : "#0f172a"
+                    background: isDark ? "color-mix(in oklab, var(--card) 95%, transparent)" : "color-mix(in oklab, var(--foreground) 98%, transparent)",
+                    color: isDark ? "var(--foreground)" : "var(--foreground)"
                   }}>
                   <p className="font-extrabold text-muted-foreground pb-1 border-b border-border/5 mb-1.5 text-[10px]">{key}</p>
                   <div className="space-y-1">
                     <p className="flex justify-between gap-4">
                       <span className="text-muted-foreground">Net Profit:</span>
-                      <strong style={{ color: data.netProfit >= 0 ? (isDark ? "#34D399" : "#059669") : (isDark ? "#F43F5E" : "#DC2626") }}>
+                      <strong style={{ color: data.netProfit >= 0 ? (isDark ? "var(--success)" : "var(--success)") : (isDark ? "var(--destructive)" : "var(--destructive)") }}>
                         {formatMoney(data.netProfit)}
                       </strong>
                     </p>
@@ -268,7 +266,7 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
               {data && (
                 <div className="mt-auto space-y-0.5">
                   <p className="text-[10px] font-black tabular-nums leading-tight"
-                    style={{ color: isDark ? pnlColor : (data.netProfit >= 0 ? "#059669" : "#DC2626"), textShadow: isDark ? `0 0 6px ${pnlColor}60` : "none" }}>
+                    style={{ color: isDark ? pnlColor : (data.netProfit >= 0 ? "var(--success)" : "var(--destructive)"), textShadow: isDark ? `0 0 6px ${pnlColor}60` : "none" }}>
                     {formatMoney(data.netProfit)}
                   </p>
                   <p className="text-[9px] font-semibold leading-none text-muted-foreground/80">
@@ -284,14 +282,14 @@ export function TradingCalendar({ trades, onMonthSelect, selectedMonth, theme }:
       {/* Legend */}
       <div className="flex items-center gap-4 pt-0.5">
         {[
-          { color: "#34D399", label: "Profit day" },
-          { color: "#F43F5E", label: "Loss day" },
-          { color: "#4F46E5", label: "Break-even" },
+          { color: "var(--success)", label: "Profit day" },
+          { color: "var(--destructive)", label: "Loss day" },
+          { color: "var(--primary)", label: "Break-even" },
         ].map((l) => (
           <div key={l.label} className="flex items-center gap-1.5">
             <span className="inline-block h-2.5 w-2.5 rounded-sm"
               style={{ background: `${l.color}25`, border: `1px solid ${l.color}55` }} />
-            <span className="text-[10px]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>{l.label}</span>
+            <span className="text-[10px]" style={{ color: isDark ? "color-mix(in oklab, var(--foreground) 65%, transparent)" : "color-mix(in oklab, var(--foreground) 65%, transparent)" }}>{l.label}</span>
           </div>
         ))}
       </div>

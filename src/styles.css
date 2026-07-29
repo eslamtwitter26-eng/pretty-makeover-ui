@@ -411,3 +411,81 @@
   outline: 2px solid var(--color-ring);
   outline-offset: 2px;
 }
+/* ===== CURSOR CROSSHAIR GLOW ===== */
+.cursor-glow {
+  --cx: 50%;
+  --cy: 50%;
+}
+.cursor-glow-bloom {
+  position: absolute;
+  left: var(--cx);
+  top: var(--cy);
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--primary) 26%, transparent) 0%,
+    color-mix(in oklab, var(--accent) 12%, transparent) 38%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  transition: opacity 0.3s ease;
+}
+.cursor-glow-line {
+  position: absolute;
+  opacity: 0.85;
+}
+.cursor-glow-line-x {
+  left: 0;
+  right: 0;
+  top: var(--cy);
+  height: 1px;
+  transform: translateY(-0.5px);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklab, var(--primary) 55%, transparent) 35%,
+    color-mix(in oklab, var(--accent) 85%, transparent) 50%,
+    color-mix(in oklab, var(--primary) 55%, transparent) 65%,
+    transparent 100%
+  );
+  box-shadow: 0 0 14px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+.cursor-glow-line-y {
+  top: 0;
+  bottom: 0;
+  left: var(--cx);
+  width: 1px;
+  transform: translateX(-0.5px);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in oklab, var(--primary) 55%, transparent) 35%,
+    color-mix(in oklab, var(--accent) 85%, transparent) 50%,
+    color-mix(in oklab, var(--primary) 55%, transparent) 65%,
+    transparent 100%
+  );
+  box-shadow: 0 0 14px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+.cursor-glow-dot {
+  position: absolute;
+  left: var(--cx);
+  top: var(--cy);
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklab, var(--accent) 80%, transparent);
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--accent) 70%, transparent);
+  animation: cursor-glow-pulse 2s ease-in-out infinite;
+}
+@keyframes cursor-glow-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow { display: none; }
+}
