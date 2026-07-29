@@ -713,24 +713,42 @@ Thank you for your question. Here is a specialized scan of your **${data.trades.
               <Trophy className="h-3.5 w-3.5 text-cyan-400" /> {t("cognitiveAssessment")}
             </h3>
 
-            <div className="space-y-3">
-              {[
-                { label: t("riskManagement"), value: scores.subScores.riskManagement, color: "#34D399" },
-                { label: t("consistency"), value: scores.subScores.consistency, color: "#38BDF8" },
-                { label: t("execution"), value: scores.subScores.execution, color: "#4F46E5" },
-                { label: t("psychology"), value: scores.subScores.psychology, color: "#818cf8" },
-                { label: t("discipline"), value: scores.subScores.discipline, color: "#FBBF24" }
-              ].map((item, i) => (
-                <div key={i} className="space-y-1">
-                  <div className="flex justify-between text-[11px] font-semibold text-foreground/80">
-                    <span>{item.label}</span>
-                    <span style={{ color: item.color }}>{item.value}/100</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-border/20 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full transition-all duration-1000"
-                      style={{ width: `${item.value}%`, backgroundColor: item.color }} />
-                  </div>
-                </div>
+            <RingChart
+              data={ringData}
+              hoveredIndex={hoveredIndex}
+              onHoverChange={setHoveredIndex}
+              size={180}
+              centerLabel={t("cognitiveAuditScore")}
+              centerValue={scores.overall}
+            />
+
+            <div className="grid grid-cols-1 gap-1.5">
+              {ringData.map((item, i) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  onFocus={() => setHoveredIndex(i)}
+                  onBlur={() => setHoveredIndex(null)}
+                  className={cn(
+                    "flex items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition-all border border-transparent",
+                    hoveredIndex === i
+                      ? "bg-white/5 border-border/20"
+                      : hoveredIndex !== null
+                        ? "opacity-45"
+                        : "opacity-90",
+                  )}
+                >
+                  <span className="flex items-center gap-2 min-w-0">
+                    <span
+                      className="h-2 w-2 rounded-full flex-shrink-0"
+                      style={{ background: item.color, boxShadow: `0 0 6px ${item.color}` }}
+                    />
+                    <span className="truncate text-foreground/80">{item.label}</span>
+                  </span>
+                  <span style={{ color: item.color }}>{item.value}/100</span>
+                </button>
               ))}
             </div>
           </div>
