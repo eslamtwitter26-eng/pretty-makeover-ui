@@ -69,23 +69,23 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
     if (!d) return null;
     
     return (
-      <div className="rounded-xl border border-cyan-500/35 bg-background/95 p-3.5 shadow-2xl backdrop-blur-md text-[11px] min-w-[200px]">
+      <div className="rounded-xl border border-accent/35 bg-background/95 p-3.5 shadow-2xl backdrop-blur-md text-[11px] min-w-[200px]">
         <div className="flex items-center justify-between pb-1.5 border-b border-border/5 mb-1.5">
           <span className="font-extrabold text-muted-foreground">Trade #{d.tradeNum}</span>
-          <span className="text-[9px] font-black uppercase text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 px-1.5 py-0.5 rounded">
+          <span className="text-[9px] font-black uppercase text-accent  bg-accent/10 px-1.5 py-0.5 rounded">
             {d.symbol}
           </span>
         </div>
         <div className="space-y-1">
           <p className="flex justify-between">
             <span className="text-muted-foreground">Trade P&L:</span>
-            <strong className={d.netProfit >= 0 ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-accent font-bold"}>
+            <strong className={d.netProfit >= 0 ? "text-success  font-bold" : "text-accent font-bold"}>
               {d.netProfit >= 0 ? "+" : ""}${d.netProfit.toLocaleString()}
             </strong>
           </p>
           <p className="flex justify-between border-t border-border/5 pt-1 mt-1">
             <span className="text-muted-foreground">30-Trade MA P&L:</span>
-            <strong className={d.movingAvg >= 0 ? "text-cyan-600 dark:text-cyan-400 font-black" : "text-accent font-black"}>
+            <strong className={d.movingAvg >= 0 ? "text-accent  font-black" : "text-accent font-black"}>
               {d.movingAvg >= 0 ? "+" : ""}${d.movingAvg.toLocaleString()}
             </strong>
           </p>
@@ -100,7 +100,7 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-border/5">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <Sliders className="h-4.5 w-4.5 text-cyan-600 dark:text-cyan-400" />
+            <Sliders className="h-4.5 w-4.5 text-accent " />
             <h4 className="text-xs font-black uppercase tracking-wider text-foreground">Rolling Performance (30-Trade Moving Average)</h4>
           </div>
           <p className="text-[10px] text-muted-foreground">Is the trader improving or declining over time? This filter eliminates individual trade noise.</p>
@@ -109,11 +109,11 @@ export function RollingPerformanceChart({ trades, theme }: RollingPerformanceCha
           <DownloadChartButton title="Rolling Performance" variant="subtle" />
           <div className="text-right">
             <p className="text-[8px] font-black uppercase text-muted-foreground tracking-wider">Current 30-Trade MA</p>
-            <p className="text-sm font-black text-cyan-600 dark:text-cyan-400">${stats.current.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
+            <p className="text-sm font-black text-accent ">${stats.current.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
           </div>
           <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full ${
             stats.trend === "Improving" 
-              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+              ? "bg-success/15 text-success  border border-success/20"
               : stats.trend === "Declining"
               ? "bg-accent/15 text-accent border border-accent/20"
               : "bg-muted text-muted-foreground"

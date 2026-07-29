@@ -349,7 +349,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
       {/* Drawdown timeline below equity curve */}
       <div className="rounded-xl border border-border/5 bg-background/20 p-4">
         <div className="flex items-center justify-between mb-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-red-400">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-destructive">
             Drawdown Timeline & Under-Water Periods
           </p>
           <span className="text-[10px] text-muted-foreground/60 font-semibold">Max DD: ${Math.abs(maxDD).toFixed(2)}</span>
@@ -391,7 +391,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
       {/* SECTION 3 NEW FEATURE: 30 Trade Moving Average Momentum Chart */}
       <div className="rounded-xl border border-border/5 bg-background/20 p-4">
         <div className="flex items-center justify-between mb-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-accent">
             Rolling Performance Momentum (30 Trade Moving Average)
           </p>
           <span className="text-[10px] text-muted-foreground/60 font-semibold">Tracks consistency trend</span>
@@ -471,7 +471,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               <div className="rounded-lg p-2.5 bg-card/40 border border-border/5 text-center">
                 <span className="text-[9px] font-black text-muted-foreground/70 uppercase tracking-widest block">Type</span>
                 <span className={`inline-block text-[10px] font-bold px-1.5 py-0.5 rounded mt-1 uppercase ${
-                  selectedPoint.kind === "buy" ? "bg-cyan-500/10 text-cyan-400" : "bg-accent/10 text-accent"
+                  selectedPoint.kind === "buy" ? "bg-accent/10 text-accent" : "bg-accent/10 text-accent"
                 }`}>
                   {selectedPoint.kind}
                 </span>
@@ -494,7 +494,7 @@ export function PLCurve({ trades, initialBalance, theme }: PLCurveProps) {
               </div>
               <div className="rounded-lg p-2.5 bg-card/40 border border-border/5 text-center col-span-2 lg:col-span-1">
                 <span className="text-[9px] font-black text-muted-foreground/70 uppercase tracking-widest block">Max Drawdown</span>
-                <p className="text-xs font-bold text-red-400 mt-0.5">${selectedPoint.dd?.toFixed(2)}</p>
+                <p className="text-xs font-bold text-destructive mt-0.5">${selectedPoint.dd?.toFixed(2)}</p>
               </div>
             </div>
           )}

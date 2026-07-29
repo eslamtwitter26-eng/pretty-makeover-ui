@@ -10,8 +10,7 @@ import {
 function translateSession(session: string, lang: Language): string {
   const map: Record<string, Record<Language, string>> = {
     Asia: { en: "Asia", ar: "آسيا", fr: "Asie" },
-    London: { en: "London", ar: "لندن", fr: "Londres" },
-    "New York": { en: "New York", ar: "نيويورك", fr: "New York" },
+    London: { en: "London", ar: "لندن", fr: "Londres" }, "New York": { en: "New York", ar: "نيويورك", fr: "New York" },
   };
   return map[session]?.[lang] ?? session;
 }
