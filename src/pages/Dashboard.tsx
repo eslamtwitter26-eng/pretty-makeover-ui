@@ -17,6 +17,7 @@ import { SymbolChart } from "@/components/charts/SymbolChart";
 import { DirectionChart } from "@/components/charts/DirectionChart";
 import { SymbolTable } from "@/components/SymbolTable";
 import { TimeFilter, getDateRangeFromFilter, type TimeRange } from "@/components/TimeFilter";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import type { AnalysisResult } from "@/lib/tradeAnalysis";
 import {
   filterTradesByDateRange, filterEquityByDateRange,
