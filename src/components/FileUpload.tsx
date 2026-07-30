@@ -40,7 +40,7 @@ export function FileUpload({ onFileLoaded, onTryDemo, lang, isAnalyzing }: FileU
   return (
     <div className="relative flex min-h-screen items-center justify-center px-4 py-12">
       <div className="upload-glow pointer-events-none absolute inset-0" />
-      <CursorGlow className="pointer-events-none absolute inset-0" />
+      <CursorGlow variant="bloom" fixed className="pointer-events-none" />
 
       <div className="relative grid w-full max-w-5xl gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
         <div className="animate-fade-in space-y-6">
