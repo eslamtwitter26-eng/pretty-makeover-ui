@@ -712,7 +712,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </ScrollReveal>
 
       {/* ── SECTION 4: CALENDAR ── */}
-      <section id="calendar" className="space-y-4">
+      <ScrollReveal as="section" id="calendar" direction="up" className="space-y-4">
         <div className="flex items-center gap-2">
           <CalendarDays className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">
@@ -729,7 +729,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
             theme={theme}
           />
         </div>
-      </section>
+      </ScrollReveal>
 
       <ComparisonModePanel trades={filteredTrades} metrics={metrics} lang={lang} t={t} />
 
