@@ -437,6 +437,33 @@
   position: absolute;
   opacity: 0.85;
 }
+.cursor-glow-bloom-wide {
+  width: 900px;
+  height: 900px;
+  filter: blur(70px);
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--primary) 22%, transparent) 0%,
+    color-mix(in oklab, var(--accent) 10%, transparent) 42%,
+    transparent 72%
+  );
+  transition: left 0.18s ease-out, top 0.18s ease-out, opacity 0.3s ease;
+}
+.cursor-glow-bloom-core {
+  width: 320px;
+  height: 320px;
+  filter: blur(40px);
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--accent) 24%, transparent) 0%,
+    color-mix(in oklab, var(--primary) 14%, transparent) 45%,
+    transparent 70%
+  );
+}
+.cursor-glow-line-legacy {
+  position: absolute;
+  opacity: 0.85;
+}
 .cursor-glow-line-x {
   left: 0;
   right: 0;
