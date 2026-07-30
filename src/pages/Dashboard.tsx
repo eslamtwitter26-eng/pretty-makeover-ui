@@ -709,7 +709,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
         {/* Standalone Rolling Performance Chart */}
         <RollingPerformanceChart trades={filteredTrades} theme={theme} />
-      </section>
+      </ScrollReveal>
 
       {/* ── SECTION 4: CALENDAR ── */}
       <section id="calendar" className="space-y-4">
