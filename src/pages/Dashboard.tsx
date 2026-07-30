@@ -866,7 +866,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
         <DynamicFindingsPanel trades={filteredTrades} />
       </section>
-      </div> {/* End #distributions */}
+      </ScrollReveal> {/* End #distributions */}
 
       {/* ── SECTION 8: PSYCHOLOGY (BEHAVIORAL AUDITS) ── */}
       <section id="psychology" className="space-y-4">
