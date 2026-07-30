@@ -17,6 +17,7 @@ import { SymbolChart } from "@/components/charts/SymbolChart";
 import { DirectionChart } from "@/components/charts/DirectionChart";
 import { SymbolTable } from "@/components/SymbolTable";
 import { TimeFilter, getDateRangeFromFilter, type TimeRange } from "@/components/TimeFilter";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import type { AnalysisResult } from "@/lib/tradeAnalysis";
 import {
   filterTradesByDateRange, filterEquityByDateRange,
@@ -252,6 +253,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
     <div className="relative space-y-10 pb-12 animate-fade-in">
 
       <div id="overview" className="space-y-10">
+        <ScrollReveal direction="fade" duration={0.5}>
         {/* ── DATE FILTER & OVERVIEW SECTION ── */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-border/5 pb-4">
         <div>
@@ -276,9 +278,10 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
         <TimeFilter value={timeRange} onChange={handleTimeChange} lang={lang} />
       </div>
+      </ScrollReveal>
 
       {/* ── SECTION 1: HERO ANALYTICS (ASYNCHRONOUS GRIDS) ── */}
-      <section className="space-y-6">
+      <ScrollReveal as="section" direction="up" className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           
           {/* Primary KPI Card: Large Net Profit */}
@@ -509,10 +512,10 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
         {/* SECTION 2: COMPACT ADVANCED KPI STRIP */}
         <KPIStrip trades={filteredTrades} metrics={metrics} lang={lang} t={t} theme={theme} />
-      </section>
+      </ScrollReveal>
 
       {/* ── SECTION 2: AI EXECUTIVE SUMMARY ── */}
-      <section className="space-y-6">
+      <ScrollReveal as="section" direction="up" className="space-y-6">
         <div className="flex items-center gap-2">
           <Sparkles className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("aiStrategy")}</h3>
@@ -646,10 +649,11 @@ export function Dashboard({ data, theme }: DashboardProps) {
           </div>
 
         </div>
-      </section>
+      </ScrollReveal>
       </div> {/* End #overview */}
 
       {/* ── AI EXECUTIVE SUMMARY CARD ── */}
+      <ScrollReveal direction="scale" duration={0.6}>
       <div className="rounded-2xl p-6 border border-primary/15 bg-primary/5 shadow-sm space-y-4">
         <h4 className="text-xs font-black uppercase tracking-wider text-primary flex items-center gap-1.5 border-b border-border/5 pb-2.5">
           <Sparkles className="h-4 w-4" />
@@ -680,9 +684,10 @@ export function Dashboard({ data, theme }: DashboardProps) {
           </li>
         </ul>
       </div>
+      </ScrollReveal>
 
       {/* ── SECTION 3: PERFORMANCE CURVE ── */}
-      <section id="performance" className="space-y-4">
+      <ScrollReveal as="section" id="performance" direction="up" className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <TrendingUp className="h-5 w-5 text-emerald-400" />
@@ -704,10 +709,10 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
         {/* Standalone Rolling Performance Chart */}
         <RollingPerformanceChart trades={filteredTrades} theme={theme} />
-      </section>
+      </ScrollReveal>
 
       {/* ── SECTION 4: CALENDAR ── */}
-      <section id="calendar" className="space-y-4">
+      <ScrollReveal as="section" id="calendar" direction="up" className="space-y-4">
         <div className="flex items-center gap-2">
           <CalendarDays className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">
@@ -724,11 +729,13 @@ export function Dashboard({ data, theme }: DashboardProps) {
             theme={theme}
           />
         </div>
-      </section>
+      </ScrollReveal>
 
-      <ComparisonModePanel trades={filteredTrades} metrics={metrics} lang={lang} t={t} />
+      <ScrollReveal direction="up">
+        <ComparisonModePanel trades={filteredTrades} metrics={metrics} lang={lang} t={t} />
+      </ScrollReveal>
 
-      <div id="distributions" className="space-y-10">
+      <ScrollReveal id="distributions" direction="up" className="space-y-10">
       {/* ── SECTION 5: TEMPORAL STATISTICS (GROUPED SIDE-BY-SIDE) ── */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
@@ -859,10 +866,10 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
         <DynamicFindingsPanel trades={filteredTrades} />
       </section>
-      </div> {/* End #distributions */}
+      </ScrollReveal> {/* End #distributions */}
 
       {/* ── SECTION 8: PSYCHOLOGY (BEHAVIORAL AUDITS) ── */}
-      <section id="psychology" className="space-y-4">
+      <ScrollReveal as="section" id="psychology" direction="up" className="space-y-4">
         <div className="flex items-center gap-2">
           <Brain className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("psychologyMistakes")}</h3>
@@ -916,9 +923,9 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
           )}
         </div>
-      </section>
+      </ScrollReveal>
 
-      <div id="executive-report" className="space-y-10">
+      <ScrollReveal id="executive-report" direction="up" className="space-y-10">
       {/* ── SECTION 9: WEEKLY EXECUTIVE REPORT ── */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
@@ -1024,7 +1031,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
         lang={lang}
         theme={theme}
       />
-      </div> {/* End #executive-report */}
+      </ScrollReveal> {/* End #executive-report */}
 
 
 
