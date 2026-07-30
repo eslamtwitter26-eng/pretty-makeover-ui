@@ -253,6 +253,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
     <div className="relative space-y-10 pb-12 animate-fade-in">
 
       <div id="overview" className="space-y-10">
+        <ScrollReveal direction="fade" duration={0.5}>
         {/* ── DATE FILTER & OVERVIEW SECTION ── */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-border/5 pb-4">
         <div>
@@ -277,6 +278,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
         <TimeFilter value={timeRange} onChange={handleTimeChange} lang={lang} />
       </div>
+      </ScrollReveal>
 
       {/* ── SECTION 1: HERO ANALYTICS (ASYNCHRONOUS GRIDS) ── */}
       <section className="space-y-6">
