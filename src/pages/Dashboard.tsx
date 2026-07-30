@@ -687,7 +687,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </ScrollReveal>
 
       {/* ── SECTION 3: PERFORMANCE CURVE ── */}
-      <section id="performance" className="space-y-4">
+      <ScrollReveal as="section" id="performance" direction="up" className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <TrendingUp className="h-5 w-5 text-emerald-400" />
