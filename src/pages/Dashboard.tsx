@@ -869,7 +869,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </ScrollReveal> {/* End #distributions */}
 
       {/* ── SECTION 8: PSYCHOLOGY (BEHAVIORAL AUDITS) ── */}
-      <section id="psychology" className="space-y-4">
+      <ScrollReveal as="section" id="psychology" direction="up" className="space-y-4">
         <div className="flex items-center gap-2">
           <Brain className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("psychologyMistakes")}</h3>
