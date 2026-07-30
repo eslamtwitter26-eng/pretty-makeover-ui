@@ -281,7 +281,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </ScrollReveal>
 
       {/* ── SECTION 1: HERO ANALYTICS (ASYNCHRONOUS GRIDS) ── */}
-      <section className="space-y-6">
+      <ScrollReveal as="section" direction="up" className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           
           {/* Primary KPI Card: Large Net Profit */}
