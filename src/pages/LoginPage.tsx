@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Mail, Lock, AlertCircle, Loader2, ChevronRight, TrendingUp, PlayCircle } from "lucide-react";
+import { CursorGlow } from "@/components/CursorGlow";
 
 const CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXv9PB3EtBUtXpbL7PFkpRmg8URXsJEdG3S5aZFOBV8ni7QavAWZ-j3q5pLj478mcxgMzK-aW6t04i/pub?output=csv";
@@ -122,6 +123,8 @@ export function LoginPage({ onAccessGranted, onTryDemo }: LoginPageProps) {
           backgroundImage: "linear-gradient(rgba(79, 70, 229,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 70, 229,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
+
+      <CursorGlow />
 
       {/* Floating orbs */}
       <div className="absolute top-1/4 left-1/5 h-72 w-72 rounded-full pointer-events-none"
