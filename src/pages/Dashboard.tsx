@@ -735,7 +735,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
         <ComparisonModePanel trades={filteredTrades} metrics={metrics} lang={lang} t={t} />
       </ScrollReveal>
 
-      <div id="distributions" className="space-y-10">
+      <ScrollReveal id="distributions" direction="up" className="space-y-10">
       {/* ── SECTION 5: TEMPORAL STATISTICS (GROUPED SIDE-BY-SIDE) ── */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
