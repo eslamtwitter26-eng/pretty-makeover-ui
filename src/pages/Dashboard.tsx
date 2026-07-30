@@ -1031,7 +1031,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
         lang={lang}
         theme={theme}
       />
-      </div> {/* End #executive-report */}
+      </ScrollReveal> {/* End #executive-report */}
 
 
 
