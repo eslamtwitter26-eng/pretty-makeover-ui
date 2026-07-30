@@ -512,7 +512,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
         {/* SECTION 2: COMPACT ADVANCED KPI STRIP */}
         <KPIStrip trades={filteredTrades} metrics={metrics} lang={lang} t={t} theme={theme} />
-      </section>
+      </ScrollReveal>
 
       {/* ── SECTION 2: AI EXECUTIVE SUMMARY ── */}
       <section className="space-y-6">
