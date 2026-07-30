@@ -649,7 +649,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
           </div>
 
         </div>
-      </section>
+      </ScrollReveal>
       </div> {/* End #overview */}
 
       {/* ── AI EXECUTIVE SUMMARY CARD ── */}
