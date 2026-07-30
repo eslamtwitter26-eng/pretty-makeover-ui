@@ -653,6 +653,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </div> {/* End #overview */}
 
       {/* ── AI EXECUTIVE SUMMARY CARD ── */}
+      <ScrollReveal direction="scale" duration={0.6}>
       <div className="rounded-2xl p-6 border border-primary/15 bg-primary/5 shadow-sm space-y-4">
         <h4 className="text-xs font-black uppercase tracking-wider text-primary flex items-center gap-1.5 border-b border-border/5 pb-2.5">
           <Sparkles className="h-4 w-4" />
@@ -683,6 +684,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
           </li>
         </ul>
       </div>
+      </ScrollReveal>
 
       {/* ── SECTION 3: PERFORMANCE CURVE ── */}
       <section id="performance" className="space-y-4">
