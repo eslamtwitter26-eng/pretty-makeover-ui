@@ -515,7 +515,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
       </ScrollReveal>
 
       {/* ── SECTION 2: AI EXECUTIVE SUMMARY ── */}
-      <section className="space-y-6">
+      <ScrollReveal as="section" direction="up" className="space-y-6">
         <div className="flex items-center gap-2">
           <Sparkles className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-black uppercase tracking-widest text-muted-foreground/80">{t("aiStrategy")}</h3>
