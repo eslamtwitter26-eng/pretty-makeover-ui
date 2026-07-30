@@ -923,7 +923,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
           )}
         </div>
-      </section>
+      </ScrollReveal>
 
       <div id="executive-report" className="space-y-10">
       {/* ── SECTION 9: WEEKLY EXECUTIVE REPORT ── */}
