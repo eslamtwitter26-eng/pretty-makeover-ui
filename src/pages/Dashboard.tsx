@@ -925,7 +925,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
       </ScrollReveal>
 
-      <div id="executive-report" className="space-y-10">
+      <ScrollReveal id="executive-report" direction="up" className="space-y-10">
       {/* ── SECTION 9: WEEKLY EXECUTIVE REPORT ── */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
