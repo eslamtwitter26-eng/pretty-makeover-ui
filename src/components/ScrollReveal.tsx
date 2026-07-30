@@ -41,10 +41,12 @@ export function ScrollReveal({
   once = true,
   amount = 0.18,
   as = "div",
+  id,
 }: ScrollRevealProps) {
   const Component = motion[as];
   return (
     <Component
+      id={id}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount }}
