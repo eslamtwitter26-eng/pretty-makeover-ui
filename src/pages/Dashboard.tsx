@@ -79,6 +79,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
   const [customTo, setCustomTo] = useState<Date | null>(null);
   const [showAllInsights, setShowAllInsights] = useState(false);
   const [calendarFilter, setCalendarFilter] = useState<{ year: number; month: number } | null>(null);
+  const [calendarExpanded, setCalendarExpanded] = useState(false);
   
   
   const filterGenRef = useRef(0);
