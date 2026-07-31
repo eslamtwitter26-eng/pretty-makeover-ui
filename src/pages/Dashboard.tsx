@@ -256,7 +256,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
   return (
     <div className="relative space-y-10 pb-12 animate-fade-in">
       {/* ── STICKY DATE FILTER BAR (frozen for the whole report) ── */}
-      <div className="sticky top-[-1px] z-30 -mx-4 flex flex-col gap-4 border-b border-border/40 bg-background/85 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:-mx-8 md:px-8">
+      <div className="sticky top-[62px] z-30 -mx-4 flex flex-col gap-4 border-b border-border/40 bg-background/85 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:-mx-8 md:px-8">
         <div>
           <h2 className="text-xl font-black text-foreground tracking-tight">{t("overview")}</h2>
           <div className="flex flex-wrap items-center gap-2.5 mt-1">
