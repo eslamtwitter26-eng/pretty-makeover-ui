@@ -18,6 +18,9 @@ import { DirectionChart } from "@/components/charts/DirectionChart";
 import { SymbolTable } from "@/components/SymbolTable";
 import { TimeFilter, getDateRangeFromFilter, type TimeRange } from "@/components/TimeFilter";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Maximize2 } from "lucide-react";
 import type { AnalysisResult } from "@/lib/tradeAnalysis";
 import {
   filterTradesByDateRange, filterEquityByDateRange,
