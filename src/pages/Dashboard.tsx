@@ -297,7 +297,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
             <div>
               <p className="text-4xl font-black tracking-tight tabular-nums" style={{ color: profitColor }}>
-                {fmtMoney(metrics.netProfit)}
+                <AnimatedNumber value={metrics.netProfit} format={(v) => fmtMoney(v)} duration={650} />
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-xs font-bold text-emerald-400">{fmtPct(metrics.returnPercent)} {t("returnLabel")}</span>
@@ -319,7 +319,12 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
             <div>
               <p className="text-3xl font-black tracking-tight tabular-nums text-foreground">
-                ${metrics.finalBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                $
+                <AnimatedNumber
+                  value={metrics.finalBalance}
+                  duration={650}
+                  format={(v) => v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                />
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-xs font-bold text-cyan-400">{t("initialLabel")}: ${metrics.initialBalance.toLocaleString()}</span>
@@ -341,7 +346,9 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
             <div>
               <div className="flex items-baseline gap-2">
-                <p className="text-3xl font-black tracking-tight text-foreground">{metrics.winRate.toFixed(1)}%</p>
+                <p className="text-3xl font-black tracking-tight tabular-nums text-foreground">
+                  <AnimatedNumber value={metrics.winRate} duration={650} format={(v) => `${v.toFixed(1)}%`} />
+                </p>
                 <span className="text-xs font-bold text-accent">{t("targetLabel")}: 50%</span>
               </div>
               <div className="w-full h-1.5 bg-accent/10 rounded-full mt-3 overflow-hidden">
@@ -423,8 +430,12 @@ export function Dashboard({ data, theme }: DashboardProps) {
                     </span>
                   </div>
                   <div>
-                    <p className="text-3xl font-black tracking-tight text-foreground">
-                      {scores.subScores.consistency}/100
+                    <p className="text-3xl font-black tracking-tight tabular-nums text-foreground">
+                      <AnimatedNumber
+                        value={scores.subScores.consistency}
+                        duration={650}
+                        format={(v) => `${Math.round(v)}/100`}
+                      />
                     </p>
                     <p className="text-[10px] text-muted-foreground leading-relaxed mt-2">
                       Consistency of trade sizing patterns, timing regularity, and session risk limits.
