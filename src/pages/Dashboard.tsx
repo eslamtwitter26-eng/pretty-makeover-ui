@@ -18,6 +18,9 @@ import { DirectionChart } from "@/components/charts/DirectionChart";
 import { SymbolTable } from "@/components/SymbolTable";
 import { TimeFilter, getDateRangeFromFilter, type TimeRange } from "@/components/TimeFilter";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Maximize2 } from "lucide-react";
 import type { AnalysisResult } from "@/lib/tradeAnalysis";
 import {
   filterTradesByDateRange, filterEquityByDateRange,
@@ -76,6 +79,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
   const [customTo, setCustomTo] = useState<Date | null>(null);
   const [showAllInsights, setShowAllInsights] = useState(false);
   const [calendarFilter, setCalendarFilter] = useState<{ year: number; month: number } | null>(null);
+  const [calendarExpanded, setCalendarExpanded] = useState(false);
   
   
   const filterGenRef = useRef(0);
@@ -251,11 +255,8 @@ export function Dashboard({ data, theme }: DashboardProps) {
 
   return (
     <div className="relative space-y-10 pb-12 animate-fade-in">
-
-      <div id="overview" className="space-y-10">
-        <ScrollReveal direction="fade" duration={0.5}>
-        {/* ── DATE FILTER & OVERVIEW SECTION ── */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-border/5 pb-4">
+      {/* ── STICKY DATE FILTER BAR (frozen for the whole report) ── */}
+      <div className="sticky top-[62px] z-30 -mx-4 flex flex-col gap-4 border-b border-border/40 bg-background/85 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:-mx-8 md:px-8">
         <div>
           <h2 className="text-xl font-black text-foreground tracking-tight">{t("overview")}</h2>
           <div className="flex flex-wrap items-center gap-2.5 mt-1">
@@ -278,7 +279,8 @@ export function Dashboard({ data, theme }: DashboardProps) {
         </div>
         <TimeFilter value={timeRange} onChange={handleTimeChange} lang={lang} />
       </div>
-      </ScrollReveal>
+
+      <div id="overview" className="space-y-10">
 
       {/* ── SECTION 1: HERO ANALYTICS (ASYNCHRONOUS GRIDS) ── */}
       <ScrollReveal as="section" direction="up" className="space-y-6">
@@ -296,7 +298,7 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
             <div>
               <p className="text-4xl font-black tracking-tight tabular-nums" style={{ color: profitColor }}>
-                {fmtMoney(metrics.netProfit)}
+                <AnimatedNumber value={metrics.netProfit} format={(v) => fmtMoney(v)} duration={650} />
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-xs font-bold text-emerald-400">{fmtPct(metrics.returnPercent)} {t("returnLabel")}</span>
@@ -318,7 +320,12 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
             <div>
               <p className="text-3xl font-black tracking-tight tabular-nums text-foreground">
-                ${metrics.finalBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                $
+                <AnimatedNumber
+                  value={metrics.finalBalance}
+                  duration={650}
+                  format={(v) => v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                />
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-xs font-bold text-cyan-400">{t("initialLabel")}: ${metrics.initialBalance.toLocaleString()}</span>
@@ -340,7 +347,9 @@ export function Dashboard({ data, theme }: DashboardProps) {
             </div>
             <div>
               <div className="flex items-baseline gap-2">
-                <p className="text-3xl font-black tracking-tight text-foreground">{metrics.winRate.toFixed(1)}%</p>
+                <p className="text-3xl font-black tracking-tight tabular-nums text-foreground">
+                  <AnimatedNumber value={metrics.winRate} duration={650} format={(v) => `${v.toFixed(1)}%`} />
+                </p>
                 <span className="text-xs font-bold text-accent">{t("targetLabel")}: 50%</span>
               </div>
               <div className="w-full h-1.5 bg-accent/10 rounded-full mt-3 overflow-hidden">
@@ -422,8 +431,12 @@ export function Dashboard({ data, theme }: DashboardProps) {
                     </span>
                   </div>
                   <div>
-                    <p className="text-3xl font-black tracking-tight text-foreground">
-                      {scores.subScores.consistency}/100
+                    <p className="text-3xl font-black tracking-tight tabular-nums text-foreground">
+                      <AnimatedNumber
+                        value={scores.subScores.consistency}
+                        duration={650}
+                        format={(v) => `${Math.round(v)}/100`}
+                      />
                     </p>
                     <p className="text-[10px] text-muted-foreground leading-relaxed mt-2">
                       Consistency of trade sizing patterns, timing regularity, and session risk limits.
@@ -720,6 +733,13 @@ export function Dashboard({ data, theme }: DashboardProps) {
               ? `${t("tradingCalendar")} · ${MONTH_NAMES_SHORT[calendarFilter.month]} ${calendarFilter.year} (${t("custom").toLowerCase()})`
               : t("tradingCalendar")}
           </h3>
+          <button
+            onClick={() => setCalendarExpanded(true)}
+            className="ms-auto flex items-center gap-1.5 rounded-lg border border-border/60 bg-card/60 px-2.5 py-1.5 text-[11px] font-bold text-muted-foreground transition-all hover:scale-[1.03] hover:border-primary/50 hover:text-foreground"
+          >
+            <Maximize2 className="h-3.5 w-3.5" />
+            Expand
+          </button>
         </div>
         <div className="rounded-2xl p-6 border border-border/15 bg-card/60">
           <TradingCalendar
@@ -729,6 +749,24 @@ export function Dashboard({ data, theme }: DashboardProps) {
             theme={theme}
           />
         </div>
+        <Dialog open={calendarExpanded} onOpenChange={setCalendarExpanded}>
+          <DialogContent className="max-w-[min(1200px,95vw)] border-border/40 bg-card/95 backdrop-blur-xl">
+            <DialogHeader>
+              <DialogTitle className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-muted-foreground/80">
+                <CalendarDays className="h-4 w-4 text-primary" />
+                {t("tradingCalendar")}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="animate-scale-in max-h-[78vh] overflow-y-auto p-1">
+              <TradingCalendar
+                trades={data.trades}
+                onMonthSelect={handleMonthSelect}
+                selectedMonth={calendarFilter}
+                theme={theme}
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
       </ScrollReveal>
 
       <ScrollReveal direction="up">
