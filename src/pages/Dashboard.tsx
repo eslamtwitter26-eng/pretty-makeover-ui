@@ -732,6 +732,13 @@ export function Dashboard({ data, theme }: DashboardProps) {
               ? `${t("tradingCalendar")} · ${MONTH_NAMES_SHORT[calendarFilter.month]} ${calendarFilter.year} (${t("custom").toLowerCase()})`
               : t("tradingCalendar")}
           </h3>
+          <button
+            onClick={() => setCalendarExpanded(true)}
+            className="ms-auto flex items-center gap-1.5 rounded-lg border border-border/60 bg-card/60 px-2.5 py-1.5 text-[11px] font-bold text-muted-foreground transition-all hover:scale-[1.03] hover:border-primary/50 hover:text-foreground"
+          >
+            <Maximize2 className="h-3.5 w-3.5" />
+            Expand
+          </button>
         </div>
         <div className="rounded-2xl p-6 border border-border/15 bg-card/60">
           <TradingCalendar
@@ -741,6 +748,24 @@ export function Dashboard({ data, theme }: DashboardProps) {
             theme={theme}
           />
         </div>
+        <Dialog open={calendarExpanded} onOpenChange={setCalendarExpanded}>
+          <DialogContent className="max-w-[min(1200px,95vw)] border-border/40 bg-card/95 backdrop-blur-xl">
+            <DialogHeader>
+              <DialogTitle className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-muted-foreground/80">
+                <CalendarDays className="h-4 w-4 text-primary" />
+                {t("tradingCalendar")}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="animate-scale-in max-h-[78vh] overflow-y-auto p-1">
+              <TradingCalendar
+                trades={data.trades}
+                onMonthSelect={handleMonthSelect}
+                selectedMonth={calendarFilter}
+                theme={theme}
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
       </ScrollReveal>
 
       <ScrollReveal direction="up">
